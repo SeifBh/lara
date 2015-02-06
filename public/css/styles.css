@@ -1,0 +1,20 @@
+﻿@charset "utf-8";
+body {
+}
+
+/* Preloader */
+#preloader {
+
+}
+
+#status {
+	width:200px;
+	height:200px;
+	position:absolute;
+	left:100%; /* centers the loading animation horizontally one the screen */
+	top:100%; /* centers the loading animation vertically one the screen */
+	background-image:url(../img/status.gif); /* path to your loading animation */
+	background-repeat:no-repeat;
+	background-position:center;
+	margin: -200px 0 0 135px; /* is width and height divided by two */
+}

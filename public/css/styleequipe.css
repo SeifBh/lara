@@ -1,0 +1,25 @@
+#contenu {
+  background-image: url('../images/Background.jpg');
+
+
+}
+
+#divchoix {
+
+  background-image: url('../images/Background-1.jpg');
+  position: relative;
+  height: 220px;
+  width: 804px;
+  margin: 2px auto;
+  text-align: center;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  vertical-align:middle;
+  color :white;
+  border-color: red;
+  border : 2px solid;
+
+
+}
+

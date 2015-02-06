@@ -1,0 +1,141 @@
+body
+{
+
+background-image: url('../images/baci.png');}
+
+
+#divfull
+{
+
+  width:850px; 
+  height:600px;
+  background-color: black;
+  background: rgba(0, 0, 0, 0.8);
+
+
+
+}
+
+#divhover
+{
+
+  height: 300px;
+  width: 245px;
+
+background: rgba(0, 0, 0, 0.1);
+
+
+
+}
+
+
+#divhover img
+{
+
+
+top : -10px;
+
+
+}
+
+
+
+
+
+#divchoix
+{
+
+margin: 2px auto;
+text-align: center;
+white-space: nowrap;
+overflow-x: auto;
+overflow-y: hidden;
+vertical-align: middle;
+color: white;
+width: 804px;
+height: 200px;
+background: rgba(0, 0, 0, 0.1);
+
+}
+
+
+
+#divchoix div {
+
+/*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+ display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin: 0.5em;
+  padding: 1px;
+  background-color: black;
+  border-radius: 10px;
+
+background: rgba(70, 70, 70, 0.15);
+
+
+}
+
+#divchoix div img {
+  width: 150px;
+  height: 140px;
+
+
+}
+
+#im:hover
+{
+
+cursor: pointer;
+
+
+}
+
+
+
+#divchoix div:hover {
+
+-moz-box-shadow:inset -1px -1px 26px grey;
+-webkit-box-shadow:inset -1px -1px 26px grey;
+box-shadow:inset -1px -1px 26px grey;
+}
+
+
+#pos
+{
+position: absolute;
+width :50px;
+height: 50px;
+
+  top : 10px ;
+}
+
+#pos:hover
+{
+cursor: pointer ;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+      height:10px;
+
+}
+::-webkit-scrollbar-button {
+  width: 8px;
+  height:5px;
+}
+::-webkit-scrollbar-track {
+  background:#eee;
+  border: thin solid lightgray;
+  box-shadow: 0px 0px 3px #dfdfdf inset;
+  border-radius:10px;
+}
+::-webkit-scrollbar-thumb {
+  background:#999;
+  border: thin solid gray;
+  border-radius:10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background:#7d7d7d;
+}     
