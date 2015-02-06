@@ -1,15 +1,6 @@
 
 <?php
 
-/*    Route::get('Tunisie/{n}', function($n)
-{
-
-  $results = DB::select('select * from ' . $n );
-  return $results ;
-
-});
-*/
-
 class TunisieController extends AuthedController {
 
   /**
