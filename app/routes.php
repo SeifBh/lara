@@ -17,7 +17,7 @@ Route::get('/', function()
         $data = Auth::user();
     }
 
-   return View::make('temp_index', array('data'=>$data));
+   return View::make('template.temp_index', array('data'=>$data));
 });
 
 
@@ -29,41 +29,42 @@ Route::get('/', function()
 
 
 //Controller
-
-Route::get('login/fb', 'AuthController@doFacebookAuth');
-Route::get('login/fb/callback', 'AuthController@doFacebookLogin');
-Route::get('logout', 'AuthController@doLogout');
-Route::get('Tunisie/{n}', 'TunisieController@index');
-Route::get('BBva/{n}', 'BBvaController@index');
-Route::get('Italie/{n}', 'ItalieController@index');
-Route::get('PremierLeague/{n}', 'PremierController@index');
-Route::get('League1/{n}', 'League1Controller@index');
+    //Facebook
+    Route::get('login/fb', 'AuthController@doFacebookAuth');
+    Route::get('login/fb/callback', 'AuthController@doFacebookLogin');
+    Route::get('logout', 'AuthController@doLogout');
+    //Pages
+    Route::get('Tunisie/{n}', 'TunisieController@index');
+    Route::get('BBva/{n}', 'BBvaController@index');
+    Route::get('Italie/{n}', 'ItalieController@index');
+    Route::get('PremierLeague/{n}', 'PremierController@index');
+    Route::get('League1/{n}', 'League1Controller@index');
 
 
 //pages static
 Route::get('Tunisie', function()
 {
-    return View::make('temp_tunisie');
+    return View::make('template.temp_tunisie');
 });
 
 Route::get('PremierLeague', function()
 {
-    return View::make('temp_Premier');
+    return View::make('template.temp_Premier');
 });
 
 Route::get('BBva', function()
 {
-    return View::make('temp_espagne');  
+    return View::make('template.temp_espagne');  
 
 });
 
 Route::get('Italie', function()
 {
-    return View::make('temp_Italie');
+    return View::make('template.temp_Italie');
 });
 
 Route::get('League1', function()
 {
-    return View::make('temp_League1');
+    return View::make('template.temp_League1');
 });
 
