@@ -672,12 +672,12 @@ $("#select2").change(function(){
 
                 <div id="sor">
                       <div id="Joueur1" class="ui-draggable" style="position: relative; left: 210px; top: 500px;">
-                        <img class="j1" id="Joueur" src="../images/' . $n . '.png">
+                        <img class="j1" id="Joueur" src="../images/' . $y . '.png">
                           <div id="ok1" class="ui-sortable">';
 
 
 
-                          $user = DB::table($n)->where('poste',  '=', 'GK1')->pluck('Nom');
+                          $user = DB::table('game')->where('posteJoueur',  '=', 'GK1')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel" style="opacity:1;">
@@ -691,7 +691,7 @@ $("#select2").change(function(){
 
 
 
-                           $user = DB::table($n)->where('poste',  '=', 'GK2')->pluck('Nom');
+                           $user = DB::table('game')->where('posteJoueur',  '=', 'GK2')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel" style="opacity:0.4;">
@@ -709,7 +709,7 @@ $("#select2").change(function(){
 
 
 
-                          $user = DB::table($n)->where('poste',  '=', 'GK3')->pluck('Nom');
+                          $user = DB::table('game')->where('posteJoueur',  '=', 'GK3')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -726,10 +726,10 @@ $("#select2").change(function(){
 
 
                           echo '<div id="Joueur2" class="ui-draggable"  style="position: relative; left: 370px; top: 275px;">
-                        <img class="j2" id="Joueur" src="../images/' . $n . '.png">
+                        <img class="j2" id="Joueur" src="../images/' . $y . '.png">
                           <div id="ok2" class="ui-sortable">';
 
-                          $user = DB::table($n)->where('poste',  '=', 'DR1')->pluck('Nom');
+                          $user = DB::table('game')->where('posteJoueur',  '=', 'DR1')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel" style="opacity:1;">
@@ -741,7 +741,7 @@ $("#select2").change(function(){
                                           }
 
 
-                                            $user = DB::table($n)->where('poste',  '=', 'DR2')->pluck('Nom');
+                                            $user = DB::table('game')->where('posteJoueur',  '=', 'DR2')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -759,7 +759,7 @@ $("#select2").change(function(){
 
 
 
-                                              $user = DB::table($n)->where('poste',  '=', 'DR3')->pluck('Nom');
+                                              $user = DB::table('game')->where('posteJoueur',  '=', 'DR3')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -780,10 +780,10 @@ $("#select2").change(function(){
 
 
                     echo '<div id="Joueur3" class="ui-draggable"  style="position: relative; left: 50px; top: 198px;">
-                        <img class="j3" id="Joueur" src="../images/' . $n . '.png">
+                        <img class="j3" id="Joueur" src="../images/' . $y . '.png">
                           <div id="ok3" class="ui-sortable">';
 
-                          $user = DB::table($n)->where('poste',  '=', 'DL1')->pluck('Nom');
+                          $user = DB::table('game')->where('posteJoueur',  '=', 'DL1')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel" style="opacity:1;">
@@ -795,7 +795,7 @@ $("#select2").change(function(){
                                           }
 
 
-                                            $user = DB::table($n)->where('poste',  '=', 'DL2')->pluck('Nom');
+                                            $user = DB::table('game')->where('posteJoueur',  '=', 'DL2')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -813,7 +813,7 @@ $("#select2").change(function(){
 
 
 
-                                              $user = DB::table($n)->where('poste',  '=', 'DL3')->pluck('Nom');
+                                              $user = DB::table('game')->where('posteJoueur',  '=', 'DL3')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -828,10 +828,10 @@ $("#select2").change(function(){
 
     
                     echo '<div id="Joueur4" class="ui-draggable"   style="position: relative; left: 150px; top: 155px;">
-                        <img class="j4" id="Joueur" src="../images/' . $n . '.png">
+                        <img class="j4" id="Joueur" src="../images/' . $y . '.png">
                           <div id="ok4" class="ui-sortable">';
 
-                          $user = DB::table($n)->where('poste',  '=', 'DC1')->pluck('Nom');
+                          $user = DB::table('game')->where('posteJoueur',  '=', 'DC1')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel" style="opacity:1;">
@@ -843,7 +843,7 @@ $("#select2").change(function(){
                                           }
 
 
-                                            $user = DB::table($n)->where('poste',  '=', 'DC2')->pluck('Nom');
+                                            $user = DB::table('game')->where('posteJoueur',  '=', 'DC2')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -863,10 +863,10 @@ $("#select2").change(function(){
 
 
                     echo '<div id="Joueur5" class="ui-draggable"  style="position: relative; left: 260px; top: 80px;">
-                        <img class="j5" id="Joueur" src="../images/' . $n . '.png">
+                        <img class="j5" id="Joueur" src="../images/' . $y . '.png">
                           <div id="ok5" class="ui-sortable">';
 
-                          $user = DB::table($n)->where('poste',  '=', 'DC3')->pluck('Nom');
+                          $user = DB::table('game')->where('posteJoueur',  '=', 'DC3')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel" style="opacity:1;">
@@ -878,7 +878,7 @@ $("#select2").change(function(){
                                           }
 
 
-                                            $user = DB::table($n)->where('poste',  '=', 'DC4')->pluck('Nom');
+                                            $user = DB::table('game')->where('posteJoueur',  '=', 'DC4')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -904,10 +904,10 @@ $("#select2").change(function(){
 
 
                   echo '<div id="Joueur6" class="ui-draggable"  style="position: relative; left: 260px; top: -130px;">
-                        <img class="j6" id="Joueur" src="../images/' . $n . '.png">
+                        <img class="j6" id="Joueur" src="../images/' . $y . '.png">
                           <div id="ok6" class="ui-sortable">';
 
-                          $user = DB::table($n)->where('poste',  '=', 'MC1')->pluck('Nom');
+                          $user = DB::table('game')->where('posteJoueur',  '=', 'MC1')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel" style="opacity:1;">
@@ -919,7 +919,7 @@ $("#select2").change(function(){
                                           }
 
 
-                                            $user = DB::table($n)->where('poste',  '=', 'MC2')->pluck('Nom');
+                                            $user = DB::table('game')->where('posteJoueur',  '=', 'MC2')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -937,7 +937,7 @@ $("#select2").change(function(){
 
 
 
-                                              $user = DB::table($n)->where('poste',  '=', 'MC3')->pluck('Nom');
+                                              $user = DB::table('game')->where('posteJoueur',  '=', 'MC3')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -957,10 +957,10 @@ $("#select2").change(function(){
 
 
                     echo '<div id="Joueur7" class="ui-draggable"  style="position: relative; left: 150px; top: -205px;">
-                        <img class="j7" id="Joueur" src="../images/' . $n . '.png">
+                        <img class="j7" id="Joueur" src="../images/' . $y . '.png">
                           <div id="ok7" class="ui-sortable">';
 
-                          $user = DB::table($n)->where('poste',  '=', 'MCX3')->pluck('Nom');
+                          $user = DB::table('game')->where('posteJoueur',  '=', 'MCX3')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel" style="opacity:1;">
@@ -972,7 +972,7 @@ $("#select2").change(function(){
                                           }
 
 
-                                            $user = DB::table($n)->where('poste',  '=', 'MCX4')->pluck('Nom');
+                                            $user = DB::table('game')->where('posteJoueur',  '=', 'MCX4')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -990,7 +990,7 @@ $("#select2").change(function(){
 
 
 
-                                              $user = DB::table($n)->where('poste',  '=', 'MCX5')->pluck('Nom');
+                                              $user = DB::table('game')->where('posteJoueur',  '=', 'MCX5')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -1014,10 +1014,10 @@ $("#select2").change(function(){
 
 
           echo '<div id="Joueur8" class="ui-draggable" style="position: relative; left: 50px; top: -395px;">
-                        <img class="j8" id="Joueur" src="../images/' . $n . '.png">
+                        <img class="j8" id="Joueur" src="../images/' . $y . '.png">
                           <div id="ok8" class="ui-sortable">';
 
-                          $user = DB::table($n)->where('poste',  '=', 'AC1')->pluck('Nom');
+                          $user = DB::table('game')->where('posteJoueur',  '=', 'AC1')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel" style="opacity:1;">
@@ -1029,7 +1029,7 @@ $("#select2").change(function(){
                                           }
 
 
-                                            $user = DB::table($n)->where('poste',  '=', 'AC2')->pluck('Nom');
+                                            $user = DB::table('game')->where('posteJoueur',  '=', 'AC2')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -1047,7 +1047,7 @@ $("#select2").change(function(){
 
 
 
-                                              $user = DB::table($n)->where('poste',  '=', 'AC3')->pluck('Nom');
+                                              $user = DB::table('game')->where('posteJoueur',  '=', 'AC3')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"   style="opacity:0.4;">
@@ -1065,10 +1065,10 @@ $("#select2").change(function(){
 
 
                          echo '<div id="Joueur9" class="ui-draggable" style="position: relative; left: 370px; top: -470px;">
-                        <img class="j9" id="Joueur" src="../images/' . $n . '.png">
+                        <img class="j9" id="Joueur" src="../images/' . $y . '.png">
                           <div id="ok9" class="ui-sortable">';
 
-                          $user = DB::table($n)->where('poste',  '=', 'AR1')->pluck('Nom');
+                          $user = DB::table('game')->where('posteJoueur',  '=', 'AR1')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel" style="opacity:1;">
@@ -1080,7 +1080,7 @@ $("#select2").change(function(){
                                           }
 
 
-                                            $user = DB::table($n)->where('poste',  '=', 'AR2')->pluck('Nom');
+                                            $user = DB::table('game')->where('posteJoueur',  '=', 'AR2')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -1098,7 +1098,7 @@ $("#select2").change(function(){
 
 
 
-                                              $user = DB::table($n)->where('poste',  '=', 'AR3')->pluck('Nom');
+                                              $user = DB::table('game')->where('posteJoueur',  '=', 'AR3')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -1116,10 +1116,10 @@ $("#select2").change(function(){
 
 
                 echo '<div id="Joueur10" class="ui-draggable"style="position: relative; left: 150px; top: -620px;">
-                        <img class="j10" id="Joueur" src="../images/' . $n . '.png">
+                        <img class="j10" id="Joueur" src="../images/' . $y . '.png">
                           <div id="ok10" class="ui-sortable">';
 
-                          $user = DB::table($n)->where('poste',  '=', 'AL1')->pluck('Nom');
+                          $user = DB::table('game')->where('posteJoueur',  '=', 'AL1')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel" style="opacity:1;">
@@ -1131,7 +1131,7 @@ $("#select2").change(function(){
                                           }
 
 
-                                            $user = DB::table($n)->where('poste',  '=', 'AL2')->pluck('Nom');
+                                            $user = DB::table('game')->where('posteJoueur',  '=', 'AL2')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -1149,7 +1149,7 @@ $("#select2").change(function(){
 
 
 
-                                              $user = DB::table($n)->where('poste',  '=', 'AL3')->pluck('Nom');
+                                              $user = DB::table('game')->where('posteJoueur',  '=', 'AL3')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -1172,10 +1172,10 @@ $("#select2").change(function(){
 
 
               echo '<div id="Joueur11" class="ui-draggable" style="position: relative; left: 260px; top: -695px;">
-                        <img class="j11" id="Joueur" src="../images/' . $n . '.png">
+                        <img class="j11" id="Joueur" src="../images/' . $y . '.png">
                           <div id="ok11" class="ui-sortable">';
 
-                          $user = DB::table($n)->where('poste',  '=', 'FC1')->pluck('Nom');
+                          $user = DB::table('game')->where('posteJoueur',  '=', 'FC1')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel" style="opacity:1;">
@@ -1187,7 +1187,7 @@ $("#select2").change(function(){
                                           }
 
 
-                                            $user = DB::table($n)->where('poste',  '=', 'FC2')->pluck('Nom');
+                                            $user = DB::table('game')->where('posteJoueur',  '=', 'FC2')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -1205,7 +1205,7 @@ $("#select2").change(function(){
 
 
 
-                                              $user = DB::table($n)->where('poste',  '=', 'FC3')->pluck('Nom');
+                                              $user = DB::table('game')->where('posteJoueur',  '=', 'FC3')->pluck('nomJoueur');
                                          if ($user != '')
                                          {
                                              echo '<div  id="test" class="sel"  style="opacity:0.4;">
@@ -1257,7 +1257,7 @@ $("#select2").change(function(){
   <div id="footer2">
 
 
-<center><img   height="180" width="210"  src="../images/logos/tunisie/' . $n . '.png"></img></center>
+<center><img   height="180" width="210"  src="../images/logos/tunisie/' . $y . '.png"></img></center>
 
 <div id="p1"> 
  <center>
@@ -1266,15 +1266,15 @@ $("#select2").change(function(){
 <b>';
 
 
-  $Nomequipe = DB::table('team')->where('Nom',  '=', $n )->pluck('NomComplet');
-   echo $Nomequipe ;
+  $yomequipe = DB::table('team')->where('nomJoueur',  '=', $y )->pluck('nomJoueurComplet');
+   echo $yomequipe ;
 
  echo '</b> </br>
 <hr>
 
 <b> President : ';
 
-  $Boss = DB::table('team')->where('Nom',  '=', $n )->pluck('NomPresident');
+  $Boss = DB::table('team')->where('nomJoueur',  '=', $y )->pluck('nomJoueurPresident');
    echo $Boss ;
 
  echo '</b> </br>
@@ -1283,7 +1283,7 @@ $("#select2").change(function(){
 <b> Entraineur : ';
 
 
-  $Entraineur = DB::table('team')->where('Nom',  '=', $n )->pluck('Entraineur');
+  $Entraineur = DB::table('team')->where('nomJoueur',  '=', $y )->pluck('Entraineur');
    echo $Entraineur ;
 
   echo' </b> </br>
@@ -1292,7 +1292,7 @@ $("#select2").change(function(){
 <b> Stade : ';
 
 
-  $stade = DB::table('team')->where('Nom',  '=', $n )->pluck('stade');
+  $stade = DB::table('team')->where('nomJoueur',  '=', $y )->pluck('stade');
    echo $stade ;
 
  echo'</b> 
@@ -1359,17 +1359,17 @@ Message de Bienvenue
 <br/>
 <div id="match"><center>';
 
-            $a = DB::table('calendrier')->where('NomVisite',  '=', $n )->pluck('NomVisite');
-                        $b = DB::table('calendrier')->where('NomVisite',  '=', $n )->pluck('NomVisiteuse');
+            $a = DB::table('calendrier')->where('nomJoueurVisite',  '=', $y )->pluck('nomJoueurVisite');
+                        $b = DB::table('calendrier')->where('nomJoueurVisite',  '=', $y )->pluck('nomJoueurVisiteuse');
 
 
  echo'<img class="j1" id="Joueur" src="../images/logos/tunisie/' . $a . '.png"/>
   <img class="j1" id="Joueur" src="../images/logos/tunisie/' . $b . '.png"/><br>';
 
 
-            $date = DB::table('calendrier')->where('NomVisite',  '=', $n )->pluck('date');
+            $date = DB::table('calendrier')->where('nomJoueurVisite',  '=', $y )->pluck('date');
 
-            $stade = DB::table('calendrier')->where('NomVisite',  '=', $n )->pluck('Stade');
+            $stade = DB::table('calendrier')->where('nomJoueurVisite',  '=', $y )->pluck('Stade');
 
             echo $date .'à 14h:00<br><b>';
 
@@ -1386,7 +1386,7 @@ echo'</center></div>
 
           <td>';
           
-  $visite = DB::table('calendrier')->where('NomVisite',  '=', $n )->pluck('visite');
+  $visite = DB::table('calendrier')->where('nomJoueurVisite',  '=', $y )->pluck('visite');
 
 
                echo  $visite ;

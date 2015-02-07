@@ -2,19 +2,14 @@
 <?php
 
 
+    Route::get('/{x}/{y}', 'TunisieController@index');
+
 Route::get('Tunisie', function()
 {
     return View::make('template.temp_tunisie');
 });
 
-Route::get('/{x}/{y}', function($x,$y)
-{
-    return $x . $y;
 
-
-});
-
-    Route::get('Tunisie/{n}', 'TunisieController@index');
 
 
 //login page

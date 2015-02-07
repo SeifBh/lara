@@ -9,7 +9,7 @@ class TunisieController extends AuthedController {
    * @return Response
    */ 
 
-  public function index($n)
+  public function index($x,$y)
   {
 
        $data = array();
@@ -21,7 +21,7 @@ class TunisieController extends AuthedController {
 
 
 return View::make('tunisie5', array('data'=>$data))
-      ->with('n', $n);
+      ->with(array('x'=>$x,'y'=>$y));
 
 
   }
