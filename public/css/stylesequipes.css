@@ -40,8 +40,8 @@ background-image:url("../images/Background.jpg");
       background-image: url("../images/Background.jpg");
 position: fixed;
 border: 2px solid;
-top: 170px;
-left: 80px;
+top: 130px;
+left: 115px;
 height: 320px;
 width: 250px;
 border-radius: 2px;
@@ -574,19 +574,7 @@ $fontSize: 18px;
   }
 }
 
- #LoginFB
- {
-      background-image: url("../images/Background.jpg");
 
-
-position: absolute;
-border: 2px solid;
-top: -72px;
-left: -2px;
-height: 55px;
-width: 250px;
-color : white;
- }
 
 
  #option
@@ -670,18 +658,17 @@ color:white;
 
 
 
-     .x3
+     #LoginFB
      {
 
 position: fixed;
 top: 80px;
-left: 55px;
+left: 85px;
 height: 120px;
 width: 450px;
 border-radius: 2px;
+color:white;
 }
-
-
 
 .principal-container {
   height:800px;
@@ -712,11 +699,10 @@ border-radius: 2px;
 }
 .page-lock .lock-box .lock-user {
 background-color: rgba(0, 0, 0, 0.3);
-background: rgba(0, 0, 0, 0.3);
-color: white;
+  width:170px;
   float: left;
-  height: 30px;
-  line-height: 30px;
+  height: 20px;
+  line-height: 20px;
   margin-top: 50px;
   padding: 0 20px;
   -moz-border-radius-topleft: 2px;
@@ -725,22 +711,26 @@ color: white;
   -moz-border-radius-bottomleft: 2px;
   -webkit-border-bottom-left-radius: 2px;
   border-bottom-left-radius: 2px;
-  border-radius: 13px;
+  color: white;
+  text-shadow:1px 0px 15px #0022ff;
+
+  border-radius: 10px;
 }
 .page-lock .lock-box .lock-img img {
   position: absolute;
   border-radius: 50%;
   left: 40%;
-  width: 60px;
-  height: 60px;
-  border: 2px solid rgba(0, 0, 0, 0.3);
+  width: 80px;
+  height: 80px;
+  border: 6px solid white;
   background: white;
 }
 @media screen and (min-width: 768px) {
   .page-lock .lock-box .lock-img img {
     left: 33%;
-    width: 110px;
-    height: 110px;
+    width: 82px;
+    height: 82px;
     border: 2px solid white;
   }
 }
+
