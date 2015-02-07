@@ -13,7 +13,7 @@
 
 
 
-class BBvaController extends \BaseController {
+class BBvaController extends AuthedController {
 
 	/**
 	 * Display a listing of the resource.

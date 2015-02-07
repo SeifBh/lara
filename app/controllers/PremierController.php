@@ -1,6 +1,6 @@
 <?php
 
-class PremierController extends \BaseController {
+class PremierController extends AuthedController {
 
 	/**
 	 * Display a listing of the resource.

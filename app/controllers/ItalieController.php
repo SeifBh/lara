@@ -1,15 +1,17 @@
 <?php
 
-class ItalieController extends \BaseController {
+class ItalieController extends AuthedController {
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($n)
 	{
 		//
+			return View::make('Italie');
+
 	}
 
 

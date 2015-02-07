@@ -1,6 +1,6 @@
 <?php
 
-class League1Controller extends \BaseController {
+class League1Controller extends AuthedController {
 
 	/**
 	 * Display a listing of the resource.

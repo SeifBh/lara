@@ -19,7 +19,7 @@ $(function(){
 // Redirection Url Avec nom de l'equipe
  	  $("#divchoix #im").click(function() {
  s = $(this).attr('class');
-  document.location.href="BBva/"+ s;
+  document.location.href="Italie/"+ s;
 
 });
 
