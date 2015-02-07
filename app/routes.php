@@ -17,7 +17,7 @@ Route::get('/', function()
         $data = Auth::user();
     }
 
-   return View::make('index', array('data'=>$data));
+   return View::make('temp_index', array('data'=>$data));
 });
 
 
