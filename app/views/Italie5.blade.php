@@ -1,5 +1,5 @@
 
-@extends('indextest')
+@extends('Italie5_a')
 
 @section('contenue')
     {{ Form::open(array('method' => 'post')) }}

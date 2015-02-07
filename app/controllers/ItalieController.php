@@ -10,7 +10,18 @@ class ItalieController extends AuthedController {
 	public function index($n)
 	{
 		//
-			return View::make('Italie');
+			       $data = array();
+
+    if (Auth::check()) {
+        $data = Auth::user();
+    }
+
+
+return View::make('italie5', array('data'=>$data))
+      ->with('n', $n);
+
+
+  
 
 	}
 

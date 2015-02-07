@@ -7,9 +7,19 @@ class PremierController extends AuthedController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($n)
 	{
 		//
+
+       $data = array();
+
+    if (Auth::check()) {
+        $data = Auth::user();
+    }
+
+
+      return View::make('PremierLeague5', array('data'=>$data))
+      ->with('n', $n);
 	}
 
 
