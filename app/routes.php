@@ -24,10 +24,6 @@ Route::get('/', function()
 
 
 
-
-
-
-
 //Controller
     //Facebook
     Route::get('login/fb', 'AuthController@doFacebookAuth');
