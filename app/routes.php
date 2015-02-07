@@ -1,6 +1,22 @@
 
 <?php
 
+
+Route::get('Tunisie', function()
+{
+    return View::make('template.temp_tunisie');
+});
+
+Route::get('/{x}/{y}', function($x,$y)
+{
+    return $x . $y;
+
+
+});
+
+    Route::get('Tunisie/{n}', 'TunisieController@index');
+
+
 //login page
 Route::get('/login','AuthController@getLogin');
 
@@ -16,8 +32,7 @@ Route::get('/', function()
 
    return View::make('template.temp_index', array('data'=>$data));
 });
-
-
+/*
 
 
 
@@ -61,3 +76,4 @@ Route::get('League1', function()
     return View::make('template.temp_League1');
 });
 
+*/
