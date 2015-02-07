@@ -2,10 +2,7 @@
 <?php
 
 //login page
-Route::get('/login', function()
-{
-    return View::make('login');
-});
+Route::get('/login','AuthController@getLogin');
 
 
 //index page

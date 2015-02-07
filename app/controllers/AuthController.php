@@ -64,4 +64,12 @@ class AuthController extends BaseController {
 
   }
 
+public function getLogin(){
+
+  if (Auth::check())
+  {
+    return Redirect::to('/');
+  }
+  return Redirect::to('login');
+}
 }
