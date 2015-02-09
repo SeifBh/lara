@@ -39,6 +39,13 @@ Route::get('/', function()
     Route::get('PremierLeague/{n}', 'PremierController@index');
     Route::get('League1/{n}', 'League1Controller@index');
 
+//Historique
+
+    Route::get('Historique', function()
+{
+    return View::make('Historique');
+});
+
 
 //pages static
 Route::get('Tunisie', function()

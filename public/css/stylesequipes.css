@@ -455,7 +455,6 @@ cursor: pointer ;
 
 
 
-@import url(http://fonts.googleapis.com/css?family=Rajdhani:300);
 
 $colorWhite: rgba(255,255,255,1);
 $colorDamnLight: rgba(0,220,220,1);
@@ -506,31 +505,7 @@ $fontSize: 18px;
     @include transition(all 300ms ease-in-out);
   }
   
-  h1 {
-    position: relative;
-    display: block;
-    width: 300px;
-    height: 50px;
-    line-height: 50px;
-    border: 1px solid $colorLight;
-    background: rgba($colorLight, .2);
-    color: $colorLight;
-    font-size: 1.6em;
-    text-align: center;
-    cursor: pointer;
-    
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 20px;
-      right: 15px;
-      border-top: 10px solid $colorLight;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-bottom: 0;
-    }
-  }
+
   
   ul {
     list-style: none;
@@ -733,79 +708,115 @@ background-color: rgba(0, 0, 0, 0.3);
     border: 2px solid white;
   }
 }
-@orange: #fa5400;
-@white: #ffffff;
-@grayDark: #333333;
-@grayDarker: #b8b9ba;
 
-@startColor: #f3f7fa;
-@endColor: #eaeaea;
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+#cssmenu {
+  position: fixed;
+  background: black;
+  width: auto;
+  position: relative; left: 0px; top: -8px;
+}
+#cssmenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  display: block;
+  zoom: 1;
+}
+#cssmenu ul:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+#cssmenu ul li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+#cssmenu.align-right ul li {
+  float: right;
+}
+#cssmenu.align-center ul {
+  text-align: center;
+}
+#cssmenu ul li a .before{
+      opacity: 1;
 
-body {
-  background: @grayDarker;
+}
+#cssmenu ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  padding: 15px 25px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  position: relative;
+  opacity: 0.5;
+
+  -webkit-transition: color .25s;
+  -moz-transition: color .25s;
+  -ms-transition: color .25s;
+  -o-transition: color .25s;
+  transition: color .25s;
+}
+#cssmenu ul li a:hover {
+  opacity: 1;
+}
+#cssmenu ul li a:hover:before {
+  width: 100%;
+}
+#cssmenu ul li a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -3px;
+  top: 19px;
+  height: 6px;
+  width: 6px;
+  background: white;
 }
 
-header {
-  font: 400 1em ubuntu;
-  height: 50px;
-  font-weight: 500;
-  box-shadow: 0 -1px 8px #111111;
-  border-top: 1px solid @grayDark;
 
-  background-color: mix(@startColor, @endColor, 60%);
-  background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
-  background-image: -ms-linear-gradient(top, @startColor, @endColor); // IE10
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
-  background-image: -webkit-linear-gradient(top, @startColor, @endColor); // Safari 5.1+, Chrome 10+
-  background-image: -o-linear-gradient(top, @startColor, @endColor); // Opera 11.10
-  background-image: linear-gradient(top, @startColor, @endColor); // The standard
-  background-repeat: repeat-x;
-  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor)); // IE9 and down
-  
-  a { 
-    text-decoration: none;
-  
-    &.brand {
-      float: left;
-      color: @grayDark;
-      line-height: 50px;
-      font-size: .9em;
-      font-weight: 700;
-      letter-spacing: 1px;
-      padding:0 23px;
-      border-right: 1px solid @grayDarker;
-      
-      &:hover, &:active {
-        color: @white;
-        background-color: @orange;
-      }
-    }
-  }
-  
-  ul {
-    float: left;
-    border-right: 1px solid @white;
-    list-style: none;
-    text-transform: uppercase;
-    
-    li {
-      float:left;
-      border-right: 1px solid @grayDarker;
-      font-size: .75em;
-      font-weight: 600;
-      
-      a {
-        display: block;
-        border-left: 1px solid @white;
-        color: @grayDark;      
-        padding: 0 23px;
-        line-height: 50px;
-        
-        &:hover, &:active {
-          color: @orange;
-          background-color: #fcfcfc;
-        }
-      }
-    }
-  }
+#cssmenu ul li a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background: white;
+  -webkit-transition: width .25s;
+  -moz-transition: width .25s;
+  -ms-transition: width .25s;
+  -o-transition: width .25s;
+  transition: width .25s;
 }
+#cssmenu ul li.last > a:after,
+#cssmenu ul li:last-child > a:after {
+  display: none;
+}
+#cssmenu ul li.active a {
+  color:white;
+  opacity: 1;
+}
+#cssmenu ul li.active a:before {
+  width: 100%;
+}
+#cssmenu.align-right li.last > a:after,
+#cssmenu.align-right li:last-child > a:after {
+  display: block;
+
+}
+#cssmenu.align-right li:first-child a:after {
+  display: none;
+
+}
+
+

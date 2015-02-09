@@ -28,6 +28,7 @@ echo '<!doctype html>
   <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
   <script type="text/javascript" src="jquery-ui-1.8.custom.min.js"></script>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
   <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script> 
   <script type="text/javascript">
@@ -58,7 +59,7 @@ $(document).delegate("#simplestring", "click", function() {
     $( ".ui-draggable" ).draggable({ containment: "#stade"});
 
 
-$("#mil").draggable();
+$("#cssmenu").draggable();
 
 
 $("#Joueur1").draggable();
@@ -645,7 +646,27 @@ $("#select2").change(function(){
 
 </head>
 <body>
+<center>
+<div id="cssmenu">
+<ul>
+   <li class="active"><a href="/"><span>Home</span></a></li>
+   <li class="notactive"><a href="/Historique"><span>Historique</span></a></li>
 
+   <li class="notactive"><a href="#"><span>
+
+';
+
+?>
+
+@yield('fbName')
+
+<?php 
+echo'
+
+   </span></a></li>
+</ul>
+</div>
+</center>
 
 <div id="contenue"></div>
 <div id="pos"><a href="/Tunisie" > <img src="../images/prec.png" align="left" style="height:45px;width:45px;"></img></a> </div>
@@ -1283,50 +1304,6 @@ $("#select2").change(function(){
 </font>
 </center>
 </div>
-
-<div id="LoginFB">
-
-
-      <div  class="principal-container">
-          <div class="container">
-              <div class="page page-lock ng-scope">
-                  <div class="lock-centered clearfix">
-                      <div class="lock-container">
-                          <section class="lock-box">
-                              <div class="lock-user ng-binding">
-
-
-';
-
-?>
-@yield('fbName')
-
-<?php 
-echo'
-
-                              </div>
-                              <div class="lock-img">';
-
-?>
-@yield('fbPhoto')
-
-<?php 
-echo'</div>
-                          </section>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-
-
-
-
-
-
-
-</div>
-
 
 
 
