@@ -18,8 +18,6 @@ class TunisieController extends AuthedController {
         $data = Auth::user();
     }
 
-
-
 return View::make('tunisie5', array('data'=>$data))
       ->with(array('x'=>$x,'y'=>$y));
 

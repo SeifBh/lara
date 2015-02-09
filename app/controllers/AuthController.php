@@ -70,6 +70,6 @@ public function getLogin(){
   {
     return Redirect::to('/');
   }
-  return Redirect::to('login');
+    return View::make('login');  
 }
 }
