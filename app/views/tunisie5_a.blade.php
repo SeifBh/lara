@@ -1312,26 +1312,39 @@ echo'
 
 <div id="Score">
 
-Message de Bienvenue
 <br/>
 <br/>
 <div id="match"><center>';
 
-            $a = DB::table('calendrier')->where('nomVisite',  '=', $y )->pluck('nomVisite');
-                        $b = DB::table('calendrier')->where('nomVisite',  '=', $y )->pluck('nomVisiteuse');
+                        $z = str_replace('_', ' ', $y);
+
+                        $nomEquipe1 = DB::table('match')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe1');
 
 
- echo'<img class="j1" id="Joueur" src="../images/logos/'.$x.'/' . $a . '.png"/>
-  <img class="j1" id="Joueur" src="../images/logos/'.$x.'/' . $b . '.png"/><br>';
+                        $nomEquipe2 = DB::table('match')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe2');
+                       
+
+                          $z3 = str_replace(' ', '_', $nomEquipe2);
+
+                        
 
 
-            $date = DB::table('calendrier')->where('nomVisite',  '=', $y )->pluck('date');
+ echo'<img class="j1" id="Joueur" src="../images/logos/'.$x.'/' . $y . '.png"/>
+  <img class="j1" id="Joueur" src="../images/logos/'.$x.'/' . $z3 . '.png"/><br>';
 
-            $stade = DB::table('calendrier')->where('nomVisite',  '=', $y )->pluck('Stade');
+
+$subQuery = DB::table('match')
+        ->select(DB::raw('max(date)'))
+        ->whereRaw('nomEquipe1 ='.$z)->get('date');
+        echo $subQuery;
+
+            $date = DB::table('match')->where('nomEquipe1',  '=', $z )->pluck('date');
+
+            $lieu = DB::table('match')->where('nomEquipe1',  '=', $z )->pluck('lieu');
 
             echo $date .'à 14h:00<br><b>';
 
-            echo $stade .'</b>';
+            echo $lieu .'</b>';
 
 
 
@@ -1344,7 +1357,7 @@ echo'</center></div>
 
           <td>';
           
-  $visite = DB::table('calendrier')->where('nomVisite',  '=', $y )->pluck('visite');
+  $visite = DB::table('match')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe1');
 
 
                echo  $visite ;

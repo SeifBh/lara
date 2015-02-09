@@ -30,7 +30,7 @@
 
 
 										<div class="col-md-12">
-										            <a type="button"  class="btn btn-primary btn-block" href="{{url('login/fb')}}">Connect with Facebook</a>
+										            <a type="button"  class="btn btn-primary btn-block" href="{{url('/login/fb')}}">Connect with Facebook</a>
 										</div>
 							        </div>
 

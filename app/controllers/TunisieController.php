@@ -1,7 +1,7 @@
 
 <?php
 
-class TunisieController extends AuthedController {
+class TunisieController extends BaseController {
 
   /**
    * Display a listing of the resource.
