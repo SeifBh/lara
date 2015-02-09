@@ -28,6 +28,7 @@ echo '<!doctype html>
   <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
   <script type="text/javascript" src="jquery-ui-1.8.custom.min.js"></script>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
   <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script> 
   <script type="text/javascript">
 
@@ -57,6 +58,7 @@ $(document).delegate("#simplestring", "click", function() {
     $( ".ui-draggable" ).draggable({ containment: "#stade"});
 
 
+$("#mil").draggable();
 
 
 $("#Joueur1").draggable();
@@ -1329,10 +1331,7 @@ echo'</div>
 
 
 
-<div id="option">
 
-ok
-</div>
 
 <div id="Score">
 
@@ -1345,8 +1344,8 @@ Message de Bienvenue
                         $b = DB::table('calendrier')->where('nomVisite',  '=', $y )->pluck('nomVisiteuse');
 
 
- echo'<img class="j1" id="Joueur" src="../images/logos/tunisie/' . $a . '.png"/>
-  <img class="j1" id="Joueur" src="../images/logos/tunisie/' . $b . '.png"/><br>';
+ echo'<img class="j1" id="Joueur" src="../images/logos/'.$x.'/' . $a . '.png"/>
+  <img class="j1" id="Joueur" src="../images/logos/'.$x.'/' . $b . '.png"/><br>';
 
 
             $date = DB::table('calendrier')->where('nomVisite',  '=', $y )->pluck('date');
