@@ -85,8 +85,8 @@ $("#divhover").html('<br><br><br><img top=520px align=center width=230px height=
          <div  id='divchoix'>
 		@yield('divchoix')
 
-<div id="Image"><img id="im" class="esperance" src="./images/logos/tunisie/esperance.png"></img><br></div>
-<div id="Image"><img id="im" class="club_africain" src="./images/logos/tunisie/club_africain.png" ></img><br></div>
+<div id="Image"><img id="im" class="Esperance_Sportive_de_Tunis" src="./images/logos/tunisie/Esperance_Sportive_de_Tunis.png"></img><br></div>
+<div id="Image"><img id="im" class="Club_Africain" src="./images/logos/tunisie/club_africain.png" ></img><br></div>
 <div id="Image"><img id="im" class="club_sfaxien" src="./images/logos/tunisie/club_sfaxien.png"></img><br></div>
 <div id="Image"><img id="im" class="etoile_sportive_du_sahel" src="./images/logos/tunisie/etoile_sportive_du_sahel.png"></img><br></div>
 <div id="Image"><img id="im" class="club_sportif_hamem_lif" src="./images/logos/tunisie/club_sportif_hamem_lif.png"></img><br></div>
