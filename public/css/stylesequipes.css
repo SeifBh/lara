@@ -712,10 +712,9 @@ background-color: rgba(0, 0, 0, 0.3);
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
 #cssmenu {
-  position: fixed;
-  background: #222222;
-  width: auto;
-  position: relative; left: 0px; top: -8px;
+  position: fixed;left: 0px; top: -5px;
+  background: black;
+  width: 100%;
 }
 #cssmenu ul {
   list-style: none;
