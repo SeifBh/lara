@@ -1,7 +1,7 @@
 
 <?php
 
-class TunisieController extends BaseController {
+class ManagerController extends BaseController {
 
   /**
    * Display a listing of the resource.
@@ -18,7 +18,7 @@ class TunisieController extends BaseController {
         $data = Auth::user();
     }
 
-return View::make('tunisie5', array('data'=>$data))
+return View::make('manager', array('data'=>$data))
       ->with(array('x'=>$x,'y'=>$y));
 
 

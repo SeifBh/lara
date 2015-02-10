@@ -1334,38 +1334,14 @@ echo'
 
 
 echo'</center></div>
-<form action="" method="post">
+
 <table border="1" id="t">
     <tr>
 
           <td>';
 
-          //Get Id Match
-
-          $idmatch=DB::table('match')->where('nomEquipe1','=',$z)->pluck('idmatch');
-
-          //get res1 
-          $res1 = Input::get('r1');
-          //get res2
-          $res2 = Input::get('r2');
 
 
-
-
-
-          //insertion dans la base d edonné
-
-
-             /*     DB::table('historique')->insert(
- 
-                array(
-                    'iduser' => '96',
-                    'idmatch' => $idmatch,
-                    'resNom1' => $res1,
-                    'resNom2' => $res2
-
-                ));
-*/
 
           
   $nomEquipe1 = DB::table('match')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe1');
@@ -1375,7 +1351,7 @@ echo'</center></div>
 
          echo' </td>
           <td>
-          <input placeholder="-" type="text" name="name1" id="name" size="1" maxlength="2">
+          <input placeholder="-" type="text" name="p1" id="name" size="1" maxlength="2">
 
           </td>
     </tr>
@@ -1389,7 +1365,7 @@ echo'</center></div>
 
           echo'</td>
           <td>
-          <input placeholder="-" type="text" name="name" id="name" size="1" maxlength="2">
+          <input placeholder="-" type="text" name="p2" id="name" size="1" maxlength="2">
 
           </td>
     </tr>

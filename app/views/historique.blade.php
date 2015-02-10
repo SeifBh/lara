@@ -46,7 +46,7 @@
                 ->get(array('idmatch', 'nomEquipe1', 'nomEquipe2'));
 --> 
 {{
-            $idmatch=DB::table('historique')->where('iduser','=','2')->pluck('idmatch');
+            $idmatch=DB::table('historique')->where('iduser','=','2147483647')->pluck('idmatch');
             $nomEquipe1=DB::table('match')->where('idmatch','=','idmatch')->pluck('nomEquipe1');
             $nomEquipe2=DB::table('match')->where('idmatch','=','idmatch')->pluck('nomEquipe2');
             $p1=DB::table('historique')->where('idmatch','=','idmatch')->pluck('p1');

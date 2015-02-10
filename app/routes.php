@@ -4,7 +4,6 @@
 
 
 
-Route::get('/{x}/{y}', 'TunisieController@index');
 
 
 
@@ -34,11 +33,8 @@ Route::get('/', function()
     Route::get('login/fb/callback', 'AuthController@doFacebookLogin');
     Route::get('logout', 'AuthController@doLogout');
     //Pages
-    Route::get('Tunisie/{n}', 'TunisieController@index');
-    Route::get('BBva/{n}', 'BBvaController@index');
-    Route::get('Italie/{n}', 'ItalieController@index');
-    Route::get('PremierLeague/{n}', 'PremierController@index');
-    Route::get('League1/{n}', 'League1Controller@index');
+    Route::get('/{x}/{y}', 'ManagerController@index');
+
     Route::get('Historique', 'HistoriqueController@index');
 
 
@@ -50,10 +46,6 @@ Route::get('/', function()
 
 //pages static
 
-    Route::get('historique', function()
-{
-    return View::make('historique');
-});
 
 Route::get('Tunisie', function()
 {
