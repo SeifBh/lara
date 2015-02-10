@@ -2,7 +2,7 @@
 @extends('tunisie5_a')
 
 @section('contenue')
-    {{ Form::open(array('method' => 'post')) }}
+{{ Form::open(array('url' => '/')) }}
 @section('log')
 
 

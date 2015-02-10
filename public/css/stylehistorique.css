@@ -1,0 +1,44 @@
+table, th, td {
+	background-color: white;
+   border: 2px solid black;
+   color :black;
+   top:600px;
+}
+
+body
+{
+
+background-image: url('../images/baci.png');
+
+}
+
+
+#divfull
+{
+
+  width:850px; 
+  height:600px;
+  background-color: black;
+  background: rgba(0, 0, 0, 0.8);
+
+
+
+}
+
+#divhover
+{
+position: fixed;
+  height: 300px;
+  width: 645px;
+  top:90px;
+  left: 380px;
+
+background: rgba(0, 0, 0, 0.1);
+
+
+
+}
+
+.resultat{
+	background-color: green;
+}

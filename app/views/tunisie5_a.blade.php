@@ -1,6 +1,5 @@
 <?php
 
-
 echo HTML::style('./css/stylesequipes.css');
 
 echo '<!doctype html>
@@ -36,30 +35,14 @@ echo '<!doctype html>
 
 $(function(){
 
-$(document).delegate("#simplestring", "click", function() {
-  $(this).simpledialog({
-    "mode" : "string",
-    "prompt" : "What do you say?",
-    "buttons" : {
-      "OK": {
-        click: function () {
-          $("#dialogoutput").text($("#dialoglink").attr("data-string"));
-        }
-      },
-      "Cancel": {
-        click: function () { },
-        icon: "delete",
-        theme: "c"
-      }
-    }
-  })
-});
 
 
-    $( ".ui-draggable" ).draggable({ containment: "#stade"});
+
+$( ".ui-draggable" ).draggable({ containment: "#stade"});
 
 
-$("#cssmenu").draggable();
+$("#footer2").draggable();
+$("#score").draggable();
 
 
 $("#Joueur1").draggable();
@@ -651,6 +634,7 @@ $("#select2").change(function(){
 <ul>
    <li class="active"><a href="/"><span>Home</span></a></li>
    <li class="notactive"><a href="/Historique"><span>Historique</span></a></li>
+   <li class="notactive"><a href="/Info"><span>Info</span></a></li>
 
    <li class="notactive"><a href="#"><span>
 
@@ -1304,7 +1288,7 @@ echo'
 </font>
 </center>
 </div>
-
+</div>
 
 
 
@@ -1314,7 +1298,9 @@ echo'
 
 <br/>
 <br/>
-<div id="match"><center>';
+<div id="match"><center>
+
+';
 
                         $z = str_replace('_', ' ', $y);
 
@@ -1333,10 +1319,7 @@ echo'
   <img class="j1" id="Joueur" src="../images/logos/'.$x.'/' . $z3 . '.png"/><br>';
 
 
-$subQuery = DB::table('match')
-        ->select(DB::raw('max(date)'))
-        ->whereRaw('nomEquipe1 ='.$z)->get('date');
-        echo $subQuery;
+
 
             $date = DB::table('match')->where('nomEquipe1',  '=', $z )->pluck('date');
 
@@ -1351,20 +1334,48 @@ $subQuery = DB::table('match')
 
 
 echo'</center></div>
-
+<form action="" method="post">
 <table border="1" id="t">
     <tr>
 
           <td>';
+
+          //Get Id Match
+
+          $idmatch=DB::table('match')->where('nomEquipe1','=',$z)->pluck('idmatch');
+
+          //get res1 
+          $res1 = Input::get('r1');
+          //get res2
+          $res2 = Input::get('r2');
+
+
+
+
+
+          //insertion dans la base d edonné
+
+
+             /*     DB::table('historique')->insert(
+ 
+                array(
+                    'iduser' => '96',
+                    'idmatch' => $idmatch,
+                    'resNom1' => $res1,
+                    'resNom2' => $res2
+
+                ));
+*/
+
           
-  $visite = DB::table('match')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe1');
+  $nomEquipe1 = DB::table('match')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe1');
 
 
-               echo  $visite ;
+               echo  $nomEquipe1 ;
 
          echo' </td>
           <td>
-          <input placeholder="-" type="text" name="s1" size="1" maxlength="2">
+          <input placeholder="-" type="text" name="name1" id="name" size="1" maxlength="2">
 
           </td>
     </tr>
@@ -1372,13 +1383,13 @@ echo'</center></div>
 
     <tr>
           <td>';
-            $visiteuse = DB::table('calendrier')->pluck('visiteuse');
+            $nomEquipe2 = DB::table('match')->where('nomEquipe1','=',$z)->pluck('nomEquipe2');
 
-              echo $visiteuse ;
+              echo $nomEquipe2 ;
 
           echo'</td>
           <td>
-          <input placeholder="-" type="text" name="s2" size="1" maxlength="2">
+          <input placeholder="-" type="text" name="name" id="name" size="1" maxlength="2">
 
           </td>
     </tr>
@@ -1388,9 +1399,10 @@ echo'</center></div>
     </td>
     </tr>
 </table>
-</div>
+</form>
 
-  </div>
+</div>
+</div>
 
 
 

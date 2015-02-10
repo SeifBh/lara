@@ -38,10 +38,9 @@ background-image:url("../images/Background.jpg");
      {
 
       background-image: url("../images/Background.jpg");
-position: fixed;
-border: 2px solid;
-top: 130px;
-left: 115px;
+position: absolute;
+left: 116px; 
+top: 68px;
 height: 320px;
 width: 250px;
 border-radius: 2px;
@@ -576,10 +575,9 @@ background-image:url("../images/Background.jpg");
 
 
 
-        position: fixed;
-        border: 2px solid ;
-        top: 355px;
-        left:922px;
+        position: absolute;
+        top: 370px;
+        left: 920px;;
         height: 240px;
         width: 250px; 
         border-radius: 2px;
@@ -587,6 +585,9 @@ background-image:url("../images/Background.jpg");
 
 
      }
+
+
+
 
 
 
@@ -712,7 +713,7 @@ background-color: rgba(0, 0, 0, 0.3);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
 #cssmenu {
   position: fixed;
-  background: black;
+  background: #222222;
   width: auto;
   position: relative; left: 0px; top: -8px;
 }

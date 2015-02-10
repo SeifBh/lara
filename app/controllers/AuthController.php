@@ -51,6 +51,7 @@ class AuthController extends BaseController {
     $user = $profile->user;
 
     Auth::login($user);
+    
 
     return Redirect::to('/')->with('message', 'Logged in with Facebook');
 

@@ -2,14 +2,15 @@
 <?php
 
 
+
+
 Route::get('/{x}/{y}', 'TunisieController@index');
 
 
 
 
-
 //login page
-Route::get('/login','AuthController@getLogin');
+Route::get('login','AuthController@getLogin');
 
 
 
@@ -38,16 +39,22 @@ Route::get('/', function()
     Route::get('Italie/{n}', 'ItalieController@index');
     Route::get('PremierLeague/{n}', 'PremierController@index');
     Route::get('League1/{n}', 'League1Controller@index');
+    Route::get('Historique', 'HistoriqueController@index');
+
+
+
 
 //Historique
 
-    Route::get('Historique', function()
-{
-    return View::make('Historique');
-});
 
 
 //pages static
+
+    Route::get('historique', function()
+{
+    return View::make('historique');
+});
+
 Route::get('Tunisie', function()
 {
     return View::make('template.temp_tunisie');

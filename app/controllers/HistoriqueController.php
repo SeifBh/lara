@@ -1,6 +1,6 @@
 <?php
 
-class HistoriqueController extends AuthedController {
+class HistoriqueController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -11,8 +11,13 @@ class HistoriqueController extends AuthedController {
 	public function index()
 	{
 
+       $data = array();
 
-		return View::make('Historique');
+    if (Auth::check()) {
+        $data = Auth::user();
+    }
+
+return View::make('Historique', array('data'=>$data));
 
 
 	}
