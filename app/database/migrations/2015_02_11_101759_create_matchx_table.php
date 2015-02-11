@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMatchTable extends Migration {
+class CreateMatchxTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class CreateMatchTable extends Migration {
 	 */
 	public function up()
 	{
-		
-		      Schema::create('match', function($table)
+		//
+				Schema::create('matchx', function($table)
         {
-            $table->integer('match_id')->primary();
+            $table->increments('match_id');
             $table->string('nomEquipe1');
             $table->string('nomEquipe2');
             $table->string('etat');
@@ -23,8 +23,9 @@ class CreateMatchTable extends Migration {
             $table->string('lieu');
             $table->string('r1');
             $table->string('r2');
-
+            $table->timestamps();
         });
+
 	}
 
 	/**
@@ -35,7 +36,7 @@ class CreateMatchTable extends Migration {
 	public function down()
 	{
 		//
-		        Schema::drop('match');
+				        Schema::drop('matchx');
 
 	}
 

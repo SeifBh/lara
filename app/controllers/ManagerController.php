@@ -16,11 +16,34 @@ class ManagerController extends BaseController {
 
     if (Auth::check()) {
         $data = Auth::user();
+        return View::make('manager', array('data'=>$data))
+      ->with(array('x'=>$x,'y'=>$y));
+    }
+    else
+    {
+
+
+    return View::make('login');
+
     }
 
-return View::make('manager', array('data'=>$data))
-      ->with(array('x'=>$x,'y'=>$y));
 
+
+
+  }
+
+  public function store()
+  {
+    
+ /*   $historique = new Historique([
+    'user_id'=>profile('uid'),
+    'p1'=>Input::get('p1'),
+    'p2'=>Input::get('p2'),
+
+    $historique->save()
+      ]);
+
+*/
 
   }
 

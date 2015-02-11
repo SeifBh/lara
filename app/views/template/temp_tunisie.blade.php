@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./css/style0.css" media="screen" />
  
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="jquery.mCustomScrollbar.concat.min.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <script type="text/javascript">

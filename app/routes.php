@@ -6,8 +6,6 @@
 
 
 
-
-
 //login page
 Route::get('login','AuthController@getLogin');
 

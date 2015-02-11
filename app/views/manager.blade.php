@@ -1,5 +1,6 @@
 
 @extends('tunisie5_a')
+  <center> @include('partials.navigation')</center> 
 
 @section('contenue')
 {{ Form::open(array('url' => '/')) }}

@@ -629,28 +629,7 @@ $("#select2").change(function(){
 
 </head>
 <body>
-<center>
-<div id="cssmenu">
-<ul>
-   <li class="active"><a href="/"><span>Home</span></a></li>
-   <li class="notactive"><a href="/Historique"><span>Historique</span></a></li>
-   <li class="notactive"><a href="/Info"><span>Info</span></a></li>
 
-   <li class="notactive"><a href="#"><span>
-
-';
-
-?>
-
-@yield('fbName')
-
-<?php 
-echo'
-
-   </span></a></li>
-</ul>
-</div>
-</center>
 
 <div id="contenue"></div>
 <div id="pos"><a href="/Tunisie" > <img src="../images/prec.png" align="left" style="height:45px;width:45px;"></img></a> </div>
@@ -1304,10 +1283,10 @@ echo'
 
                         $z = str_replace('_', ' ', $y);
 
-                        $nomEquipe1 = DB::table('match')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe1');
+                        $nomEquipe1 = DB::table('matchx')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe1');
 
 
-                        $nomEquipe2 = DB::table('match')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe2');
+                        $nomEquipe2 = DB::table('matchx')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe2');
                        
 
                           $z3 = str_replace(' ', '_', $nomEquipe2);
@@ -1321,9 +1300,9 @@ echo'
 
 
 
-            $date = DB::table('match')->where('nomEquipe1',  '=', $z )->pluck('date');
+            $date = DB::table('matchx')>where('nomEquipe1',  '=', $z )->pluck('date');
 
-            $lieu = DB::table('match')->where('nomEquipe1',  '=', $z )->pluck('lieu');
+            $lieu = DB::table('matchx')->where('nomEquipe1',  '=', $z )->pluck('lieu');
 
             echo $date .'à 14h:00<br><b>';
 
@@ -1344,7 +1323,7 @@ echo'</center></div>
 
 
           
-  $nomEquipe1 = DB::table('match')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe1');
+  $nomEquipe1 = DB::table('matchx')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe1');
 
 
                echo  $nomEquipe1 ;
@@ -1359,7 +1338,7 @@ echo'</center></div>
 
     <tr>
           <td>';
-            $nomEquipe2 = DB::table('match')->where('nomEquipe1','=',$z)->pluck('nomEquipe2');
+            $nomEquipe2 = DB::table('matchx')->where('nomEquipe1','=',$z)->pluck('nomEquipe2');
 
               echo $nomEquipe2 ;
 
