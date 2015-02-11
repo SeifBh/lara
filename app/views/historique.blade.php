@@ -18,12 +18,10 @@
    <center> @include('partials.navigation')</center>
 
 <div id='contenu'>
-@yield('contenu')
 
 
 			<center>
 					<div  id='divfull'>
-					@yield('divfull')
 							</br></br>
 							<div  id='divhover'>
 

@@ -3,11 +3,14 @@
 
 
 
+    Route::post('submit', 'ManagerController@save_match');
 
 
 
 //login page
 Route::get('login','AuthController@getLogin');
+Route::get('add','ManagerController@AddMatch');
+
 
 
 

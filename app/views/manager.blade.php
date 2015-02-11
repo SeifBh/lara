@@ -3,7 +3,7 @@
   <center> @include('partials.navigation')</center> 
 
 @section('contenue')
-{{ Form::open(array('url' => '/')) }}
+{{ Form::open(array('action' => 'ManagerController@save_match', $id_match)) }}
 @section('log')
 
 

@@ -1281,7 +1281,7 @@ $("#select2").change(function(){
 
 ';
 
-                        $z = str_replace('_', ' ', $y);
+                     /*   $z = str_replace('_', ' ', $y);
 
                         $nomEquipe1 = DB::table('matchx')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe1');
 
@@ -1292,18 +1292,18 @@ $("#select2").change(function(){
                           $z3 = str_replace(' ', '_', $nomEquipe2);
 
                         
-
+*/
 
  echo'<img class="j1" id="Joueur" src="../images/logos/'.$x.'/' . $y . '.png"/>
   <img class="j1" id="Joueur" src="../images/logos/'.$x.'/' . $z3 . '.png"/><br>';
 
 
+/*
 
-
-            $date = DB::table('matchx')>where('nomEquipe1',  '=', $z )->pluck('date');
+            $date = DB::table('matchx')->where('nomEquipe1',  '=', $z )->pluck('date');
 
             $lieu = DB::table('matchx')->where('nomEquipe1',  '=', $z )->pluck('lieu');
-
+*/
             echo $date .'à 14h:00<br><b>';
 
             echo $lieu .'</b>';
@@ -1323,8 +1323,7 @@ echo'</center></div>
 
 
           
-  $nomEquipe1 = DB::table('matchx')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe1');
-
+  //$nomEquipe1 = DB::table('matchx')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe1');
 
                echo  $nomEquipe1 ;
 
@@ -1338,10 +1337,10 @@ echo'</center></div>
 
     <tr>
           <td>';
-            $nomEquipe2 = DB::table('matchx')->where('nomEquipe1','=',$z)->pluck('nomEquipe2');
+           // $nomEquipe2 = DB::table('matchx')->where('nomEquipe1','=',$z)->pluck('nomEquipe2');
 
               echo $nomEquipe2 ;
-
+              echo Form::hidden('id_match', $id_match);
           echo'</td>
           <td>
           <input placeholder="-" type="text" name="p2" id="name" size="1" maxlength="2">
@@ -1350,7 +1349,9 @@ echo'</center></div>
     </tr>
     <tr>
     <td colspan="2">
-    <center><input type="Submit" value="Envoyer"/></center>
+    <center><input type="Submit" value="Envoyer"/></center>';
+
+    echo'
     </td>
     </tr>
 </table>

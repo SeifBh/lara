@@ -15,9 +15,13 @@ class HistoriqueController extends BaseController {
 
     if (Auth::check()) {
         $data = Auth::user();
+        return View::make('Historique', array('data'=>$data));
+
+        
+
+
     }
 
-return View::make('Historique', array('data'=>$data));
 
 
 	}

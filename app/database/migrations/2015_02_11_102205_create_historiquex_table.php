@@ -16,7 +16,7 @@ class CreateHistoriquexTable extends Migration {
 				Schema::create('historiquex', function($table)
         {
             
-            $table->increments('user_id');
+            $table->integer('user_id');
             $table->integer('match_id')->unsigned();;
 
             $table->foreign('match_id')->references('match_id')->on('matchx');
@@ -25,6 +25,8 @@ class CreateHistoriquexTable extends Migration {
             $table->string('p2');
             $table->string('score');
             $table->timestamps();
+
+            $table->primary(array('user_id', 'match_id'));
         });
 	}
 
