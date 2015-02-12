@@ -10,6 +10,7 @@
 //login page
 Route::get('login','AuthController@getLogin');
 Route::get('add','ManagerController@AddMatch');
+Route::get('ajouter','ManagerController@Ajouter');
 
 
 

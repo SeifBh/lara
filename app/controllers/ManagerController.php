@@ -16,9 +16,70 @@ class ManagerController extends BaseController {
 
     if (Auth::check()) 
                         {
-                                    $data = Auth::user();
+        $data = Auth::user();
+
+
+
+$GK1 = Player::where('position',  '=', 'GK1')->where('team','=',$y)->pluck('name');
+$GK2 = Player::where('position',  '=', 'GK2')->where('team','=',$y)->pluck('name');
+$GK3 = Player::where('position',  '=', 'GK3')->where('team','=',$y)->pluck('name');
+
+
+$DR1 = Player::where('position',  '=', 'DR1')->where('team','=',$y)->pluck('name');
+$DR2 = Player::where('position',  '=', 'DR2')->where('team','=',$y)->pluck('name');
+$DR3 = Player::where('position',  '=', 'DR3')->where('team','=',$y)->pluck('name');
+
+
+$DL1 = Player::where('position',  '=', 'DL1')->where('team','=',$y)->pluck('name');
+$DL2 = Player::where('position',  '=', 'DL2')->where('team','=',$y)->pluck('name');
+$DL3 = Player::where('position',  '=', 'DL3')->where('team','=',$y)->pluck('name');
+
+
+$DC1 = Player::where('position',  '=', 'DC1')->where('team','=',$y)->pluck('name');
+$DC2 = Player::where('position',  '=', 'DC2')->where('team','=',$y)->pluck('name');
+
+$DC3 = Player::where('position',  '=', 'DC3')->where('team','=',$y)->pluck('name');
+$DC4 = Player::where('position',  '=', 'DC4')->where('team','=',$y)->pluck('name');
+
+
+
+$MCD1 = Player::where('position',  '=', 'MCD1')->where('team','=',$y)->pluck('name');
+$MCD2 = Player::where('position',  '=', 'MCD2')->where('team','=',$y)->pluck('name');
+$MCD3 = Player::where('position',  '=', 'MCD3')->where('team','=',$y)->pluck('name');
+
+
+$MCG1 = Player::where('position',  '=', 'MCG1')->where('team','=',$y)->pluck('name');
+$MCG2 = Player::where('position',  '=', 'MCG2')->where('team','=',$y)->pluck('name');
+$MCG3 = Player::where('position',  '=', 'MCG3')->where('team','=',$y)->pluck('name');
+
+                                    
+
+
+$AC1 = Player::where('position',  '=', 'AC1')->where('team','=',$y)->pluck('name');
+$AC2 = Player::where('position',  '=', 'AC2')->where('team','=',$y)->pluck('name');
+$AC3 = Player::where('position',  '=', 'AC3')->where('team','=',$y)->pluck('name');
+
+$AR1 = Player::where('position',  '=', 'AR1')->where('team','=',$y)->pluck('name');
+$AR2 = Player::where('position',  '=', 'AR2')->where('team','=',$y)->pluck('name');
+$AR3 = Player::where('position',  '=', 'AR3')->where('team','=',$y)->pluck('name');
+
+
+$AL1 = Player::where('position',  '=', 'AL1')->where('team','=',$y)->pluck('name');
+$AL2 = Player::where('position',  '=', 'AL2')->where('team','=',$y)->pluck('name');
+$AL3 = Player::where('position',  '=', 'AL3')->where('team','=',$y)->pluck('name');
+
+$FC1 = Player::where('position',  '=', 'FC1')->where('team','=',$y)->pluck('name');
+$FC2 = Player::where('position',  '=', 'FC2')->where('team','=',$y)->pluck('name');
+$FC3 = Player::where('position',  '=', 'FC3')->where('team','=',$y)->pluck('name');
+
+
+$President = DB::table('team')->where('nom',  '=', $y )->pluck('NomPresident');
+$Entraineur = DB::table('team')->where('nom',  '=', $y )->pluck('Entraineur');
+$stade = DB::table('team')->where('nom',  '=', $y )->pluck('stade');
+
 
                                     $z = str_replace('_', ' ', $y);
+
 
                                     $nomEquipe1 = DB::table('matchx')->where('nomEquipe1',  '=', $z )->pluck('nomEquipe1');
 
@@ -32,12 +93,36 @@ class ManagerController extends BaseController {
 
                                     $lieu =  DB::table('matchx')->where('nomEquipe1',  '=', $z )->pluck('lieu');
 
+if ($GK2 == '') {
+return View::make('manager', array('data'=>$data, 'z'=>$z, 'x'=>$x, 'y'=>$y, 'z3'=>$z3, 'nomEquipe1'=>$nomEquipe1, 
+'nomEquipe2'=>$nomEquipe2, 'date'=>$date, 'lieu'=>$lieu, 'id_match'=>$id_match,
+'GK1'=>$GK1,'GK2'=>$GK2,'GK3'=>$GK3,
+'DR1'=>$DR1,'DR2'=>$DR2,'DR3'=>$DR3,
+'DL1'=>$DL1,'DL2'=>$DL2,'DL3'=>$DL3,
+
+'DC1'=>$DC1,'DC2'=>$DC2,
+'DC3'=>$DC3,'DC4'=>$DC4,
+
+'MCD1'=>$MCD1,'MCD2'=>$MCD2,'MCD3'=>$MCD3,
+'MCG1'=>$MCG1,'MCG2'=>$MCG2,'MCG3'=>$MCG3,
+
+'AC1'=>$AC1,'AC2'=>$AC2,'AC3'=>$AC3,
+
+'AR1'=>$AR1,'AR2'=>$AR2,'AR3'=>$AR3,
+
+'AL1'=>$AL1,'AL2'=>$AL2,'AL3'=>$AL3,
+
+'FC1'=>$FC1,'FC2'=>$FC2,'FC3'=>$FC3,
+
+'President'=>$President,'Entraineur'=>$Entraineur,'stade'=>$stade,
 
 
-                                    return View::make('manager', array('data'=>$data, 'z'=>$z, 'x'=>$x, 'y'=>$y, 'z3'=>$z3, 'nomEquipe1'=>$nomEquipe1, 
-                                      'nomEquipe2'=>$nomEquipe2, 'date'=>$date, 'lieu'=>$lieu, 'id_match'=>$id_match))
-                                  ->with(array('x'=>$x,'y'=>$y));
-                        }
+))
+->with(array('x'=>$x,'y'=>$y));
+}
+
+
+     }
     else
     {
 
@@ -89,6 +174,17 @@ public function AddMatch()
     $match->r2 ='4' ;
     $match->save();
     return 'succes';
+}
+
+
+public function Ajouter()
+{
+  $player = new Player();
+  $player->name = 'Seif';
+  $player->team = 'Esperance Sportive de tunis';
+  $player->position ='AC2';
+  $player->save();
+  return 'Vouz avez ajouter un joueur';
 }
 
 }

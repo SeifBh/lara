@@ -1,29 +1,14 @@
 
 $(function(){
 
-$(document).delegate("#simplestring", "click", function() {
-  $(this).simpledialog({
-    "mode" : "string",
-    "prompt" : "What do you say?",
-    "buttons" : {
-      "OK": {
-        click: function () {
-          $("#dialogoutput").text($("#dialoglink").attr("data-string"));
-        }
-      },
-      "Cancel": {
-        click: function () { },
-        icon: "delete",
-        theme: "c"
-      }
-    }
-  })
-});
 
 
-    $( ".ui-draggable" ).draggable({ containment: "#stade"});
+
+$( ".ui-draggable" ).draggable({ containment: "#stade"});
 
 
+$("#footer2").draggable();
+$("#score").draggable();
 
 
 $("#Joueur1").draggable();
