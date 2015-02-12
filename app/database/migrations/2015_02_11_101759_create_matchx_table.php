@@ -36,7 +36,7 @@ class CreateMatchxTable extends Migration {
 	public function down()
 	{
 		//
-				        Schema::drop('matchx');
+			//	        Schema::drop('matchx');
 
 	}
 

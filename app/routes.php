@@ -1,16 +1,13 @@
-
 <?php
 
-
-
-    Route::post('submit', 'ManagerController@save_match');
-
+Route::post('savematch', 'ManagerController@save_match');
+Route::get('add','ManagerController@AddMatch');
+Route::get('ajouter','ManagerController@AddPlayer');
 
 
 //login page
 Route::get('login','AuthController@getLogin');
-Route::get('add','ManagerController@AddMatch');
-Route::get('ajouter','ManagerController@Ajouter');
+
 
 
 
@@ -37,7 +34,7 @@ Route::get('/', function()
     //Pages
     Route::get('/{x}/{y}', 'ManagerController@index');
 
-    Route::get('Historique', 'HistoriqueController@index');
+    Route::get('/{x}/{y}/Historique', 'HistoriqueController@index');
 
 
 

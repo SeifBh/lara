@@ -38,7 +38,7 @@ class CreateHistoriquexTable extends Migration {
 	public function down()
 	{
 		//
-				   Schema::drop('historiquex');
+				  // Schema::drop('historiquex');
 
 	}
 

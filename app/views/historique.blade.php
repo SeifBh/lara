@@ -1,7 +1,10 @@
+<?php
+echo HTML::style('./css/stylehistorique.css');
+?>
+<!doctype html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="./css/stylehistorique.css" media="screen" />
 
 	<link type="text/css" href="./css/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
 
@@ -37,7 +40,17 @@
                                                         <th class="resultat">r2</th>
                                                     </tr>
                                                 </thead>
-                                               <tbody>
+                                                @foreach($histo as $info)
+                                                   <tbody>
+                                                        <td>{{ $info->match_id }}</td>
+                                                        <td>{{ $nomEquipe1 }}</td>
+                                                        <td>{{ $nomEquipe2 }}</td>
+                                                        <td>{{ $info->p1 }}</td>
+                                                        <td>{{ $info->p2 }}</td>
+                                                   </tbody>
+                                                @endforeach
+
+                                </table>
           
                             </div>
 

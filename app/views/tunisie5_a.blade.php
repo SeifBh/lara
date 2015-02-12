@@ -512,8 +512,8 @@ echo HTML::style('./css/stylesequipes.css');
                           <center>
 
 
-                         <img class="j1" id="Joueur" src="../images/logos/{{$x}}/{{$y}}.png"/>
-                         <img class="j1" id="Joueur" src="../images/logos/{{$x}}/{{$z3}}.png"/><br>
+                         <img class="j1" id="Joueur" src="../images/logos/{{$x}}/{{$nom_Equipe_1}}.png"/>
+                         <img class="j1" id="Joueur" src="../images/logos/{{$x}}/{{$nom_Equipe_2}}.png"/><br>
 
 
                                     {{$date}} 
