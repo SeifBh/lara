@@ -1,7 +1,7 @@
 
 <?php
 
-class ManagerController extends BaseController {
+class ManagerController extends AuthedController {
 
   /**
    * Display a listing of the resource.

@@ -10,6 +10,11 @@ class Historique extends Eloquent  {
 
 	protected $table = 'historiquex';
 
+	public function match()
+    {
+        return $this->belongsTo('Match', 'match_id');
+    }
+
 
 }
 

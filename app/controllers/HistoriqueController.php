@@ -24,7 +24,7 @@ class HistoriqueController extends BaseController {
         $nomEquipe2 = Match::pluck('nomEquipe2');
 
 
-		$histo=DB::table('historiquex')->where('user_id',  '=', $user_id )->get();
+		$histo=Historique::where('user_id',  '=', $user_id )->get();
 
 
 

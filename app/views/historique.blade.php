@@ -43,10 +43,12 @@ echo HTML::style('./css/stylehistorique.css');
                                                 @foreach($histo as $info)
                                                    <tbody>
                                                         <td>{{ $info->match_id }}</td>
-                                                        <td>{{ $nomEquipe1 }}</td>
-                                                        <td>{{ $nomEquipe2 }}</td>
+                                                        <td>{{ $info->match->nomEquipe1 }}</td>
+                                                        <td>{{ $info->match->nomEquipe2 }}</td>
                                                         <td>{{ $info->p1 }}</td>
                                                         <td>{{ $info->p2 }}</td>
+                                                        <td>{{ $info->match->r1 }}</td>
+                                                        <td>{{ $info->match->r2 }}</td>
                                                    </tbody>
                                                 @endforeach
 
