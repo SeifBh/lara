@@ -8,6 +8,9 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class Historique extends Eloquent  {
 
+	protected $primaryKey = "user_id";
+	protected $primaryKey = "match_id";
+
 	protected $table = 'historiquex';
 
 	public function match()

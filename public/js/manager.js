@@ -4,11 +4,10 @@ $(function(){
 
 
 
+
 $( ".ui-draggable" ).draggable({ containment: "#stade"});
 
 
-$("#footer2").draggable();
-$("#score").draggable();
 
 
 $("#Joueur1").draggable();

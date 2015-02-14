@@ -1,8 +1,50 @@
 <?php
 
-Route::post('savematch', 'ManagerController@save_match');
-Route::get('add','ManagerController@AddMatch');
-Route::get('ajouter','ManagerController@AddPlayer');
+Route::get('Player','AddPlayerController@index');
+Route::post('ss','AddPlayerController@AddPlayer');
+
+
+
+Route::get('Match','MatchController@index');
+
+Route::get('Historique_Admin','HistoriqueController@historique_admin');
+
+
+Route::get('Team','AddTeamController@index');
+
+
+
+Route::post('tt','AddTeamController@AddTeam');
+
+
+
+//Route::get('Team','AddTeam@index');
+
+
+//Interface Administrator
+Route::get('Admin', function()
+{
+    return View::make('admin.admin');
+});
+
+
+
+
+
+
+
+
+
+
+//Match
+Route::get('add','MatchController@AddMatch');
+Route::post('savematch', 'MatchController@SaveMatch');
+
+
+
+
+//Player
+Route::get('ajouter','AddPlayerController@AddPlayer');
 
 
 //login page

@@ -8,6 +8,18 @@ class HistoriqueController extends BaseController {
 	 *
 	 * @return Response
 	 */
+
+	public function historique_admin()
+	{
+		$nomEquipe1 = Match::pluck('nomEquipe1');
+        $nomEquipe2 = Match::pluck('nomEquipe2');
+		$h = DB::table('historiquex')->get();
+
+		return View::make('admin.historique',array('h'=>$h,'nomEquipe1'=>$nomEquipe1,'nomEquipe2'=>$nomEquipe2));
+
+
+
+	}
 	public function index()
 	{
 

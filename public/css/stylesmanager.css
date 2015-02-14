@@ -5,40 +5,21 @@ background-image:url("../images/Background.jpg");
 
 }
 
-
-
-
-
      #footer1
      {
-
-
-background-image:url("../images/Background.jpg");
-
-
-
-
-        position: absolute;
-        border: 2px solid ;
+        background-image:url("../images/Background.jpg");
+        position: fixed;
         top: 100px;
         left: 920px;
         height: 240px;
         width: 250px; 
-        border-radius: 2px;
-
-
-
      }
-
-     
-
-
 
 
      #footer2
      {
 
-      background-image: url("../images/Background.jpg");
+background-image: url("../images/Background.jpg");
 position: absolute;
 left: 116px; 
 top: 68px;
@@ -293,16 +274,14 @@ border-color: black;
 
 
 #test  {
-  height: 18px;
-  border: 4px solid black ;
-
-  text-align: center;
-  border:hidden 5px #d925d9;
+height: 18px;
+border: 4px solid black ;
+text-align: center;
+border:hidden 5px #d925d9;
 -moz-border-radius: 16px;
 -webkit-border-radius: 16px;
 border-radius: 6px;
 background-color: red;
-
 }
 
 
@@ -310,15 +289,12 @@ background-color: red;
 
  select {
  
-
-
   left: 420px;
   font-size: 14px;
   color: white;
   text-align: center;
   text-decoration: none;
   text-shadow: 0 1px #154c86;
-  border-radius: 4px;
   background:rgba(70,70,70,0.5);
   height: 240px;
   width: 250px;
@@ -336,23 +312,15 @@ background-color: red;
 #test:hover  {
 
 background-color:  #3875D7;
-
-
-
-
-
 cursor:move;
 }
 
 #test  {
-  height: 18px;
-
-  border: 1px solid ;
-  border-color: black;
-
-  text-align: center;
-  border:hidden 5px #d925d9;
-
+height: 18px;
+border: 1px solid ;
+border-color: black;
+text-align: center;
+border:hidden 5px #d925d9;
 border-radius: 6px;
 background-color: white;
 
@@ -366,10 +334,10 @@ background-color: white;
 
   text-align: center;*/
   border:hidden 5px #d925d9;
--moz-border-radius: 16px;
--webkit-border-radius: 16px;
-border-radius: 16px;
-background-color: #E1E1E1;
+  -moz-border-radius: 16px;
+  -webkit-border-radius: 16px;
+  border-radius: 16px;
+  background-color: #E1E1E1;
 
 }
 

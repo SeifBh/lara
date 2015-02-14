@@ -19,6 +19,7 @@ class CreateTeamxTable extends Migration {
             $table->increments('team_id');	
             $table->string('name');
             $table->string('fullName');
+            $table->string('ligue');
             $table->string('stade');
             $table->string('nomPresident');
             $table->string('Entraineur');
