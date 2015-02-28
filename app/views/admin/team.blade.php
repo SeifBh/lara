@@ -140,11 +140,12 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
 
                                         <div class="form-group">
                                             <label>Leagues</label>
-                                            <select name = "league" id="listteam" class="form-control">
-                                                <option name = "type" value="Tunisia">Tunisia</option>
-                                                <option name = "type" value="BBva">BBva</option>
-                                                <option name = "type" value="Italie">Italie</option>
-                                                <option name = "type"value="League 1">League 1</option>
+                                            <select name = "league" id="league" class="form-control">
+                                                 <option >Selectionnez league</option>
+
+                                                 @foreach($league as $l)
+                                                 <option value="{{$l->id}}">{{$l->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
 

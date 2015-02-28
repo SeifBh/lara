@@ -127,7 +127,8 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3>Ajouter un Joueur</h3>
-        {{ Form::open(array('action' => 'AddPlayerController@AddPlayer')) }}
+{{ Form::open(['action' => 'AddPlayerController@AddPlayer', 'method' => 'POST',  'id' => 'myForm']) }}
+
                                         <div class="form-group">
                                             <label>Nom</label>
                                             <input name="nom" class="form-control" placeholder="Nom Joueur" />
@@ -191,6 +192,8 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                                    </br>
 									 	<button  id="test" type="submit" class="btn btn-default">Submit Button</button>
                                         <button  type="reset" class="btn btn-primary">Reset Button</button>                                       
+                                      <div id="result"></div>                                       
+
                                  </div>
                              </div>
                          </div>  
@@ -234,9 +237,32 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                 });
 
 
+$("#myForm").submit(function(e) {
+        e.preventDefault();
+        var form_url = $( this ).attr('action');
+    var form_data= $( this ).serialize();
+    
+        $.ajax({
+            url: form_url,
+            type: 'POST',
+            data: form_data,
+            dataType: 'json',
+            success: function( result ){
+
+
+                   $('#result').html( 'success1' );
+
+            }
+    });
+});
 
 
 </script>
+
+
+
+
+
 
 </body>
 </html>

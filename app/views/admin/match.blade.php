@@ -114,7 +114,8 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
             
         </nav>  
         <!-- /. NAV SIDE  -->
-                {{ Form::open(array('action' => 'MatchController@AddMatch')) }}
+{{ Form::open(['action' => 'MatchController@AddMatch', 'method' => 'POST',  'id' => 'myForm']) }}
+
 
         <div id="page-wrapper" >
 
@@ -163,6 +164,8 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
                                                                             </br>
 									 	<button type="submit" class="btn btn-default">Submit Button</button>
                                         <button type="reset" class="btn btn-primary">Reset Button</button>                                       
+                                         <div id="result"></div>                                       
+
                                     </form> 
                                  </div>
                              </div>
@@ -187,6 +190,27 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
       <!-- CUSTOM SCRIPTS -->
     <script src="css/assets/js/custom.js"></script>
     
-   
+<script>
+$("#myForm").submit(function(e) {
+        e.preventDefault();
+        var form_url = $( this ).attr('action');
+    var form_data= $( this ).serialize();
+    
+        $.ajax({
+            url: form_url,
+            type: 'POST',
+            data: form_data,
+            dataType: 'json',
+            success: function( result ){
+
+
+                   $('#result').html( 'success1' );
+
+            }
+    });
+});
+
+
+</script>   
 </body>
 </html>

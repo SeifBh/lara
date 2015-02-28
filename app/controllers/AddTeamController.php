@@ -12,10 +12,11 @@ class AddTeamController extends AuthedController {
 	{
 
 		        $data = Auth::user();
+        		$league = League::all();
 
 		$listLeague = DB::table('teamx')->distinct()->get();
 
-		return View::make('admin.team',array('listLeague'=>$listLeague,'data'=>$data));
+		return View::make('admin.team',array('league'=>$league,'listLeague'=>$listLeague,'data'=>$data));
 
 	}
 	public function AddTeam()
@@ -29,6 +30,7 @@ class AddTeamController extends AuthedController {
 
 		$SelectedLigue = Input::get('league');
 
+
 		$stade = Input::get('stade');
 
 		$nomPresident = Input::get('nomPresident');
@@ -39,11 +41,15 @@ class AddTeamController extends AuthedController {
 		$equipe->name = $nomequipe ;
 		$equipe->fullname = $nomcomplet;
 		$equipe->stade = $stade;
-		$equipe->ligue = $SelectedLigue;
+		$equipe->league_id = $SelectedLigue;
 
 		$equipe->nomPresident = $nomPresident;
 		$equipe->Entraineur = $entraineur ;
+
+
 		$equipe->save();
+
+
 		return '1';
 
 	}

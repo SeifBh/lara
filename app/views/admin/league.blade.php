@@ -122,8 +122,7 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                         <div class="panel-heading">
                             Formulaire League
                         </div>
-        {{ Form::open(array('action' => 'LeagueController@add')) }}
-
+{{ Form::open(['action' => 'LeagueController@add', 'method' => 'POST',  'id' => 'myForm']) }}
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -134,8 +133,9 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                                         </div>
                                                                 
                                    </br>
-									 	<button  id="test" type="submit" class="btn btn-default">Submit Button</button>
-                                        <button  type="reset" class="btn btn-primary">Reset Button</button>                                       
+									 	                   <button  id="test" type="submit" class="btn btn-default">Submit Button</button>
+                                        <button  type="reset" class="btn btn-primary">Reset Button</button>
+                                        <div id="result"></div>                                       
                                  </div>
                              </div>
                          </div>  
@@ -158,7 +158,28 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
       <!-- CUSTOM SCRIPTS -->
     <script src="css/assets/js/custom.js"></script>
 
+<script>
 
+$("#myForm").submit(function(e) {
+        e.preventDefault();
+        var form_url = $( this ).attr('action');
+    var form_data= $( this ).serialize();
+    
+        $.ajax({
+            url: form_url,
+            type: 'POST',
+            data: form_data,
+            dataType: 'json',
+            success: function( result ){
+
+
+                   $('#result').html( 'success1' );
+
+            }
+    });
+});
+
+</script>
 
 </body>
 </html>

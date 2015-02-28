@@ -5,6 +5,8 @@ Route::get('league','LeagueController@index');
 Route::post('ff','LeagueController@add');
 
 
+Route::post('user','GestionUserController@index');
+
 
 
 Route::get('ajax-subcat',function()

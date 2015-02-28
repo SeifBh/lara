@@ -32,7 +32,10 @@ class LeagueController extends AuthedController {
 		$league->name = $leaguename;
 		$league->save();
 
-		return 'succes';
+        return Response::json('succes');
+
+
+
 	}
 
 

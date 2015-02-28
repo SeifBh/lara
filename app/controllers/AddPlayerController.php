@@ -52,6 +52,7 @@ $team_id = Equipe::pluck('team_id');
 
 
 $selectnameteam = Input::get('team');
+
 $player = new Player ();
 $player->name = $nom;
 $player->league = $selectedLeague;
@@ -59,8 +60,8 @@ $player->team = $selectnameteam;
 $player->team_id=$team_id;
 $player->position = $selectedOption;
 $player->save();
+        return Response::json('succes');
 
-return 'ok';
 
 
 	}

@@ -31,11 +31,14 @@ class MatchController extends AuthedController {
     $match = new Match();
     $match->nomEquipe1 = $selectedequipe1 ;
     $match->nomEquipe2 = $selectedequipe2 ;
-    $match->lieu = $lieu ;
+
+    $match->etat =$etat ;
+
     $match->date =$date ;
 
+    $match->lieu = $lieu ;
     $match->save();
-    return 'Vous avez ajoutez un match avec succes';
+        return Response::json('succes');
 	}
 
 
@@ -61,6 +64,7 @@ class MatchController extends AuthedController {
 
 
 		$hist->save();
+
 	}
 
 	public function addResult()
