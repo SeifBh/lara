@@ -2,6 +2,7 @@
 
 class Equipe extends Eloquent {
 
-	protected $table = 'teamx';
-
+	protected $table = 'team';
+	protected $primaryKey = "team_id";
+    protected $fillable = array('name', 'team_id');
 }

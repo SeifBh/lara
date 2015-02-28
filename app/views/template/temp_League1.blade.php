@@ -28,23 +28,23 @@ $(function(){
 });
 
 //Methode Plus Courte 
-/*
+
 $("#divchoix #im").mouseenter(function() {
  s = $(this).attr('class');
-$("#divhover").html('<br><br><br><img top=320 align=center width=170 height=150 src=./images/logos/' + s +'.png> </img></br> 14 Equipes'); 
+$("#divhover").html('<br><br><br><img top=320 align=center width=170 height=150 src=./images/logos/League1/' + s +'.png> </img></br> 14 Equipes'); 
 
 });
 
-*/
 
 
 
+/*
 $( ".esperance" ).mouseenter(function() {
 
 $("#divhover").html('<br><br><br><img top=520px align=center width=230px height=210px src=./images/logos/esperance.png> </img></br>'); 
 
 });
-
+*/
 $( ".club_africain" ).mouseenter(function() {
 
 $("#divhover").html('<br><br><br><img top=520px align=center width=220px height=210px src=./images/logos/club_africain.png> </img></br>'); 

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMatchxTable extends Migration {
+class CreateMatchTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMatchxTable extends Migration {
 	public function up()
 	{
 		//
-				Schema::create('matchx', function($table)
+			Schema::create('match', function($table)
         {
             $table->increments('match_id');
             $table->string('nomEquipe1');
@@ -25,8 +25,7 @@ class CreateMatchxTable extends Migration {
             $table->string('r2');
             $table->timestamps();
         });
-
-	}
+   	}
 
 	/**
 	 * Reverse the migrations.
@@ -35,9 +34,7 @@ class CreateMatchxTable extends Migration {
 	 */
 	public function down()
 	{
-		//
-			//	        Schema::drop('matchx');
-
+		       Schema::drop('match');
 	}
 
 }

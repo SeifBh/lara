@@ -1,6 +1,6 @@
 <?php
 
-class HistoriqueController extends BaseController {
+class HistoriqueController extends AuthedController {
 
 	/**
 	 * Display a listing of the resource.
@@ -11,11 +11,14 @@ class HistoriqueController extends BaseController {
 
 	public function historique_admin()
 	{
+				        $data = Auth::user();
+
 		$nomEquipe1 = Match::pluck('nomEquipe1');
         $nomEquipe2 = Match::pluck('nomEquipe2');
+       
 		$h = DB::table('historiquex')->get();
 
-		return View::make('admin.historique',array('h'=>$h,'nomEquipe1'=>$nomEquipe1,'nomEquipe2'=>$nomEquipe2));
+		return View::make('admin.historique',array('data'=>$data,'h'=>$h,'nomEquipe1'=>$nomEquipe1,'nomEquipe2'=>$nomEquipe2));
 
 
 

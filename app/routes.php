@@ -1,6 +1,31 @@
 <?php
 
+Route::get('league','LeagueController@index');
+
+Route::post('ff','LeagueController@add');
+
+
+
+
+Route::get('ajax-subcat',function()
+{
+
+$cat_id = Input::get('cat_id');
+
+$subcategories = Equipe::where('league_id','=',$cat_id)->get();
+
+return Response::json($subcategories);
+});
+
+
+
+
+
+Route::get('Resultats','AdminController@GestionResultats');
+
+
 Route::get('Player','AddPlayerController@index');
+
 Route::post('ss','AddPlayerController@AddPlayer');
 
 
@@ -16,16 +41,13 @@ Route::get('Team','AddTeamController@index');
 
 Route::post('tt','AddTeamController@AddTeam');
 
+Route::get('Admin','AdminController@index');
 
 
 //Route::get('Team','AddTeam@index');
 
 
 //Interface Administrator
-Route::get('Admin', function()
-{
-    return View::make('admin.admin');
-});
 
 
 
@@ -37,14 +59,14 @@ Route::get('Admin', function()
 
 
 //Match
-Route::get('add','MatchController@AddMatch');
+Route::post('add','MatchController@AddMatch');
 Route::post('savematch', 'MatchController@SaveMatch');
 
 
 
 
 //Player
-Route::get('ajouter','AddPlayerController@AddPlayer');
+//Route::get('ajouter','AddPlayerController@AddPlayer');
 
 
 //login page

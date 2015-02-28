@@ -34,8 +34,8 @@ class AuthController extends BaseController {
 
         $user = new User;
         $user->name = $me['first_name'].' '.$me['last_name'];
-        $user->email = $me['email'];
-        $user->photo = 'https://graph.facebook.com/'.$me['id'].'/picture?type=small';
+        //$user->email = $me['email'];
+        $user->photo = 'https://graph.facebook.com/'.$me['id'].'/picture?type=large';
 
         $user->save();
 

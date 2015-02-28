@@ -1,6 +1,6 @@
 <?php
 
-class AdminController extends \BaseController {
+class AdminController extends AuthedController {
 
 	/**
 	 * Display a listing of the resource.
@@ -8,6 +8,13 @@ class AdminController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+
+	public function index()
+	{
+                $data = Auth::user();
+
+		return View::make('admin.admin',array('data'=>$data));
+	}
 	public function Add()
 	{
 		//
@@ -21,6 +28,18 @@ class AdminController extends \BaseController {
 	  $player->save();
 	  	  return 'Vouz avez ajouter un joueur Avec succes';
 
+
+	}
+
+public function GestionResultats()
+{ 	$listTeam = DB::table('team')->get();
+
+                $data = Auth::user();
+
+                return View::make('admin.resultats',array('data'=>$data,'listTeam'=>$listTeam));
+}
+	public function AddResultat()
+	{
 
 	}
 

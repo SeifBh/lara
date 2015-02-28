@@ -1,6 +1,6 @@
 <?php
 
-class AddPlayerController extends \BaseController {
+class AddPlayerController extends AuthedController {
 
 	/**
 	 * Display a listing of the resource.
@@ -11,40 +11,64 @@ class AddPlayerController extends \BaseController {
 	public function index()
 	{
 
+ $data = array();
+
+    if (Auth::check()) 
+                        {
+
+
+        $data = Auth::user();
+        $league = League::all();
+
+    $selectedLeague = Input::get('league');
+
  	$listTeam = DB::table('team')->get();
- 	$position = DB::table('players')->get();
+ 	$position = DB::table('player')->get();
 
- 	return View::make('admin.player',array('listTeam'=>$listTeam,'position'=>$position));
+ 	return View::make('admin.player',array('league'=>$league,'data'=>$data,'listTeam'=>$listTeam,'position'=>$position));
 
 
+
+
+}
+else{
+	return View::make('login');
+}
 	}
+
+
 	public function AddPlayer()
 	{
+		
+$nom = Input::get('nom');
+
+$selectedLeague = Input::get('league');
 
 
 
-	  $player = new Player();
-	  $nom = Input::get('nom');
-	  $nomequipe = Input::get('nomequipe');
-	  $position = Input::get('position');
-	  $player->name = $nom;
-	  $player->team = $nomequipe;
-	  $player->position = $position;
-	  $player->save();
-	  return 'Vouz avez ajouter un joueur';
+$selectedOption = Input::get('pos');
+
+$team_id = Equipe::pluck('team_id');
+
+
+$selectnameteam = Input::get('team');
+$player = new Player ();
+$player->name = $nom;
+$player->league = $selectedLeague;
+$player->team = $selectnameteam;
+$player->team_id=$team_id;
+$player->position = $selectedOption;
+$player->save();
+
+return 'ok';
+
+
 	}
 
-	public function UpdatePlayer()
-	{
 
-
-	}
-
-	public function DeletePlayer()
-	{
-
-
-	}
+public function AjouterJoueur(){}
+public function ModifierJoueur(){}
+public function SupprimerJoueur(){}
 
 
 

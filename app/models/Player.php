@@ -2,6 +2,8 @@
 
 class Player extends Eloquent {
 
-	protected $table = 'players';
+	protected $table = 'player';
+
+	protected $primaryKey = "player_id";
 
 }

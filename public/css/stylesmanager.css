@@ -729,3 +729,53 @@ border:2px solid red;
 
 }
 
+table{
+  background-image:url("../images/Background.jpg");
+color :white;
+}
+
+
+.button,
+.button:hover {
+  border-top:   none; /* fix for input button/submit element */
+  border-left:  none; /* fix for input button/submit element */
+  border-right: none; /* fix for input button/submit element */
+  transition:   background          .3s linear, 
+                border-bottom-color .3s linear; }
+a.button {
+  display: inline-block; }
+
+.button {
+  font-family:         'Open Sans Condensed', sans-serif;
+  color:               #efefef;
+  padding:             .8em 1.4em;
+  border-radius:       .2em;
+  border-bottom-width: .2em;
+  border-bottom-style: solid;                         display:inline;
+  position:static;
+width:80px;
+}
+
+.button:hover {
+  color: #fff; }
+
+.button:active {
+  transform:           translate(0, .18em);
+  border-bottom-width: 0em;
+  margin-bottom:       0em; }
+
+.button:focus {
+  outline: none; }
+  
+  .blue-button {
+    width: 80px;
+    height: 40px;
+  background:          #2c62bb;
+  border-bottom-color: #20478b;
+  display:inline;
+  position:static;
+}
+
+.blue-button:hover {
+  background:          #4479ce;
+  border-bottom-color: #2c62bb; }

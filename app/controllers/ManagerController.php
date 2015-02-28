@@ -73,17 +73,17 @@ $FC2 = Player::where('position',  '=', 'FC2')->where('team','=',$z)->pluck('name
 $FC3 = Player::where('position',  '=', 'FC3')->where('team','=',$z)->pluck('name');
 
 
-$President = DB::table('team')->where('nom',  '=', $y )->pluck('NomPresident');
-$Entraineur = DB::table('team')->where('nom',  '=', $y )->pluck('Entraineur');
-$stade = DB::table('team')->where('nom',  '=', $y )->pluck('stade');
-
-
-
-                                    $nomEquipe1 = Match::where('nomEquipe1',  '=', $z )->pluck('nomEquipe1');
+$President = DB::table('teamx')->where('name',  '=', $z )->pluck('NomPresident');
+$Entraineur = DB::table('teamx')->where('name',  '=', $z )->pluck('Entraineur');
+$stade = DB::table('teamx')->where('name',  '=', $z )->pluck('stade');
 
                                     $id_match = Match::where('nomEquipe1',  '=', $z )->pluck('match_id');
+
+
+
+                                    $nomEquipe1 = Match::where('nomEquipe1',  '=', $z )->orwhere('nomEquipe2',  '=', $z )->pluck('nomEquipe1');
                                     
-                                    $nomEquipe2 = Match::where('nomEquipe1',  '=', $z )->pluck('nomEquipe2');
+                                    $nomEquipe2 = Match::where('nomEquipe2',  '=', $z )->orwhere('nomEquipe1',  '=', $z )->pluck('nomEquipe2');
                                                    
 
                                     $nom_Equipe_1 = str_replace(' ', '_', $nomEquipe1);

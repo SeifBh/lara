@@ -1,7 +1,8 @@
 <?php
 echo HTML::style('./css/stylesequipes.css');
 
-echo HTML::style('./css/stylesmanager.css');
+
+
 ?>
 <!doctype html>
 <html lang="fr">
@@ -347,7 +348,7 @@ echo HTML::style('./css/stylesmanager.css');
                                 @endif
 
 
-                                @if(!empty($AR1))
+                                @if(!empty($AR2))
                                   <div  id="test" class="sel" style="opacity:0.4;">
                                          <font face="Comic Sans MS" size="2">
                                             <b>{{$AR2}}</b>
@@ -356,7 +357,7 @@ echo HTML::style('./css/stylesmanager.css');
                                 @endif
 
 
-                                @if(!empty($AR2))
+                                @if(!empty($AR3))
                                   <div  id="test" class="sel" style="opacity:0.4;">
                                          <font face="Comic Sans MS" size="2">
                                             <b>{{$AR3}}</b>
@@ -533,10 +534,10 @@ echo HTML::style('./css/stylesmanager.css');
                         </center>
           </div>
 
-        <table border="1" id="t">
+        <table border="0" id="t">
                   <tr>
 
-                        <td>{{$nomEquipe1}}</td>
+                        <td><center>{{$nomEquipe1}}</td>
                         <td>
                           <input placeholder="-" type="text" name="p1" id="name" size="1" maxlength="2">
                         </td>
@@ -544,7 +545,7 @@ echo HTML::style('./css/stylesmanager.css');
 
 
                   <tr>
-                        <td>{{$nomEquipe2}}
+                        <td><center>{{$nomEquipe2}}
                         </td>
                         <td>
                           <input placeholder="-" type="text" name="p2" id="name" size="1" maxlength="2">
@@ -555,7 +556,7 @@ echo HTML::style('./css/stylesmanager.css');
                   <tr>
                           <td colspan="2">
                               <center>
-                                <input type="Submit" value="Envoyer"/>
+                            <input type="submit" value="Submit" class="button blue-button">
                             {{Form::hidden('id_match', $id_match)}}
 
                               </center>

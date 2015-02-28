@@ -4,7 +4,7 @@
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <title>YouCoach | Equipes</title>
 	<!-- BOOTSTRAP STYLES-->
     <link href="css/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -29,43 +29,87 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">YouCoach</a> 
+                <a class="navbar-brand" href="/">YouCoach</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 				<li class="text-center">
-                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+                    <img src="{{ $data['photo']}}" class="user-image img-responsive"/>
 					</li>
 				
 					
+          
                     <li>
-                        <a  href="Admin"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
-                    </li>
-                     <li>
-                        <a  href="Player"><i class="fa fa-desktop fa-3x"></i>Gestion des Joueurs</a>
-                    </li>
-                    <li>
-                        <a  href="Match"><i class="fa fa-qrcode fa-3x"></i>Gestion des Matchs</a>
-                    </li>
-						   <li  >
-                        <a  class="active-menu"  href="Team"><i class="fa fa-bar-chart-o fa-3x"></i>Gestion des Equipe</a>
-                    </li>	
-                      <li  >
-                        <a  href="Historique_Admin"><i class="fa fa-table fa-3x"></i> Historique Users</a>
+                        <a   href="Admin"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
 
-					                   
-                  
-                  <li  >
-                        <a  href="blank.html"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
-                    </li>	
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des joueurs<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="Player">Ajouter un Joueur</a>
+                            </li>
+                            <li>
+                                <a href="#">Modifier un joueur</a>
+                            </li>
+                            <li>
+                                <a href="#">Supprimer un Joueur</a>
+
+                            </li>
+                        </ul>
+                      </li> 
+
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Matchs<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="Match">Ajouter un Match</a>
+                            </li>
+                            <li>
+                                <a href="#">Modifier un Match</a>
+                            </li>
+                            <li>
+                                <a href="#">Supprimer un Match</a>
+
+                            </li>
+                        </ul>
+                      </li>
+
+                    <li>
+                        <a class="active-menu"  href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Equipes<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="Team">Ajouter une équipe</a>
+                            </li>
+                            <li>
+                                <a href="#">Modifier une équipe</a>
+                            </li>
+                            <li>
+                                <a href="#">Supprimer une équipe</a>
+
+                            </li>
+                        </ul>
+                      </li>
+
+                      <li  >
+                        <a  href="Resultats"><i class="fa fa-table fa-3x"></i> Gestion des resultats</a>
+                    </li>
+  
+                      <li  >
+                        <a  href="Historique_Admin"><i class="fa fa-table fa-3x"></i> Historique Utilisateurs</a>
+                    </li>
+
+                        </ul>
+                      </li> 
+                             
+ 
                 </ul>
                
             </div>
@@ -84,36 +128,37 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                                 <div class="col-md-6">
                                     <h3>Ajouter une equipe</h3>
 
-                                        <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess">Nom Equipe</label>
-                                            <input name="nomequipe" type="text" class="form-control" id="inputSuccess">
-                                        </div>
-
-                                        <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess">Nom Complet</label>
-                                            <input name="nomcomplet" type="text" class="form-control" id="inputSuccess">
+                                        <div class="form-group">
+                                            <label>Nom Equipe</label>
+                                            <input name="nomequipe" class="form-control" placeholder="Nom Equipe" />
                                         </div>
 
                                         <div class="form-group">
-                                            <label>League</label>
-                                            <select id="league" class="form-control">
-                                              @foreach($listLeague as $list)
-                                                <option>{{$list->ligue}}</option>
-                                                @endforeach
+                                            <label>Nom Complet</label>
+                                            <input name="nomcomplet" class="form-control" placeholder="Nom Complet de l'equipe" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Leagues</label>
+                                            <select name = "league" id="listteam" class="form-control">
+                                                <option name = "type" value="Tunisia">Tunisia</option>
+                                                <option name = "type" value="BBva">BBva</option>
+                                                <option name = "type" value="Italie">Italie</option>
+                                                <option name = "type"value="League 1">League 1</option>
                                             </select>
                                         </div>
 
-                                        <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess">Stade</label>
-                                            <input name="stade" type="text" class="form-control" id="inputSuccess">
+                                        <div class="form-group">
+                                            <label>Stade</label>
+                                            <input name="stade" class="form-control" placeholder="Stade" />
                                         </div>
-                                        <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess">nomPresident</label>
-                                            <input name="nomPresident" type="text" class="form-control" id="inputSuccess">
+                                        <div class="form-group">
+                                            <label>President</label>
+                                            <input name="nomPresident" class="form-control" placeholder="Nom President" />
                                         </div>
-                                        <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess">Entraineur</label>
-                                            <input name="entraineur" type="text" class="form-control" id="inputSuccess">
+                                        <div class="form-group">
+                                            <label>Entraineur</label>
+                                            <input name="entraineur" class="form-control" placeholder="Nom Entraineur" />
                                         </div>
  
                                                                                                                                                           </br>
@@ -130,16 +175,16 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="css/assets/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="css/assets/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="css/assets/js/jquery.metisMenu.js"></script>
      <!-- MORRIS CHART SCRIPTS -->
-     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="assets/js/morris/morris.js"></script>
+     <script src="css/assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="css/assets/js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
+    <script src="css/assets/js/custom.js"></script>
     
    
 </body>

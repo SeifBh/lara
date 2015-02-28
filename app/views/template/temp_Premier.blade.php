@@ -29,23 +29,22 @@ $(function(){
 });
 
 //Methode Plus Courte 
-/*
+
 $("#divchoix #im").mouseenter(function() {
  s = $(this).attr('class');
-$("#divhover").html('<br><br><br><img top=320 align=center width=170 height=150 src=./images/logos/' + s +'.png> </img></br> 14 Equipes'); 
+$("#divhover").html('<br><br><br><img top=320 align=center width=170 height=150 src=./images/logos/PremierLeague/'+s+'.png> </img></br> 14 Equipes'); 
 
 });
 
-*/
 
-
+/*
 
 $( "#image #im" ).mouseenter(function() {
  s = $(this).attr('class');
 
 $("#divhover").html('<br><br><br><img top=520px align=center width=230px height=210px src=./images/logos/PremierLeague/'+ s +'.png> </img></br>'); 
 
-});
+});*/
 
 $( "#divchoix" ).mouseleave(function() {
  s = $(this).attr('class');

@@ -4,7 +4,7 @@
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <title>YouCoach | Historique</title>
 	<!-- BOOTSTRAP STYLES-->
     <link href="css/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -31,38 +31,82 @@
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 				<li class="text-center">
-                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+                    <img src="{{ $data['photo']}}" class="user-image img-responsive"/>
 					</li>
 				
-					
+          
                     <li>
                         <a  href="Admin"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
-                     <li>
-                        <a  href="Player"><i class="fa fa-desktop fa-3x"></i>Gestion des Joueurs</a>
-                    </li>
+
                     <li>
-                        <a  href="Match"><i class="fa fa-qrcode fa-3x"></i>Gestion des Matchs</a>
-                    </li>
-						   <li  >
-                        <a   href="Team"><i class="fa fa-bar-chart-o fa-3x"></i>Gestion des Equipe</a>
-                    </li>	
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des joueurs<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="Player">Ajouter un Joueur</a>
+                            </li>
+                            <li>
+                                <a href="#">Modifier un joueur</a>
+                            </li>
+                            <li>
+                                <a href="#">Supprimer un Joueur</a>
+
+                            </li>
+                        </ul>
+                      </li> 
+
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Matchs<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="Match">Ajouter un Match</a>
+                            </li>
+                            <li>
+                                <a href="#">Modifier un Match</a>
+                            </li>
+                            <li>
+                                <a href="#">Supprimer un Match</a>
+
+                            </li>
+                        </ul>
+                      </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Equipes<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="Team">Ajouter une équipe</a>
+                            </li>
+                            <li>
+                                <a href="#">Modifier une équipe</a>
+                            </li>
+                            <li>
+                                <a href="#">Supprimer une équipe</a>
+
+                            </li>
+                        </ul>
+                      </li>
+
                       <li  >
-                        <a class="active-menu"  href="Historique_Admin"><i class="fa fa-table fa-3x"></i> Historique Users</a>
+                        <a  href="Resultats"><i class="fa fa-table fa-3x"></i> Gestion des resultats</a>
+                    </li>
+  
+                      <li  >
+                        <a  class="active-menu" href="Historique_Admin"><i class="fa fa-table fa-3x"></i> Historique Utilisateurs</a>
                     </li>
 
-					                   
+                        </ul>
+                      </li> 
+                             
                   
-                  <li  >
-                        <a  href="blank.html"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
-                    </li>	
+
                 </ul>
                
             </div>
@@ -117,16 +161,16 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="css/assets/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="css/assets/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="css/assets/js/jquery.metisMenu.js"></script>
      <!-- MORRIS CHART SCRIPTS -->
-     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="assets/js/morris/morris.js"></script>
+     <script src="css/assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="css/assets/js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
+    <script src="css/assets/js/custom.js"></script>
     
    
 </body>

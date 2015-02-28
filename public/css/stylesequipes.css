@@ -292,20 +292,6 @@ border-color: black;
 
 
 
-#test  {
-  height: 18px;
-  border: 4px solid black ;
-
-  text-align: center;
-  border:hidden 5px #d925d9;
--moz-border-radius: 16px;
--webkit-border-radius: 16px;
-border-radius: 6px;
-background-color: red;
-
-}
-
-
 
 
  select {
@@ -331,11 +317,9 @@ background-color: red;
 
 
 
-
-
 #test:hover  {
 
-background-color:  #3875D7;
+background-color:  red;
 
 
 
@@ -345,50 +329,19 @@ cursor:move;
 }
 
 #test  {
-  height: 18px;
-
-  border: 1px solid ;
-  border-color: black;
-
-  text-align: center;
-  border:hidden 5px #d925d9;
-
-border-radius: 6px;
+height: 18px;
 background-color: white;
 
-}
-#test1  {
-  width: 70px;
-  height: 20px;
 
-  border: 2px solid ;
-  border-color: black;
+border: 5px solid ;
+border-color: black;
+text-align: center;
+border:hidden 5px #d925d9;
 
-  text-align: center;*/
-  border:hidden 5px #d925d9;
--moz-border-radius: 16px;
--webkit-border-radius: 16px;
-border-radius: 16px;
-background-color: #E1E1E1;
-
+border-radius: 6px;
 }
 
 
-#test2  {
-  width: 70px;
-  height: 20px;
-
-  border: 2px solid ;
-  border-color: black;
-
-  text-align: center;
-  border:hidden 5px #d925d9;
--moz-border-radius: 16px;
--webkit-border-radius: 16px;
-border-radius: 16px;
-background-color: #E1E1E1;
-
-}
 #example-1-1
 {
 

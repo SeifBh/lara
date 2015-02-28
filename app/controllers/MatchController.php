@@ -1,6 +1,6 @@
 <?php
 
-class MatchController extends \BaseController {
+class MatchController extends AuthedController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,22 +9,31 @@ class MatchController extends \BaseController {
 	 */
 	public function index()
 	{
+        $data = Auth::user();
 
 
- 	$listTeam = DB::table('team')->get();
+ 	$listTeam = DB::table('teamx')->get();
 
- 	return View::make('admin.match',array('listTeam'=>$listTeam));
+ 	return View::make('admin.match',array('listTeam'=>$listTeam,'data'=>$data));
 
 	}
 	public function AddMatch()
 	{
+
+
+		$selectedequipe1 = Input::get('s1');
+		$selectedequipe2 = Input::get('s2');
+		$etat = Input::get('etat');
+		$date = Input::get('date');
+		$lieu = Input::get('lieu');
+
+
     $match = new Match();
-    $match->nomEquipe1 = 'Club Sfaxien' ;
-    $match->nomEquipe2 = 'club bizertien' ;
-    $match->lieu = 'rades' ;
-    $match->date ='2015-04-15' ;
-    $match->r1 = '4' ;
-    $match->r2 ='5' ;
+    $match->nomEquipe1 = $selectedequipe1 ;
+    $match->nomEquipe2 = $selectedequipe2 ;
+    $match->lieu = $lieu ;
+    $match->date =$date ;
+
     $match->save();
     return 'Vous avez ajoutez un match avec succes';
 	}
@@ -46,10 +55,17 @@ class MatchController extends \BaseController {
 		$hist = new Historique();
 		$hist->user_id = $user_id;
 		$hist->match_id = $match_id;
+		//return 'user_id:'.$user_id.'<br>match_id:'.$match_id.'<br>p1:'.$p1.'<br>p2:'.$p2;
 		$hist->p1 = $p1;
 		$hist->p2 = $p2;
 
+
 		$hist->save();
+	}
+
+	public function addResult()
+	{
+		
 	}
 
 

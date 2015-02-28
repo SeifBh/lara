@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHistoriquexTable extends Migration {
+class CreateHistoryTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,12 @@ class CreateHistoriquexTable extends Migration {
 	 */
 	public function up()
 	{
-		//
-				Schema::create('historiquex', function($table)
+				Schema::create('history', function($table)
         {
             
             $table->integer('user_id');
             $table->integer('match_id')->unsigned();;
-
-            $table->foreign('match_id')->references('match_id')->on('matchx');
-
+            $table->foreign('match_id')->references('match_id')->on('match');
             $table->string('p1');
             $table->string('p2');
             $table->string('score');
@@ -28,7 +25,8 @@ class CreateHistoriquexTable extends Migration {
 
             $table->primary(array('user_id', 'match_id'));
         });
-	}
+
+        	}
 
 	/**
 	 * Reverse the migrations.
@@ -37,9 +35,7 @@ class CreateHistoriquexTable extends Migration {
 	 */
 	public function down()
 	{
-		//
-				  // Schema::drop('historiquex');
-
+      Schema::drop('history');
 	}
 
 }
