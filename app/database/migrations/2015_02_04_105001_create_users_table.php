@@ -12,7 +12,7 @@ class CreateUsersTable extends Migration {
             $table->string('email')->unique();
             $table->string('photo');
             $table->string('name');
-            $table->string('password');
+            $table->boolean('isAdmin');   
             $table->rememberToken();
             $table->timestamps();
         });

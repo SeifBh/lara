@@ -1,11 +1,12 @@
 
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YouCoach | Résultats</title>
-	<!-- BOOTSTRAP STYLES-->
+    <title>YouCoach</title>
+    <!-- BOOTSTRAP STYLES-->
     <link href="css/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
     <link href="css/assets/css/font-awesome.css" rel="stylesheet" />
@@ -15,8 +16,12 @@
     <link href="css/assets/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   {{ HTML::script('js/player.js') }}
+
 </head>
 <body>
+
+
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -26,29 +31,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">YouCoach</a> 
+                <a class="navbar-brand" href="/">YouCoach</a> 
             </div>
-  <div style="color: white;
+  <div class="dif" style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-				<li class="text-center">
-                    <img src="{{ $data['photo']}}" class="user-image img-responsive"/>
-					</li>
-				
-					
-                    
+                                <li class="text-center">
+                    <img src="" class="user-image img-responsive"/>
+                    </li>
+        
+                         
                     <li>
-                        <a  href="Admin"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                        <a   href="Admin"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des joueurs<span class="fa arrow"></span></a>
+                        <a class="active-menu"  href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des joueurs<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="Player">Ajouter un Joueur</a>
@@ -96,73 +100,88 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
                       </li>
 
                       <li  >
-                        <a class="active-menu" href="Resultats"><i class="fa fa-table fa-3x"></i> Gestion des resultats</a>
+                        <a  href="Resultats"><i class="fa fa-table fa-3x"></i> Gestion des resultats</a>
                     </li>
-    
+  
                       <li  >
                         <a  href="Historique_Admin"><i class="fa fa-table fa-3x"></i> Historique Utilisateurs</a>
                     </li>
 
                         </ul>
                       </li> 
-                                       
-                  
-   
+                             
+
                 </ul>
-               
             </div>
             
         </nav>  
         <!-- /. NAV SIDE  -->
+        {{ Form::open(['action' => 'AdminController@AddResultat', 'method' => 'POST',  'id' => 'myForm']) }}
+
         <div id="page-wrapper" >
 
-        	<div class="panel panel-default">
+                    <div class="panel panel-default">
                         <div class="panel-heading">
-                             Résultats
+                            Formulaire League
                         </div>
-
                         <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h3>Gestion des Résultats</h3>
-                                    <form role="form">
+                            
 
-                                        <div class="form-group">
-                                            <label>Equipe Visite </label>
-                                            <select class="form-control">
-                                            	@foreach($listTeam as $team)
-                                                <option>{{$team->NomComplet}}</option>
+
+                                 <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                             Advanced Tables
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Match_id</th>
+                                            <th>nom Equipe1</th>
+                                            <th>nom Equipe2</th>
+                                            <th>score 1 </th>
+                                            <th>score 2</th>
+                                        </tr>
+                                    </thead>
+                                                @foreach($match as $info)
+                                                   <tbody>
+                                                        <td>{{ $info->match_id }}</td>
+                                                        <td>{{ $info->nomEquipe1 }}</td>
+                                                        <td>{{ $info->nomEquipe2 }}</td>
+                                                        <td>
+                                                            <input size="1" value="{{$info->r1}}" name="score1" id="score1" class="form-control" />
+                                                        </td>
+                                                        <td>
+                                                            <input size="1" value="{{$info->r2}}" name="score2" id="score2" class="form-control" />
+                                                        </td>
+
+
+
+
+                                                   </tbody>
+                                                   
                                                 @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Equipe Visiteuse</label>
-                                            <select class="form-control">
-                                            	@foreach($listTeam as $team)
-                                                <option>{{$team->NomComplet}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Resultats Equipe 1</label>
-                                            <input name="etat" class="form-control" placeholder="Resultats Equipe1" />
-                                        </div>
+                                </table>
+                                         </br>
+                                        <button  id="test" type="submit" class="btn btn-default">Submit Button</button>
+                                        <button  type="reset" class="btn btn-primary">Reset Button</button>                                       
 
-                                        <div class="form-group">
-                                            <label>Resultats Equipe2</label>
-                                            <input name="date" class="form-control" placeholder="Resultats Equipe2" />
-                                        </div>
+                                      <div id="result"></div>  
 
+                                      {{Form::close()}}
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
 
-
-                                                                            </br>
-									 	<button type="submit" class="btn btn-default">Submit Button</button>
-                                        <button type="reset" class="btn btn-primary">Reset Button</button>                                       
-                                    </form> 
-                                 </div>
-                             </div>
-                         </div>      
-            
+                         </div>  
          </div>
              <!-- /. PAGE INNER  -->
             </div>
@@ -181,7 +200,8 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
     <script src="css/assets/js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="css/assets/js/custom.js"></script>
-    
-   
+
+
+
 </body>
 </html>

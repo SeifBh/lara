@@ -1,11 +1,16 @@
 <?php
 
+
+Route::post('addresult','AdminController@AddResultat');
+
+
+
 Route::get('league','LeagueController@index');
 
 Route::post('ff','LeagueController@add');
 
 
-Route::post('user','GestionUserController@index');
+Route::get('user','GestionUserController@index');
 
 
 

@@ -16,7 +16,7 @@ class HistoriqueController extends AuthedController {
 		$nomEquipe1 = Match::pluck('nomEquipe1');
         $nomEquipe2 = Match::pluck('nomEquipe2');
        
-		$h = DB::table('historiquex')->get();
+		$h = DB::table('history')->get();
 
 		return View::make('admin.historique',array('data'=>$data,'h'=>$h,'nomEquipe1'=>$nomEquipe1,'nomEquipe2'=>$nomEquipe2));
 

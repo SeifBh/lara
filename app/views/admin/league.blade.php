@@ -129,7 +129,7 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                                     <h3>Ajouter League</h3>
                                         <div class="form-group">
                                             <label>Nom league</label>
-                                            <input id="nomleague" name="nomleague" class="form-control" placeholder="Nom League" />
+                                            <input id="nomleague" name="fullName" class="form-control" placeholder="Nom League" />
                                         </div>
                                                                 
                                    </br>
@@ -161,6 +161,7 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
 <script>
 
 $("#myForm").submit(function(e) {
+
         e.preventDefault();
         var form_url = $( this ).attr('action');
     var form_data= $( this ).serialize();
@@ -179,6 +180,12 @@ $("#myForm").submit(function(e) {
     });
 });
 
+</script>
+
+<script>
+$(document).ready(function() {
+    $('#myForm').formValidation();
+});
 </script>
 
 </body>

@@ -32,14 +32,18 @@ class AdminController extends AuthedController {
 	}
 
 public function GestionResultats()
-{ 	$listTeam = DB::table('team')->get();
+{ 	
+	$listTeam = DB::table('team')->get();
+	$match = DB::table('match')->get();
 
                 $data = Auth::user();
 
-                return View::make('admin.resultats',array('data'=>$data,'listTeam'=>$listTeam));
+                return View::make('admin.resultats',array('match'=>$match,'data'=>$data,'listTeam'=>$listTeam));
 }
 	public function AddResultat()
 	{
+
+$m = Input::get('get');
 
 	}
 
