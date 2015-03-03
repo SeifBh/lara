@@ -73,9 +73,9 @@ $FC2 = Player::where('position',  '=', 'FC2')->where('team','=',$z)->pluck('name
 $FC3 = Player::where('position',  '=', 'FC3')->where('team','=',$z)->pluck('name');
 
 
-$President = DB::table('teamx')->where('name',  '=', $z )->pluck('NomPresident');
-$Entraineur = DB::table('teamx')->where('name',  '=', $z )->pluck('Entraineur');
-$stade = DB::table('teamx')->where('name',  '=', $z )->pluck('stade');
+$President = DB::table('team')->where('name',  '=', $z )->pluck('NomPresident');
+$Entraineur = DB::table('team')->where('name',  '=', $z )->pluck('Entraineur');
+$stade = DB::table('team')->where('name',  '=', $z )->pluck('stade');
 
                                     $id_match = Match::where('nomEquipe1',  '=', $z )->pluck('match_id');
 

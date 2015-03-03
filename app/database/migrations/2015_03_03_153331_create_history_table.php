@@ -25,8 +25,7 @@ class CreateHistoryTable extends Migration {
 
             $table->primary(array('user_id', 'match_id'));
         });
-
-        	}
+   	}
 
 	/**
 	 * Reverse the migrations.

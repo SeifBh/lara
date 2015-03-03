@@ -27,13 +27,10 @@ class LeagueController extends AuthedController {
 	{
 
 		$leaguename= Input::get('nomleague');
-
 		$league = new League();
 		$league->name = $leaguename;
 		$league->save();
-
-        return Response::json('succes');
-
+		return 'ok';
 
 
 	}

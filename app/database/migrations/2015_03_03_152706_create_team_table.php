@@ -28,7 +28,7 @@ class CreateTeamTable extends Migration {
 
 
         });
-	}
+      	}
 
 	/**
 	 * Reverse the migrations.

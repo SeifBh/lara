@@ -137,8 +137,19 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
+                                 <div class="form-group">
+                                            <label>Leagues</label>
+                                            <select name = "league" id="league" class="form-control">
+                                                 <option >Selectionnez league</option>
+
+                                                 @foreach($league as $l)
+                                                 <option value="{{$l->id}}">{{$l->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                <table class="table table-striped table-bordered table-hover" id="table" name="table">
+                                  <thead>
                                         <tr>
                                             <th>Match_id</th>
                                             <th>nom Equipe1</th>
@@ -146,25 +157,11 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                                             <th>score 1 </th>
                                             <th>score 2</th>
                                         </tr>
+
                                     </thead>
-                                                @foreach($match as $info)
-                                                   <tbody>
-                                                        <td>{{ $info->match_id }}</td>
-                                                        <td>{{ $info->nomEquipe1 }}</td>
-                                                        <td>{{ $info->nomEquipe2 }}</td>
-                                                        <td>
-                                                            <input size="1" value="{{$info->r1}}" name="score1" id="score1" class="form-control" />
-                                                        </td>
-                                                        <td>
-                                                            <input size="1" value="{{$info->r2}}" name="score2" id="score2" class="form-control" />
-                                                        </td>
-
-
-
-
-                                                   </tbody>
+                                    <tbody id="tbody">
+                                    </tbody>
                                                    
-                                                @endforeach
                                 </table>
                                          </br>
                                         <button  id="test" type="submit" class="btn btn-default">Submit Button</button>
@@ -201,7 +198,34 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
       <!-- CUSTOM SCRIPTS -->
     <script src="css/assets/js/custom.js"></script>
 
+<script>
+                $("#league").on('change',function(e){
 
+                        console.log(e);
+                        var cat_id = e.target.value;
+
+                        //ajax
+
+                        $.get('/ajax-subcat2?cat_id='+cat_id,function(data){
+                            //succes
+                                $.each(data, function(index,subcatObj){
+                                    
+                                    $('#table').append('<tbody></tbody>');
+
+                                    $("#table").append('<tbody id="tbodyid"><tr>');
+                                    $("#table").append('<td value="'+subcatObj.match_id+'">'+subcatObj.match_id+'</td>')
+                                    $("#table").append('<td value="'+subcatObj.nomEquipe1+'">'+subcatObj.nomEquipe1+'</td>')
+                                    $("#table").append('<td value="'+subcatObj.nomEquipe2+'">'+subcatObj.nomEquipe2+'</td>')
+                                    $("#table").append('<td><input value="'+subcatObj.r1+'" size="0.5" id="'+subcatObj.nomEquipe1+'" name="r1" type="text" class="form-control" placeholder="resultat1" /></td>')
+                                    $("#table").append('<td><input value="'+subcatObj.r2+'" size="0,2" id="'+subcatObj.nomEquipe2+'" name="r2" type="text" class="form-control" placeholder="resultat2" /></td>')
+                                    $("#table").append('</tr></tbody>');
+
+                                });
+
+                        });
+                });
+
+</script>
 
 </body>
 </html>

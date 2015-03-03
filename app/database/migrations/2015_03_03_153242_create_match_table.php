@@ -12,7 +12,6 @@ class CreateMatchTable extends Migration {
 	 */
 	public function up()
 	{
-		//
 			Schema::create('match', function($table)
         {
             $table->increments('match_id');
@@ -23,6 +22,7 @@ class CreateMatchTable extends Migration {
             $table->string('lieu');
             $table->string('r1');
             $table->string('r2');
+            $table->integer('league_id');
             $table->timestamps();
         });
    	}

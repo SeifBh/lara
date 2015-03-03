@@ -10,11 +10,12 @@ class MatchController extends AuthedController {
 	public function index()
 	{
         $data = Auth::user();
+	        $league = League::all();
 
 
- 	$listTeam = DB::table('teamx')->get();
 
- 	return View::make('admin.match',array('listTeam'=>$listTeam,'data'=>$data));
+
+ 	return View::make('admin.match',array('league'=>$league,'data'=>$data));
 
 	}
 	public function AddMatch()
@@ -26,7 +27,7 @@ class MatchController extends AuthedController {
 		$etat = Input::get('etat');
 		$date = Input::get('date');
 		$lieu = Input::get('lieu');
-
+		$league_id = Input::get('id');
 
     $match = new Match();
     $match->nomEquipe1 = $selectedequipe1 ;
@@ -37,7 +38,12 @@ class MatchController extends AuthedController {
     $match->date =$date ;
 
     $match->lieu = $lieu ;
+
+    $match->league_id = $league_id ;
+
+
     $match->save();
+
         return Response::json('succes');
 	}
 
@@ -52,6 +58,7 @@ class MatchController extends AuthedController {
 		//
 		$user_id = Auth::user()->id;
 		$match_id = Input::get('id_match');
+		
 		$p1 = Input::get('p1');
 		$p2 = Input::get('p2');
 
@@ -64,6 +71,7 @@ class MatchController extends AuthedController {
 
 
 		$hist->save();
+        return Response::json('succes');
 
 	}
 

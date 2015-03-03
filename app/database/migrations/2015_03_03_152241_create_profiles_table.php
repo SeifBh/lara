@@ -1,10 +1,17 @@
 <?php
+
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateProfilesTable extends Migration {
 
-    public function up()
-    {
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
         Schema::create('profiles', function($table)
         {
             $table->increments('id');
@@ -15,11 +22,16 @@ class CreateProfilesTable extends Migration {
             $table->string('access_token_secret');
             $table->timestamps();
         });
-    }
+        	}
 
-    public function down()
-    {
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
         Schema::drop('profiles');
-    }
+	}
 
 }

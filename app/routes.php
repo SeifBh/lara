@@ -14,6 +14,18 @@ Route::get('user','GestionUserController@index');
 
 
 
+Route::get('ajax-subcat2',function()
+{
+
+
+$cat_id = Input::get('cat_id');
+
+$subcategories = Match::where('league_id','=',$cat_id)->get();
+
+return Response::json($subcategories);
+});
+
+
 Route::get('ajax-subcat',function()
 {
 

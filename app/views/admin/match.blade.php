@@ -129,21 +129,27 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
                                 <div class="col-md-6">
                                     <h3>Ajouter un Match</h3>
                                     <form role="form">
+                                        <div class="form-group">
+                                            <label>Leagues</label>
+                                            <select name = "league" id="league" class="form-control">
+                                                 <option >Selectionnez league</option>
+
+                                                 @foreach($league as $l)
+                                                 <option value="{{$l->id}}">{{$l->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
 
                                         <div class="form-group">
                                             <label>Equipe Visite </label>
-                                            <select name="s1" class="form-control">
-                                            	@foreach($listTeam as $team)
-                                                <option value="{{$team->name}}">{{$team->name}}</option>
-                                                @endforeach
+                                            <select id="s1" name="s1" class="form-control">
+                                                <option value=""></option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Equipe Visiteuse</label>
-                                            <select name="s2" class="form-control">
-                                            	@foreach($listTeam as $team)
-                                                <option value="{{$team->name}}">{{$team->name}}</option>
-                                                @endforeach
+                                            <select id="s2" name="s2" class="form-control">
+                                                <option value=""></option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -160,7 +166,9 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
                                             <label>lieu</label>
                                             <input name="lieu" class="form-control" placeholder="Lieu" />
                                         </div>
-
+                                        <div class="form-group">
+                                            <input type="hidden" name="id" id="id" value=""  class="form-control" placeholder="" />
+                                        </div>
                                                                             </br>
 									 	<button type="submit" class="btn btn-default">Submit Button</button>
                                         <button type="reset" class="btn btn-primary">Reset Button</button>                                       
@@ -191,24 +199,30 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
     <script src="css/assets/js/custom.js"></script>
     
 <script>
-$("#myForm").submit(function(e) {
-        e.preventDefault();
-        var form_url = $( this ).attr('action');
-    var form_data= $( this ).serialize();
-    
-        $.ajax({
-            url: form_url,
-            type: 'POST',
-            data: form_data,
-            dataType: 'json',
-            success: function( result ){
+                $("#league").on('change',function(e){
+                        console.log(e);
+                        var cat_id = e.target.value;
 
+                        //ajax
 
-                   $('#result').html( 'success1' );
+                        $.get('/ajax-subcat?cat_id='+cat_id,function(data){
+                            //succes
+                                $("#s1").empty();
+                                $("#s2").empty();
 
-            }
-    });
-});
+                                $.each(data, function(index,subcatObj){
+
+                                    $('input[name=id]').val(subcatObj.league_id);
+                                 
+                                    $("#s1").append('<option value="'+subcatObj.name+'">'+subcatObj.name+'</option>')
+
+                                    $("#s2").append('<option value="'+subcatObj.name+'">'+subcatObj.name+'</option>')
+
+                                });
+
+                        });
+                });
+
 
 
 </script>   

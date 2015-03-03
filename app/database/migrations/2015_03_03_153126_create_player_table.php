@@ -12,7 +12,7 @@ class CreatePlayerTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('player', function($table)
+				Schema::create('player', function($table)
         {
             //Primary Key
             $table->increments('player_id');	
@@ -27,7 +27,7 @@ class CreatePlayerTable extends Migration {
 
 
         });
-	}
+   	}
 
 	/**
 	 * Reverse the migrations.

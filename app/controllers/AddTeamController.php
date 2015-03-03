@@ -14,15 +14,13 @@ class AddTeamController extends AuthedController {
 		        $data = Auth::user();
         		$league = League::all();
 
-		$listLeague = DB::table('teamx')->distinct()->get();
 
-		return View::make('admin.team',array('league'=>$league,'listLeague'=>$listLeague,'data'=>$data));
+		return View::make('admin.team',array('league'=>$league,'data'=>$data));
 
 	}
 	public function AddTeam()
 	{
 		//
-		$listLeague = DB::table('teamx')->get();
 
 		$nomequipe = Input::get('nomequipe');
 

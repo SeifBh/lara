@@ -42,7 +42,7 @@ echo HTML::style('./css/stylesequipes.css');
 </head>
 <body>
 <center> @include('partials.navigation')</center> 
-{{ Form::open(array('action' => 'MatchController@SaveMatch', $id_match)) }}
+{{ Form::open(array('action' => 'MatchController@SaveMatch', $id_match ,'id'=>'myForm')) }}
 
 <div id="contenue"></div>
 <div id="pos"><a href="/Tunisie" > <img src="../images/prec.png" align="left" style="height:45px;width:45px;"></img></a> </div>
@@ -539,7 +539,7 @@ echo HTML::style('./css/stylesequipes.css');
 
                         <td><center>{{$nomEquipe1}}</td>
                         <td>
-                          <input placeholder="-" type="text" name="p1" id="name" size="1" maxlength="2">
+                          <input placeholder="-" type="text" name="p1" id="name1" size="1" maxlength="2">
                         </td>
                   </tr>
 
@@ -548,15 +548,27 @@ echo HTML::style('./css/stylesequipes.css');
                         <td><center>{{$nomEquipe2}}
                         </td>
                         <td>
-                          <input placeholder="-" type="text" name="p2" id="name" size="1" maxlength="2">
+                          <input placeholder="-" type="text" name="p2" id="name2" size="1" maxlength="2">
                         </td>
                   </tr>
-
 
                   <tr>
                           <td colspan="2">
                               <center>
+
+                            <input type="text" id="o" value="" class="button blue-button">
+
+
+                              </center>
+                         </td>
+                  </tr>
+
+                  <tr>
+                          <td colspan="2">
+                              <center>
+
                             <input type="submit" value="Submit" class="button blue-button">
+
                             {{Form::hidden('id_match', $id_match)}}
 
                               </center>
@@ -566,7 +578,31 @@ echo HTML::style('./css/stylesequipes.css');
 
 </div>
 </div>
+<script>
 
+$("#myForm").submit(function(e) {
+        e.preventDefault();
+        var form_url = $( this ).attr('action');
+    var form_data= $( this ).serialize();
+    
+        $.ajax({
+            url: form_url,
+            type: 'POST',
+            data: form_data,
+            dataType: 'json',
+            success: function( result ){
+
+
+                       $('#o').val("hello world");
+                       $('#name1').val("");
+                       $('#name2').val("");
+
+            }
+    });
+});
+
+
+</script>
 
 
 
