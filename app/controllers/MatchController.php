@@ -1,6 +1,6 @@
 <?php
 
-class MatchController extends AuthedController {
+class MatchController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.

@@ -36,7 +36,7 @@
   <div class="dif" style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -58,7 +58,7 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                                 <a href="Player">Ajouter un Joueur</a>
                             </li>
                             <li>
-                                <a href="#">Modifier un joueur</a>
+                                <a href="EditPlayer">Modifier un joueur</a>
                             </li>
                             <li>
                                 <a href="#">Supprimer un Joueur</a>
@@ -192,7 +192,9 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                                    </br>
 									 	<button  id="test" type="submit" class="btn btn-default">Submit Button</button>
                                         <button  type="reset" class="btn btn-primary">Reset Button</button>                                       
-                                      <div id="result"></div>                                       
+                                      <div id="result"></div> 
+                                      </br>
+                                      <div name="visit" id="visit" >{{ HTML::linkAction('AddPlayerController@visit', 'Visit website') }}</div>                                      
 
                                  </div>
                              </div>
@@ -221,6 +223,7 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                 $("#league").on('change',function(e){
                         console.log(e);
                         var cat_id = e.target.value;
+                        alert(cat_id);
 
                         //ajax
 
@@ -233,7 +236,9 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
 
                                 });
 
+
                         });
+ 
                 });
 
 
@@ -251,6 +256,7 @@ $("#myForm").submit(function(e) {
 
 
                    $('#result').html( 'success1' );
+
 
             }
     });

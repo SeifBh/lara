@@ -534,7 +534,7 @@ echo HTML::style('./css/stylesequipes.css');
                         </center>
           </div>
 
-        <table border="0" id="t">
+        <table  id="t">
                   <tr>
 
                         <td><center>{{$nomEquipe1}}</td>
@@ -556,7 +556,7 @@ echo HTML::style('./css/stylesequipes.css');
                           <td colspan="2">
                               <center>
 
-                            <input type="text" id="o" value="" class="button blue-button">
+                              <label id="o"></label>
 
 
                               </center>
@@ -592,8 +592,7 @@ $("#myForm").submit(function(e) {
             dataType: 'json',
             success: function( result ){
 
-
-                       $('#o').val("hello world");
+                       $("#o").html("<b>Succes</b>");
                        $('#name1').val("");
                        $('#name2').val("");
 

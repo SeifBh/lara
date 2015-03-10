@@ -1,6 +1,6 @@
 <?php
 
-class AdminController extends AuthedController {
+class AdminController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -33,8 +33,9 @@ class AdminController extends AuthedController {
 
 public function GestionResultats()
 { 	
-	        $league = League::all();
 
+	        $league = League::all();
+	        $matchall = Match::all();
 	$listTeam = DB::table('team')->get();
 	$match = DB::table('match')->get();
 
@@ -44,17 +45,21 @@ public function GestionResultats()
 }
 	public function AddResultat()
 	{
-		$id_match = Input::get('id_match');
-		return $id_match;
 
-		$r1 = Input::get('r1');
-		$r2 = Input::get('score2');
+return 'hello seif ! ';
+		
+	}
 
-		DB::table('match')
-            ->where('match_id', $match_id)
-            ->update(array('r1' => $r1));
+	public function test4()
+	{
+				$match_id = Input::get('mid');
+				return $match_id;
+
+	
 	}
 
 
 
+
 }
+

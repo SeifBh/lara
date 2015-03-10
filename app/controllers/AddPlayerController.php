@@ -8,6 +8,12 @@ class AddPlayerController extends AuthedController {
 	 * @return Response
 	 */
 
+	public function visit()
+	{
+		$selectnameteam = Input::get('team');
+		return $selectnameteam;
+	}
+
 	public function index()
 	{
 
@@ -68,7 +74,22 @@ $player->save();
 
 
 public function AjouterJoueur(){}
-public function ModifierJoueur(){}
+public function ModifierJoueur()
+{
+        $data = Auth::user();
+
+        $league = League::all();
+
+    $selectedLeague = Input::get('league');
+
+ 	$listTeam = DB::table('team')->get();
+ 	$position = DB::table('player')->get();
+
+ 	return View::make('admin.player.modifier',array('league'=>$league,'data'=>$data,'listTeam'=>$listTeam,'position'=>$position));
+
+
+
+}
 public function SupprimerJoueur(){}
 
 

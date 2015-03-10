@@ -1,9 +1,13 @@
 <?php
 
 
-Route::post('addresult','AdminController@AddResultat');
+Route::get('EditPlayer','AddPlayerController@ModifierJoueur');
 
 
+
+Route::get('addresult','AdminController@AddResultat');
+
+Route::get('ert','AddPlayerController@visit');
 
 Route::get('league','LeagueController@index');
 
@@ -11,6 +15,19 @@ Route::post('ff','LeagueController@add');
 
 
 Route::get('user','GestionUserController@index');
+
+
+
+Route::get('ajax-subcat3',function()
+{
+
+
+$cat_id = Input::get('cat_id');
+
+$subcategories = Player::where('team_id','=',$cat_id)->get();
+
+return Response::json($subcategories);
+});
 
 
 
@@ -37,7 +54,7 @@ return Response::json($subcategories);
 });
 
 
-
+Route::get('test4','AdminController@test4');
 
 
 Route::get('Resultats','AdminController@GestionResultats');
@@ -117,7 +134,8 @@ Route::get('/', function()
     //Pages
     Route::get('/{x}/{y}', 'ManagerController@index');
 
-    Route::get('/{x}/{y}/Historique', 'HistoriqueController@index');
+    Route::resource('/Historique', 'HistoriqueController@index');
+    Route::resource('/Score', 'ScoreController@index');
 
 
 

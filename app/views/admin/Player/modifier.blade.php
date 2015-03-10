@@ -6,7 +6,7 @@
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YouCoach</title>
-    <!-- BOOTSTRAP STYLES-->
+	<!-- BOOTSTRAP STYLES-->
     <link href="css/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
     <link href="css/assets/css/font-awesome.css" rel="stylesheet" />
@@ -20,7 +20,6 @@
 
 </head>
 <body>
-{{ Form::open(array('action' => 'AdminController@test4','id'=>'myForm')) }}
 
 
     <div id="wrapper">
@@ -37,17 +36,17 @@
   <div class="dif" style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-                                <li class="text-center">
+								<li class="text-center">
                     <img src="" class="user-image img-responsive"/>
-                    </li>
-        
-                         
+					</li>
+		
+				         
                     <li>
                         <a   href="Admin"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
@@ -117,27 +116,21 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
             
         </nav>  
         <!-- /. NAV SIDE  -->
-
         <div id="page-wrapper" >
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Formulaire League
+                            Formulaire Player
                         </div>
+
                         <div class="panel-body">
-                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Ajouter un Joueur</h3>
+{{ Form::open(['action' => 'AddPlayerController@AddPlayer', 'method' => 'POST',  'id' => 'myForm']) }}
 
 
-                                 <div class="row">
-                <div class="col-md-12">
-                    <!-- Advanced Tables -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                             Advanced Tables
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                 <div class="form-group">
+                                        <div class="form-group">
                                             <label>Leagues</label>
                                             <select name = "league" id="league" class="form-control">
                                                  <option >Selectionnez league</option>
@@ -148,38 +141,31 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                                             </select>
                                         </div>
 
-                                <table class="table table-striped table-bordered table-hover" id="table" name="table">
-                                  <thead>
-                                        <tr>
-                                            <th>Match_id</th>
-                                            <th>nom Equipe1</th>
-                                            <th>nom Equipe2</th>
-                                            <th>score 1 </th>
-                                            <th>score 2</th>
-                                            <th>Edit</th>
-                                            <th>delete</th>
-                                        </tr>
+                                        <div class="form-group">
+                                            <label>Equipe</label>
+                                            <select id="team" name="team" class="form-control">
+                                                        <option value=""></option>
+                                            </select>
+                                        </div> 
 
-                                    </thead>
-                                    <tbody id="tbody">
-                                    </tbody>
-                                                   
-                                </table>
-                                         </br>
-                                        <button  id="test" type="submit" class="btn btn-default">Submit Button</button>
+                                        <div class="form-group">
+                                            <label>Liste Joueur</label>
+                                            <select id="player" name="player" class="form-control">
+                                                        <option value=""></option>
+                                            </select>
+                                        </div>
+                                                        
+                                   </br>
+									 	<button  id="test" type="submit" class="btn btn-default">Submit Button</button>
                                         <button  type="reset" class="btn btn-primary">Reset Button</button>                                       
+                                      <div id="result"></div> 
+                                      </br>
+                                      <div name="visit" id="visit" >{{ HTML::linkAction('AddPlayerController@visit', 'Visit website') }}</div>                                      
 
-                                      <div id="result"></div>  
-
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <!--End Advanced Tables -->
-                </div>
-            </div>
-
+                                 </div>
+                             </div>
                          </div>  
+                         {{Form::close()}}         
          </div>
              <!-- /. PAGE INNER  -->
             </div>
@@ -198,62 +184,80 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
     <script src="css/assets/js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="css/assets/js/custom.js"></script>
-
 <script>
-                $("#league").on('change',function(e){
 
+                $("#league").on('change',function(e){
                         console.log(e);
                         var cat_id = e.target.value;
-
-
-                        /*$("table").empty();
-
-                                    $("table").attr('class="table table-striped table-bordered table-hover" id="table" name="table"');
-                                  $("table").append('<tr>')
-
-                                    $("table").append('<th>ID</th>')
-                                    $("table").append('<th>Nom Equipe1</th>')
-                                    $("table").append('<th>Nom Equioe2</th>')
-                                    $("table").append('<th>Score 1</th>')
-                                    $("table").append('<th>Score 2</th>')
-                                    $("table").append('<th>Edit</th>')
-                                    $("table").append('<th>Delete</th>')
-
-
-                                    $("table").append('</tr>')*/
+                        alert(cat_id);
 
                         //ajax
-                        $.get('/ajax-subcat2?cat_id='+cat_id,function(data){
+
+                        $.get('/ajax-subcat?cat_id='+cat_id,function(data){
                             //succes
+                                $("#team").empty();
                                 $.each(data, function(index,subcatObj){
-                                    
 
-                                   
-                                   $(".row").append('<input name="mid" id="mid" type="text" value="'+subcatObj.match_id+'"/>')
-                                   $(".row").append('<button type="submit"/><hr>')
-                                   $(".row").append('{{Form::hidden("idmatch",'+subcatObj.match_id+')}}')
-
-
-                                   /* $("table").append('<tr>')
-                                    $("table").append('<tbody></tbody>')
-
-                                    $("table").append('<td>'+subcatObj.match_id+'</td>')
-                                    $("table").append('<td>'+subcatObj.nomEquipe1+'</td>')
-                                    $("table").append('<td>'+subcatObj.nomEquipe2+'</td>')
-                                    $("table").append('<td>'+subcatObj.r1+'</td>')
-                                    $("table").append('<td>'+subcatObj.r2+'</td>')
-                                    $("table").append('<td>edit</td>')
-                                    $("table").append('<td>delete</td>')
-
-                                    $("table").append('</tr>')*/
-
+                                    $("#team").append('<option value="'+subcatObj.team_id+'">'+subcatObj.name+'</option>')
 
                                 });
 
+
                         });
+ 
                 });
 
+
+
+
+                $("#team").on('change',function(e){
+                        console.log(e);
+                        var cat_id = e.target.value;
+
+                        //ajax
+
+                        $.get('/ajax-subcat3?cat_id='+cat_id,function(data){
+                            //success
+                            $("#player").empty();
+                                $.each(data, function(index,subcatObj){
+
+                                    $("#player").append('<option value="'+subcatObj.name+'">'+subcatObj.name+'</option>')
+                              
+                                                });
+
+
+                        });
+ 
+                });
+
+                               
+$("#myForm").submit(function(e) {
+        e.preventDefault();
+        var form_url = $( this ).attr('action');
+    var form_data= $( this ).serialize();
+    
+        $.ajax({
+            url: form_url,
+            type: 'POST',
+            data: form_data,
+            dataType: 'json',
+            success: function( result ){
+
+
+                   $('#result').html( 'success1' );
+
+
+            }
+    });
+});
+
+
 </script>
+
+
+
+
+
 
 </body>
 </html>
