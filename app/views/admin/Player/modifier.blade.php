@@ -20,6 +20,7 @@
 
 </head>
 <body>
+{{ Form::open(['action' => 'AddPlayerController@hi']) }}
 
 
     <div id="wrapper">
@@ -127,7 +128,6 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3>Ajouter un Joueur</h3>
-{{ Form::open(['action' => 'AddPlayerController@AddPlayer', 'method' => 'POST',  'id' => 'myForm']) }}
 
 
                                         <div class="form-group">
@@ -144,6 +144,8 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                         <div class="form-group">
                                             <label>Equipe</label>
                                             <select id="team" name="team" class="form-control">
+                                                <option >Selectionnez une équipe</option>
+
                                                         <option value=""></option>
                                             </select>
                                         </div> 
@@ -157,15 +159,14 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                                         
                                    </br>
 									 	<button  id="test" type="submit" class="btn btn-default">Submit Button</button>
-                                        <button  type="reset" class="btn btn-primary">Reset Button</button>                                       
+                                        <button  type="reset" class="btn btn-primary">Reset Button</button>
+                                {{Form::close()}}                                       
                                       <div id="result"></div> 
                                       </br>
-                                      <div name="visit" id="visit" >{{ HTML::linkAction('AddPlayerController@visit', 'Visit website') }}</div>                                      
 
                                  </div>
                              </div>
                          </div>  
-                         {{Form::close()}}         
          </div>
              <!-- /. PAGE INNER  -->
             </div>
@@ -185,18 +186,19 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
       <!-- CUSTOM SCRIPTS -->
     <script src="css/assets/js/custom.js"></script>
 <script>
+    document.getElementById("team").disabled=true;
+    document.getElementById("player").disabled=true;
 
                 $("#league").on('change',function(e){
                         console.log(e);
                         var cat_id = e.target.value;
-                        alert(cat_id);
-
                         //ajax
 
                         $.get('/ajax-subcat?cat_id='+cat_id,function(data){
                             //succes
                                 $("#team").empty();
                                 $.each(data, function(index,subcatObj){
+                                        document.getElementById("team").disabled=false;
 
                                     $("#team").append('<option value="'+subcatObj.team_id+'">'+subcatObj.name+'</option>')
 
@@ -220,8 +222,9 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                             //success
                             $("#player").empty();
                                 $.each(data, function(index,subcatObj){
+                                        document.getElementById("player").disabled=false;
 
-                                    $("#player").append('<option value="'+subcatObj.name+'">'+subcatObj.name+'</option>')
+                                    $("#player").append('<option value="'+subcatObj.player_id+'">'+subcatObj.name+'</option>')
                               
                                                 });
 
@@ -230,26 +233,33 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
  
                 });
 
+
+                $("#player").on('change',function(e){
+                        console.log(e);
+                        var cat_id = e.target.value;
+                        //ajax
+
+
+                        $.get('/ajax-subcat4?cat_id='+cat_id,function(data){
+                            //success
+                                $.each(data, function(index,subcatObj){
+                             $("input").remove();
+                                    $(".row").append('<input name="player_id" id="player_id" type="hidden" value="'+subcatObj.player_id+'"></input></br>')
+
+                                    $(".row").append('<input name="seif" id="seif" type="text" value="'+subcatObj.player_id+'"></input></br>')
+                                    $(".row").append('<input   type="text" value="'+subcatObj.position+'"></input>')
+                                    $(".row").append('{{link_to_action("AddPlayerController@hi","seif")}}')
+                              
+                                                });
+
+
+                        });
+ 
+                });
+
+
                                
-$("#myForm").submit(function(e) {
-        e.preventDefault();
-        var form_url = $( this ).attr('action');
-    var form_data= $( this ).serialize();
-    
-        $.ajax({
-            url: form_url,
-            type: 'POST',
-            data: form_data,
-            dataType: 'json',
-            success: function( result ){
 
-
-                   $('#result').html( 'success1' );
-
-
-            }
-    });
-});
 
 
 </script>

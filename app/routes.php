@@ -3,6 +3,8 @@
 
 Route::get('EditPlayer','AddPlayerController@ModifierJoueur');
 
+Route::post('testthis','AddPlayerController@hi');
+
 
 
 Route::get('addresult','AdminController@AddResultat');
@@ -15,6 +17,22 @@ Route::post('ff','LeagueController@add');
 
 
 Route::get('user','GestionUserController@index');
+
+
+
+
+Route::get('ajax-subcat4',function()
+{
+
+
+$cat_id = Input::get('cat_id');
+
+$subcategories = Player::where('player_id','=',$cat_id)->get();
+
+return Response::json($subcategories);
+});
+
+
 
 
 

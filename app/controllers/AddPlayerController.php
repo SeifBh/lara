@@ -90,7 +90,13 @@ public function ModifierJoueur()
 
 
 }
-public function SupprimerJoueur(){}
+public function hi()
+{
+
+$x = Input::get("player_id");
+return $x;
+return 'k';
+}
 
 
 

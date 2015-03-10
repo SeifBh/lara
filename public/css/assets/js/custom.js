@@ -9,6 +9,7 @@
     100% To use For Personal And Commercial Use.
    
     ========================================================  */
+    document.getElementById("team").disabled=false;
 
 (function ($) {
     "use strict";
