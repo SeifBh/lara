@@ -7,4 +7,9 @@ class Player extends Eloquent {
 
 	protected $primaryKey = "player_id";
 
+		public function team()
+    {
+        return $this->belongsTo('Team', 'team_id');
+    }
+
 }

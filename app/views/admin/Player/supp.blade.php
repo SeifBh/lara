@@ -20,7 +20,7 @@
 
 </head>
 <body>
-{{ Form::open(['action' => 'AddPlayerController@hi','method' => 'POST',  'id' => 'myForm']) }}
+{{ Form::open(['action' => 'AddPlayerController@delete','method' => 'POST',  'id' => 'myForm']) }}
 
 
     <div id="wrapper">
@@ -127,7 +127,7 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3>Modifier un Joueur</h3>
+                                    <h3>Supprimer un Joueur</h3>
 
 
                                         <div class="form-group">
@@ -144,24 +144,29 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                         <div class="form-group">
                                             <label>Equipe</label>
                                             <select id="team" name="team" class="form-control">
-                                                <option >Veuillez Selectionnez une league</option>
+                                                <option >Selectionnez une équipe</option>
 
                                                         <option value=""></option>
                                             </select>
                                         </div> 
 
                                         <div class="form-group">
-                                            <label>Joueur</label>
+                                            <label>Liste Joueur</label>
                                             <select id="player" name="player" class="form-control">
-                                                <option >Veuillez Selectionnez une équipe</option>
                                                         <option value=""></option>
                                             </select>
                                         </div>
                                                         
+                                   </br>
+									 	<button  id="test" type="submit" class="btn btn-default">Submit Button</button>
+                                        <button  type="reset" class="btn btn-primary">Reset Button</button>
                                 {{Form::close()}}                                       
+                                      <div id="result"></div> 
+                                      </br>
 
                                  </div>
                              </div>
+                         </div>  
          </div>
              <!-- /. PAGE INNER  -->
             </div>
@@ -241,10 +246,8 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                              $("input").remove();
                                     $(".row").append('<input name="player_id" id="player_id" type="hidden" value="'+subcatObj.player_id+'"></input></br>')
 
-                                    $(".panel-body").append('<div class="form-group"><label>Nom</label></br><input class="form-control" name="name" id="name" type="text" value="'+subcatObj.name+'"></input></div>')
-                                    $(".panel-body").append('<label>Position</label></br><input class="form-control" name="position" id="position" onchange="checkFilled();"  type="text" value="'+subcatObj.position+'"></input></br>')
-                                    $(".panel-body").append('<input class="btn btn-default" type="submit" value="Modifier"/></div>                         </div> ')
-                                    $(".panel-body").append('<div id="result"></div> ')
+                                    $(".row").append('<input name="name" id="name" type="hidden" value="'+subcatObj.name+'"></input></br>')
+                                    $(".row").append('<input name="position" id="position"  type="hidden" value="'+subcatObj.position+'"></input>')
                               
                                                 });
 
@@ -252,7 +255,6 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                         });
  
                 });
-
 
 
     $("#myForm").submit(function(e) {
@@ -268,7 +270,7 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
             success: function( result ){
 
 
-                   $('#result').append('<b>Modification terminé avec succes</b>');
+                   $('#result').append('<b>Ce Joueur est supprimé avec succes</b>');
 
 
             }

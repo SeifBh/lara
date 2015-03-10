@@ -2,8 +2,13 @@
 
 
 Route::get('EditPlayer','AddPlayerController@ModifierJoueur');
+Route::get('DeletePlayer','AddPlayerController@SupprimerJoueur');
+
 
 Route::post('testthis','AddPlayerController@hi');
+
+
+Route::post('Del','AddPlayerController@delete');
 
 
 

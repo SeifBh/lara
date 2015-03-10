@@ -73,7 +73,23 @@ $player->save();
 	}
 
 
-public function AjouterJoueur(){}
+public function SupprimerJoueur()
+{
+
+        $data = Auth::user();
+
+        $league = League::all();
+
+    $selectedLeague = Input::get('league');
+
+ 	$listTeam = DB::table('team')->get();
+ 	$position = DB::table('player')->get();
+
+ 	return View::make('admin.player.supp',array('league'=>$league,'data'=>$data,'listTeam'=>$listTeam,'position'=>$position));
+
+
+
+}
 public function ModifierJoueur()
 {
         $data = Auth::user();
@@ -102,7 +118,14 @@ DB::table('player')
 
         return Response::json('succes');
 }
+public function delete()
+{
+	$id = Input::get("player_id");
+DB::table('player')->where('player_id', '=', $id)->delete();
+        return Response::json('Ce Joueur est supprimé avec succes');
 
+
+}
 
 
 }
