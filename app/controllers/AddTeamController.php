@@ -45,8 +45,7 @@ class AddTeamController extends AuthedController {
 		$equipe->Entraineur = $entraineur ;
 
 
-		$equipe->save();
-
+		return response::json("succes");
 
 		return '1';
 
@@ -54,12 +53,65 @@ class AddTeamController extends AuthedController {
 
 	public function UpdateTeam()
 	{
-		//
+		$data = Auth::user();
+
+        $league = League::all();
+
+    $selectedLeague = Input::get('league');
+
+ 	$listTeam = DB::table('team')->get();
+ 	$position = DB::table('player')->get();
+
+ 	return View::make('admin.Match.modifier',array('league'=>$league,'data'=>$data,'listTeam'=>$listTeam,'position'=>$position));
+
+
+
+	}
+
+	public function edit()
+	{
+		$id = Input::get('match_id');
+		$nom1 = Input::get('nom1');
+		$nom2 = Input::get('nom2');
+		$etat = Input::get('etat');
+		$date = Input::get('date');
+		$lieu = Input::get('lieu');
+
+DB::table('match')
+            ->where('match_id', $id)
+            ->update(array('nomEquipe1' => $nom1 ,
+            			'nomEquipe2'=> $nom2,
+            			'etat' => $etat,
+            			'date'=> $date,
+            			'lieu'=>$lieu));
+
+        return Response::json('succes');
 	}
 
 	public function DeleteTeam()
 	{
-		//
+				$data = Auth::user();
+
+        $league = League::all();
+
+    $selectedLeague = Input::get('league');
+
+ 	$listTeam = DB::table('team')->get();
+ 	$position = DB::table('player')->get();
+
+ 	return View::make('admin.Match.delete',array('league'=>$league,'data'=>$data,'listTeam'=>$listTeam,'position'=>$position));
+
+
+	}
+
+	public function delete()
+	{
+				$id = Input::get('match_id');
+DB::table('history')->where('match_id', '=', $id)->delete();	
+
+
+DB::table('match')->where('match_id', '=', $id)->delete();
+        return Response::json('Ce Match est supprimee avec succes');
 	}
 
 }
