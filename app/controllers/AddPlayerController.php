@@ -92,10 +92,15 @@ public function ModifierJoueur()
 }
 public function hi()
 {
+	$id = Input::get("player_id");
+	$name = Input::get("name");
+	$position = Input::get("position");
+DB::table('player')
+            ->where('player_id', $id)
+            ->update(array('name' => $name ,
+            			'position'=> $position));
 
-$x = Input::get("player_id");
-return $x;
-return 'k';
+        return Response::json('succes');
 }
 
 

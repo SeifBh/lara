@@ -20,7 +20,7 @@
 
 </head>
 <body>
-{{ Form::open(['action' => 'AddPlayerController@hi']) }}
+{{ Form::open(['action' => 'AddPlayerController@hi','method' => 'POST',  'id' => 'myForm']) }}
 
 
     <div id="wrapper">
@@ -246,8 +246,8 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                              $("input").remove();
                                     $(".row").append('<input name="player_id" id="player_id" type="hidden" value="'+subcatObj.player_id+'"></input></br>')
 
-                                    $(".row").append('<input name="seif" id="seif" type="text" value="'+subcatObj.player_id+'"></input></br>')
-                                    $(".row").append('<input   type="text" value="'+subcatObj.position+'"></input>')
+                                    $(".row").append('<input name="name" id="name" type="text" value="'+subcatObj.name+'"></input></br>')
+                                    $(".row").append('<input name="position" id="position"  type="text" value="'+subcatObj.position+'"></input>')
                                     $(".row").append('{{link_to_action("AddPlayerController@hi","seif")}}')
                               
                                                 });
@@ -258,7 +258,25 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                 });
 
 
-                               
+    $("#myForm").submit(function(e) {
+        e.preventDefault();
+        var form_url = $( this ).attr('action');
+    var form_data= $( this ).serialize();
+    
+        $.ajax({
+            url: form_url,
+            type: 'POST',
+            data: form_data,
+            dataType: 'json',
+            success: function( result ){
+
+
+                   $('#result').append('<b>success</b>');
+
+
+            }
+    });
+});                           
 
 
 
