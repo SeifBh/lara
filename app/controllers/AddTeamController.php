@@ -1,6 +1,6 @@
 <?php
 
-class AddTeamController extends AuthedController {
+class AddTeamController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -43,11 +43,11 @@ class AddTeamController extends AuthedController {
 
 		$equipe->nomPresident = $nomPresident;
 		$equipe->Entraineur = $entraineur ;
+		$equipe->save();
 
 
-		return response::json("succes");
+		return Response::json("succes");
 
-		return '1';
 
 	}
 
@@ -113,5 +113,110 @@ DB::table('history')->where('match_id', '=', $id)->delete();
 DB::table('match')->where('match_id', '=', $id)->delete();
         return Response::json('Ce Match est supprimee avec succes');
 	}
+
+	public function indexEdit()
+	{
+		$data = Auth::user();
+
+        $league = League::all();
+
+    $selectedLeague = Input::get('league');
+
+ 	$listTeam = DB::table('team')->get();
+ 	$position = DB::table('player')->get();
+
+ 	return View::make('admin.Team.modifier',array('league'=>$league,'data'=>$data,'listTeam'=>$listTeam,'position'=>$position));
+
+
+
+	}
+
+
+public function editTeam()
+{
+
+$id = Input::get('team_id');
+$nom = Input::get('name');
+$nomcomplet = Input::get('fullname');
+$stade = Input::get('stade');
+$president = Input::get('president');
+$coach = Input::get('coach');
+
+
+DB::table('team')
+            ->where('team_id', $id)
+            ->update(array('name' => $nom ,
+            			'fullName'=> $nomcomplet,
+            			'stade' => $stade,
+            			'nomPresident'=> $president,
+            			'Entraineur'=>$coach));
+
+        return Response::json('succes');
+
+
+}
+
+
+public function indexdelete()
+{
+
+			$data = Auth::user();
+
+        $league = League::all();
+
+    $selectedLeague = Input::get('league');
+
+ 	$listTeam = DB::table('team')->get();
+ 	$position = DB::table('player')->get();
+
+ 	return View::make('admin.Team.delete',array('league'=>$league,'data'=>$data,'listTeam'=>$listTeam,'position'=>$position));
+
+
+
+}
+public function deleteTeamx()
+{
+$id = Input::get('team_id');
+
+
+DB::table('team')->where('team_id', '=', $id)->delete();
+
+
+        return Response::json('succes');
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

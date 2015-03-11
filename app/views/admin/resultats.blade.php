@@ -20,7 +20,7 @@
 
 </head>
 <body>
-{{ Form::open(array('action' => 'AdminController@test4','id'=>'myForm')) }}
+{{ Form::open(['action' => 'HistoriqueController@edit','method' => 'POST',  'id' => 'myForm']) }}
 
 
     <div id="wrapper">
@@ -37,7 +37,7 @@
   <div class="dif" style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -59,10 +59,10 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                                 <a href="Player">Ajouter un Joueur</a>
                             </li>
                             <li>
-                                <a href="#">Modifier un joueur</a>
+                                <a href="EditPlayer">Modifier un joueur</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer un Joueur</a>
+                                <a href="DeletePlayer">Supprimer un Joueur</a>
 
                             </li>
                         </ul>
@@ -75,10 +75,10 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                                 <a href="Match">Ajouter un Match</a>
                             </li>
                             <li>
-                                <a href="#">Modifier un Match</a>
+                                <a href="EditMatch">Modifier un Match</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer un Match</a>
+                                <a href="DeleteMatch">Supprimer un Match</a>
 
                             </li>
                         </ul>
@@ -91,10 +91,10 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                                 <a href="Team">Ajouter une équipe</a>
                             </li>
                             <li>
-                                <a href="#">Modifier une équipe</a>
+                                <a href="EditTeam">Modifier une équipe</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer une équipe</a>
+                                <a href="DeleteTeam">Supprimer une équipe</a>
 
                             </li>
                         </ul>
@@ -115,29 +115,22 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                 </ul>
             </div>
             
-        </nav>  
+        </nav>
         <!-- /. NAV SIDE  -->
-
         <div id="page-wrapper" >
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Formulaire League
+                            Formulaire Player
                         </div>
+
                         <div class="panel-body">
-                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Modifier un Match</h3>
 
 
-                                 <div class="row">
-                <div class="col-md-12">
-                    <!-- Advanced Tables -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                             Advanced Tables
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                 <div class="form-group">
+                                        <div class="form-group">
                                             <label>Leagues</label>
                                             <select name = "league" id="league" class="form-control">
                                                  <option >Selectionnez league</option>
@@ -148,38 +141,21 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                                             </select>
                                         </div>
 
-                                <table class="table table-striped table-bordered table-hover" id="table" name="table">
-                                  <thead>
-                                        <tr>
-                                            <th>Match_id</th>
-                                            <th>nom Equipe1</th>
-                                            <th>nom Equipe2</th>
-                                            <th>score 1 </th>
-                                            <th>score 2</th>
-                                            <th>Edit</th>
-                                            <th>delete</th>
-                                        </tr>
+                                        <div class="form-group">
+                                            <label>Liste des matchs</label>
+                                            <select name = "match" id="match" class="form-control">
+                                                 <option >Selectionnez un match</option>
+                                                 <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </br>
+                           
 
-                                    </thead>
-                                    <tbody id="tbody">
-                                    </tbody>
-                                                   
-                                </table>
-                                         </br>
-                                        <button  id="test" type="submit" class="btn btn-default">Submit Button</button>
-                                        <button  type="reset" class="btn btn-primary">Reset Button</button>                                       
+                                                        
+                                {{Form::close()}}                                       
 
-                                      <div id="result"></div>  
-
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <!--End Advanced Tables -->
-                </div>
-            </div>
-
-                         </div>  
+                                 </div>
+                             </div>
          </div>
              <!-- /. PAGE INNER  -->
             </div>
@@ -198,62 +174,95 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
     <script src="css/assets/js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="css/assets/js/custom.js"></script>
-
 <script>
-                $("#league").on('change',function(e){
+    document.getElementById("match").disabled=true;
 
+ $("#league").on('change',function(e){
                         console.log(e);
                         var cat_id = e.target.value;
-
-
-                        /*$("table").empty();
-
-                                    $("table").attr('class="table table-striped table-bordered table-hover" id="table" name="table"');
-                                  $("table").append('<tr>')
-
-                                    $("table").append('<th>ID</th>')
-                                    $("table").append('<th>Nom Equipe1</th>')
-                                    $("table").append('<th>Nom Equioe2</th>')
-                                    $("table").append('<th>Score 1</th>')
-                                    $("table").append('<th>Score 2</th>')
-                                    $("table").append('<th>Edit</th>')
-                                    $("table").append('<th>Delete</th>')
-
-
-                                    $("table").append('</tr>')*/
-
                         //ajax
-                        $.get('/ajax-subcat2?cat_id='+cat_id,function(data){
-                            //succes
+
+                        $.get('/ajax-subcat5?cat_id='+cat_id,function(data){
+                            //success
+                            $("#match").empty();
+                            $("input").remove();
+                            $("label").remove();
+                                document.getElementById("match").disabled=false;
+
                                 $.each(data, function(index,subcatObj){
-                                    
+                                    $("#match").append('<option>Selectionnez un match</option>')
 
-                                   
-                                   $(".row").append('<input name="mid" id="mid" type="text" value="'+subcatObj.match_id+'"/>')
-                                   $(".row").append('<button type="submit"/><hr>')
-                                   $(".row").append('{{Form::hidden("idmatch",'+subcatObj.match_id+')}}')
+                                    $("#match").append('<option value="'+subcatObj.match_id+'">'+subcatObj.nomEquipe1+' VS '+subcatObj.nomEquipe2+'</option>')
+                              
+                                                });
 
-
-                                   /* $("table").append('<tr>')
-                                    $("table").append('<tbody></tbody>')
-
-                                    $("table").append('<td>'+subcatObj.match_id+'</td>')
-                                    $("table").append('<td>'+subcatObj.nomEquipe1+'</td>')
-                                    $("table").append('<td>'+subcatObj.nomEquipe2+'</td>')
-                                    $("table").append('<td>'+subcatObj.r1+'</td>')
-                                    $("table").append('<td>'+subcatObj.r2+'</td>')
-                                    $("table").append('<td>edit</td>')
-                                    $("table").append('<td>delete</td>')
-
-                                    $("table").append('</tr>')*/
-
-
-                                });
 
                         });
+ 
                 });
 
+
+
+
+
+                $("#match").on('change',function(e){
+                        console.log(e);
+                        var cat_id = e.target.value;
+                        //ajax
+
+
+                        $.get('/ajax-subcat6?cat_id='+cat_id,function(data){
+                            //success
+                                $.each(data, function(index,subcatObj){
+                             $("input").remove();
+                             $("label").remove();
+
+                                    $(".row").append('<input name="match_id" id="match_id" type="hidden" value="'+subcatObj.match_id+'"></input></br>')
+
+                                    $(".panel-body").append('<div class="form-group"><label>Resultat 1 </label></br><input class="form-control" name="r1" id="r2" type="text" value="'+subcatObj.r1+'"></input></div>')
+                                    $(".panel-body").append('<label>Resultat 2</label></br><input class="form-control" name="r2" id="r2"   type="text" value="'+subcatObj.r2+'"></input></br>')
+                                    $(".panel-body").append('<input class="btn btn-warning" type="submit" value="Modifier"/></div></div> ')
+                                    $(".panel-body").append('<input class="btn btn-primary" type="reset" value="Reset"/></div></div> ')
+                                    $(".panel-body").append('<div id="result"></div> ')
+                              
+                                                });
+
+
+                        });
+ 
+                });
+
+
+
+    $("#myForm").submit(function(e) {
+        e.preventDefault();
+        var form_url = $( this ).attr('action');
+    var form_data= $( this ).serialize();
+    
+        $.ajax({
+            url: form_url,
+            type: 'POST',
+            data: form_data,
+            dataType: 'json',
+            success: function( result ){
+
+
+                   $('#result').append('<b>Modification De resultat terminé avec succes</b>');
+                   $("#r1").val("");
+                   $("#r2").val("");
+
+            }
+    });
+});                           
+
+
+
 </script>
+
+
+
+
+
 
 </body>
 </html>

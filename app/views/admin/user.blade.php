@@ -39,14 +39,14 @@ float: right;
 font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
-                <nav class="navbar-default navbar-side" role="navigation">
+                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-								<li class="text-center">
+                                <li class="text-center">
                     <img src="" class="user-image img-responsive"/>
-					</li>
-		
-				         
+                    </li>
+        
+                         
                     <li>
                         <a   href="Admin"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
@@ -58,10 +58,10 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                                 <a href="Player">Ajouter un Joueur</a>
                             </li>
                             <li>
-                                <a href="#">Modifier un joueur</a>
+                                <a href="EditPlayer">Modifier un joueur</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer un Joueur</a>
+                                <a href="DeletePlayer">Supprimer un Joueur</a>
 
                             </li>
                         </ul>
@@ -74,10 +74,10 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                                 <a href="Match">Ajouter un Match</a>
                             </li>
                             <li>
-                                <a href="#">Modifier un Match</a>
+                                <a href="EditMatch">Modifier un Match</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer un Match</a>
+                                <a href="DeleteMatch">Supprimer un Match</a>
 
                             </li>
                         </ul>
@@ -90,10 +90,10 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                                 <a href="Team">Ajouter une équipe</a>
                             </li>
                             <li>
-                                <a href="#">Modifier une équipe</a>
+                                <a href="EditTeam">Modifier une équipe</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer une équipe</a>
+                                <a href="DeleteTeam">Supprimer une équipe</a>
 
                             </li>
                         </ul>

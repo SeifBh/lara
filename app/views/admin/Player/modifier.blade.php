@@ -43,11 +43,11 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-								<li class="text-center">
+                                <li class="text-center">
                     <img src="" class="user-image img-responsive"/>
-					</li>
-		
-				         
+                    </li>
+        
+                         
                     <li>
                         <a   href="Admin"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
@@ -75,10 +75,10 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                 <a href="Match">Ajouter un Match</a>
                             </li>
                             <li>
-                                <a href="#">Modifier un Match</a>
+                                <a href="EditMatch">Modifier un Match</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer un Match</a>
+                                <a href="DeleteMatch">Supprimer un Match</a>
 
                             </li>
                         </ul>
@@ -91,10 +91,10 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                 <a href="Team">Ajouter une équipe</a>
                             </li>
                             <li>
-                                <a href="#">Modifier une équipe</a>
+                                <a href="EditTeam">Modifier une équipe</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer une équipe</a>
+                                <a href="DeleteTeam">Supprimer une équipe</a>
 
                             </li>
                         </ul>
@@ -243,7 +243,9 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
 
                                     $(".panel-body").append('<div class="form-group"><label>Nom</label></br><input class="form-control" name="name" id="name" type="text" value="'+subcatObj.name+'"></input></div>')
                                     $(".panel-body").append('<label>Position</label></br><input class="form-control" name="position" id="position" onchange="checkFilled();"  type="text" value="'+subcatObj.position+'"></input></br>')
-                                    $(".panel-body").append('<input class="btn btn-default" type="submit" value="Modifier"/></div>                         </div> ')
+                                    $(".panel-body").append('<input class="btn btn-warning" type="submit" value="Modifier"/></div>                         </div> ')
+                                    $(".panel-body").append('<input class="btn btn-primary" type="reset" value="Reset"/></div>                         </div> ')
+                                    
                                     $(".panel-body").append('<div id="result"></div> ')
                               
                                                 });

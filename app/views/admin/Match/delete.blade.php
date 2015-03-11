@@ -6,7 +6,7 @@
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YouCoach</title>
-	<!-- BOOTSTRAP STYLES-->
+    <!-- BOOTSTRAP STYLES-->
     <link href="css/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
     <link href="css/assets/css/font-awesome.css" rel="stylesheet" />
@@ -43,11 +43,11 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-								<li class="text-center">
+                                <li class="text-center">
                     <img src="" class="user-image img-responsive"/>
-					</li>
-		
-				         
+                    </li>
+        
+                         
                     <li>
                         <a   href="Admin"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
@@ -75,10 +75,10 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                 <a href="Match">Ajouter un Match</a>
                             </li>
                             <li>
-                                <a href="#">Modifier un Match</a>
+                                <a href="EditMatch">Modifier un Match</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer un Match</a>
+                                <a href="DeleteMatch">Supprimer un Match</a>
 
                             </li>
                         </ul>
@@ -91,10 +91,10 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                 <a href="Team">Ajouter une équipe</a>
                             </li>
                             <li>
-                                <a href="#">Modifier une équipe</a>
+                                <a href="EditTeam">Modifier une équipe</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer une équipe</a>
+                                <a href="DeleteTeam">Supprimer une équipe</a>
 
                             </li>
                         </ul>
@@ -115,7 +115,7 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                 </ul>
             </div>
             
-        </nav>  
+        </nav>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
 
@@ -175,6 +175,7 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
       <!-- CUSTOM SCRIPTS -->
     <script src="css/assets/js/custom.js"></script>
 <script>
+                        document.getElementById("match").disabled=true;
 
  $("#league").on('change',function(e){
                         console.log(e);
@@ -185,7 +186,9 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                             //success
                             $("#match").empty();
                                 $.each(data, function(index,subcatObj){
+                        document.getElementById("match").disabled=false;
 
+                                    $("#match").append('<option>Selectionnez un match</option>')
                                     $("#match").append('<option value="'+subcatObj.match_id+'">'+subcatObj.nomEquipe1+' VS '+subcatObj.nomEquipe2+'</option>')
                               
                                                 });
@@ -205,13 +208,14 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                         //ajax
 
                         $("input").remove();
+
                         $.get('/ajax-subcat6?cat_id='+cat_id,function(data){
                             //success
                                 $.each(data, function(index,subcatObj){
                                     $(".panel-body").append('<input name="match_id" id="match_id" type="hidden" value="'+subcatObj.match_id+'"></input></br>')
 
-                                    $(".panel-body").append('<input class="btn btn-default" type="submit" value="Supprimer ce match"/></div>                         </div> ')
-                                    $(".panel-body").append('<input class="btn btn-default" type="reset" value="Reset"/></div>                         </div> ')
+                                    $(".panel-body").append('<input class="btn btn-danger" type="submit" value="Supprimer ce match"/></div>                         </div> ')
+                                    $(".panel-body").append('<input class="btn btn-primary" type="reset" value="Reset"/></div>                         </div> ')
                                     $(".panel-body").append('<div id="result"></div> ')
                               
                                 
@@ -224,6 +228,26 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
 
 
 
+
+    $("#myForm").submit(function(e) {
+        e.preventDefault();
+        var form_url = $( this ).attr('action');
+    var form_data= $( this ).serialize();
+    
+        $.ajax({
+            url: form_url,
+            type: 'POST',
+            data: form_data,
+            dataType: 'json',
+            success: function( result ){
+
+
+                   $('#result').append('<b>Suppression du match terminee avec succes</b>');
+
+
+            }
+    });
+});                           
 
                        
 

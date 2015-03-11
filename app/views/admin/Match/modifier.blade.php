@@ -43,11 +43,11 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-								<li class="text-center">
+                                <li class="text-center">
                     <img src="" class="user-image img-responsive"/>
-					</li>
-		
-				         
+                    </li>
+        
+                         
                     <li>
                         <a   href="Admin"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
@@ -75,10 +75,10 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                 <a href="Match">Ajouter un Match</a>
                             </li>
                             <li>
-                                <a href="#">Modifier un Match</a>
+                                <a href="EditMatch">Modifier un Match</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer un Match</a>
+                                <a href="DeleteMatch">Supprimer un Match</a>
 
                             </li>
                         </ul>
@@ -91,10 +91,10 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                 <a href="Team">Ajouter une équipe</a>
                             </li>
                             <li>
-                                <a href="#">Modifier une équipe</a>
+                                <a href="EditTeam">Modifier une équipe</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer une équipe</a>
+                                <a href="DeleteTeam">Supprimer une équipe</a>
 
                             </li>
                         </ul>
@@ -115,7 +115,7 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                 </ul>
             </div>
             
-        </nav>  
+        </nav>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
 
@@ -185,6 +185,7 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                             //success
                             $("#match").empty();
                                 $.each(data, function(index,subcatObj){
+                                    $("#match").append('<option>Selectionnez un match</option>')
 
                                     $("#match").append('<option value="'+subcatObj.match_id+'">'+subcatObj.nomEquipe1+' VS '+subcatObj.nomEquipe2+'</option>')
                               
@@ -209,6 +210,8 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                             //success
                                 $.each(data, function(index,subcatObj){
                              $("input").remove();
+                             $("label").remove();
+
                                     $(".row").append('<input name="match_id" id="match_id" type="hidden" value="'+subcatObj.match_id+'"></input></br>')
 
                                     $(".panel-body").append('<div class="form-group"><label>Nom Equipe1</label></br><input class="form-control" name="nom1" id="nom1" type="text" value="'+subcatObj.nomEquipe1+'"></input></div>')
@@ -216,8 +219,8 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                     $(".panel-body").append('<label>Lieu</label></br><input class="form-control" name="lieu" id="lieu"   type="text" value="'+subcatObj.lieu+'"></input></br>')
                                     $(".panel-body").append('<label>Etat</label></br><input class="form-control" name="etat" id="etat"   type="text" value="'+subcatObj.etat+'"></input></br>')
                                     $(".panel-body").append('<label>Date</label></br><input class="form-control" name="date" id="date"  type="date" value="'+subcatObj.date+'"></input></br>')
-                                    $(".panel-body").append('<input class="btn btn-default" type="submit" value="Modifier"/></div>                         </div> ')
-                                    $(".panel-body").append('<input class="btn btn-default" type="reset" value="Reset"/></div>                         </div> ')
+                                    $(".panel-body").append('<input class="btn btn-warning" type="submit" value="Modifier"/></div>                         </div> ')
+                                    $(".panel-body").append('<input class="btn btn-primary" type="reset" value="Reset"/></div>                         </div> ')
                                     $(".panel-body").append('<div id="result"></div> ')
                               
                                                 });

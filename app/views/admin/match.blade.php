@@ -54,10 +54,10 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
                                 <a href="Player">Ajouter un Joueur</a>
                             </li>
                             <li>
-                                <a href="#">Modifier un joueur</a>
+                                <a href="EditPlayer">Modifier un joueur</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer un Joueur</a>
+                                <a href="DeletePlayer">Supprimer un Joueur</a>
 
                             </li>
                         </ul>
@@ -70,10 +70,10 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
                                 <a  href="Match">Ajouter un Match</a>
                             </li>
                             <li>
-                                <a href="#">Modifier un Match</a>
+                                <a href="EditMatch">Modifier un Match</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer un Match</a>
+                                <a href="DeleteMatch">Supprimer un Match</a>
 
                             </li>
                         </ul>
@@ -86,10 +86,10 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
                                 <a href="Team">Ajouter une équipe</a>
                             </li>
                             <li>
-                                <a href="#">Modifier une équipe</a>
+                                <a href="EditTeam">Modifier une équipe</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer une équipe</a>
+                                <a href="DeleteTeam">Supprimer une équipe</a>
 
                             </li>
                         </ul>
@@ -170,7 +170,7 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
                                             <input type="hidden" name="id" id="id" value=""  class="form-control" placeholder="" />
                                         </div>
                                                                             </br>
-									 	<button type="submit" class="btn btn-default">Submit Button</button>
+									 	<button type="submit" class="btn btn-success">Submit Button</button>
                                         <button type="reset" class="btn btn-primary">Reset Button</button>                                       
                                          <div id="result"></div>                                       
 

@@ -1,7 +1,7 @@
 
 <?php
 
-class ManagerController extends AuthedController {
+class ManagerController extends BaseController {
 
   /**
    * Display a listing of the resource.
@@ -14,8 +14,7 @@ class ManagerController extends AuthedController {
 
        $data = array();
 
-    if (Auth::check()) 
-                        {
+
         $data = Auth::user();
 
                                     $z = str_replace('_', ' ', $y);
@@ -127,14 +126,7 @@ return View::make('manager', array('data'=>$data, 'z'=>$z, 'x'=>$x, 'y'=>$y,
 }
 
 
-     }
-    else
-    {
 
-
-    return View::make('login');
-
-    }
 
 
 

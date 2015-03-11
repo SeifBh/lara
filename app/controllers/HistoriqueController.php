@@ -56,4 +56,21 @@ return View::make('Historique', array('data'=>$data,'histo'=>$histo,'nomEquipe1'
 
 
 	}
+
+
+public function edit()
+{
+			$id = Input::get('match_id');
+		$r1 = Input::get('r1');
+		$r2 = Input::get('r2');
+
+
+DB::table('match')
+            ->where('match_id', $id)
+            ->update(array('r1' => $r1 ,
+   
+            			'r2'=>$r2));
+
+        return Response::json('succes');
+}
 }

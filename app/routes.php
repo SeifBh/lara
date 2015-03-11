@@ -1,5 +1,23 @@
 <?php
 
+Route::get('EditTeam','AddTeamController@indexEdit');
+
+Route::post('yy','AddTeamController@editTeam');
+
+
+
+Route::post('yyfgggg','HistoriqueController@edit');
+
+
+
+
+Route::get('DeleteTeam','AddTeamController@indexdelete');
+
+Route::post('ikp','AddTeamController@deleteTeamx');
+
+
+
+
 
 
 Route::get('EditPlayer','AddPlayerController@ModifierJoueur');
@@ -33,6 +51,49 @@ Route::post('ff','LeagueController@add');
 Route::get('user','GestionUserController@index');
 
 Route::post('cc','AddTeamController@edit');
+
+
+
+Route::get('ajax-subcat9',function()
+{
+
+
+$cat_id = Input::get('cat_id');
+
+$subcategories = Match::where('league_id','=',$cat_id)->get();
+
+return Response::json($subcategories);
+});
+
+
+
+
+Route::get('ajax-subcat8',function()
+{
+
+
+$cat_id = Input::get('cat_id');
+
+$subcategories = Equipe::where('team_id','=',$cat_id)->get();
+
+return Response::json($subcategories);
+});
+
+
+
+
+
+Route::get('ajax-subcat7',function()
+{
+
+
+$cat_id = Input::get('cat_id');
+
+$subcategories = Equipe::where('league_id','=',$cat_id)->get();
+
+return Response::json($subcategories);
+});
+
 
 
 

@@ -43,11 +43,11 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-								<li class="text-center">
+                                <li class="text-center">
                     <img src="" class="user-image img-responsive"/>
-					</li>
-		
-				         
+                    </li>
+        
+                         
                     <li>
                         <a   href="Admin"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
@@ -62,7 +62,7 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                 <a href="EditPlayer">Modifier un joueur</a>
                             </li>
                             <li>
-                                <a href="DeletePlayer">Supprimer un Joueur</a>
+                                <a href="#">Supprimer un Joueur</a>
 
                             </li>
                         </ul>
@@ -115,7 +115,7 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                 </ul>
             </div>
             
-        </nav>  
+        </nav> 
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
 
@@ -158,7 +158,7 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                         </div>
                                                         
                                    </br>
-									 	<button  id="test" type="submit" class="btn btn-default">Submit Button</button>
+									 	<button  id="test" type="submit" class="btn btn-danger">Submit Button</button>
                                         <button  type="reset" class="btn btn-primary">Reset Button</button>
                                 {{Form::close()}}                                       
                                       <div id="result"></div> 

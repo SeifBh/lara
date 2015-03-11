@@ -1,6 +1,6 @@
 <?php
 
-class AddPlayerController extends AuthedController {
+class AddPlayerController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -19,8 +19,6 @@ class AddPlayerController extends AuthedController {
 
  $data = array();
 
-    if (Auth::check()) 
-                        {
 
 
         $data = Auth::user();
@@ -36,10 +34,7 @@ class AddPlayerController extends AuthedController {
 
 
 
-}
-else{
-	return View::make('login');
-}
+
 	}
 
 

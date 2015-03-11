@@ -18,7 +18,7 @@
 </head>
 <body>
 
-  {{ Form::open(array('action' => 'AddTeamController@AddTeam','method' => 'post')) }}
+{{ Form::open(['action' => 'AddTeamController@AddTeam', 'method' => 'POST',  'id' => 'myForm']) }}
 
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
@@ -40,27 +40,26 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-				<li class="text-center">
-                    <img src="{{ $data['photo']}}" class="user-image img-responsive"/>
-					</li>
-				
-					
-          
+                                <li class="text-center">
+                    <img src="" class="user-image img-responsive"/>
+                    </li>
+        
+                         
                     <li>
                         <a   href="Admin"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des joueurs<span class="fa arrow"></span></a>
+                        <a class="active-menu"  href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des joueurs<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="Player">Ajouter un Joueur</a>
                             </li>
                             <li>
-                                <a href="#">Modifier un joueur</a>
+                                <a href="EditPlayer">Modifier un joueur</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer un Joueur</a>
+                                <a href="DeletePlayer">Supprimer un Joueur</a>
 
                             </li>
                         </ul>
@@ -73,26 +72,26 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
                                 <a href="Match">Ajouter un Match</a>
                             </li>
                             <li>
-                                <a href="#">Modifier un Match</a>
+                                <a href="EditMatch">Modifier un Match</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer un Match</a>
+                                <a href="DeleteMatch">Supprimer un Match</a>
 
                             </li>
                         </ul>
                       </li>
 
                     <li>
-                        <a class="active-menu"  href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Equipes<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Equipes<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="Team">Ajouter une équipe</a>
                             </li>
                             <li>
-                                <a href="#">Modifier une équipe</a>
+                                <a href="EditTeam">Modifier une équipe</a>
                             </li>
                             <li>
-                                <a href="#">Supprimer une équipe</a>
+                                <a href="DeleteTeam">Supprimer une équipe</a>
 
                             </li>
                         </ul>
@@ -109,9 +108,8 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
                         </ul>
                       </li> 
                              
- 
+
                 </ul>
-               
             </div>
             
         </nav>  
@@ -163,11 +161,12 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
                                         </div>
  
                                                                                                                                                           </br>
-									 	<button type="submit" class="btn btn-default">Submit Button</button>
+									 	<button type="submit" class="btn btn-success">Submit Button</button>
                                         <button type="reset" class="btn btn-primary">Reset Button</button>                                       
                                  </div>
                              </div>
-                         </div>                  
+                         </div>     
+                         <div id="result"></div>             
          </div>
              <!-- /. PAGE INNER  -->
             </div>
@@ -186,7 +185,31 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
     <script src="css/assets/js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="css/assets/js/custom.js"></script>
+<script>
+
+
+$("#myForm").submit(function(e) {
+        e.preventDefault();
+        var form_url = $( this ).attr('action');
+    var form_data= $( this ).serialize();
     
+        $.ajax({
+            url: form_url,
+            type: 'POST',
+            data: form_data,
+            dataType: 'json',
+            success: function( result ){
+
+
+                   $('#result').html( '<b>Vous Avez ajoutee une équipe avec <i>Succes </i></b>' );
+
+
+            }
+    });
+});
+
+
+</script>
    
 </body>
 </html>
