@@ -124,33 +124,6 @@ return Response::json($subcategories);
 
 
 
-Route::get('ajax-subcat4',function()
-{
-
-
-$cat_id = Input::get('cat_id');
-
-$subcategories = Player::where('player_id','=',$cat_id)->get();
-
-return Response::json($subcategories);
-});
-
-
-
-
-
-Route::get('ajax-subcat3',function()
-{
-
-
-$cat_id = Input::get('cat_id');
-
-$subcategories = Player::where('team_id','=',$cat_id)->get();
-
-return Response::json($subcategories);
-});
-
-
 
 Route::get('ajax-subcat2',function()
 {
@@ -164,15 +137,6 @@ return Response::json($subcategories);
 });
 
 
-Route::get('ajax-subcat',function()
-{
-
-$cat_id = Input::get('cat_id');
-
-$subcategories = Equipe::where('league_id','=',$cat_id)->get();
-
-return Response::json($subcategories);
-});
 
 
 Route::get('test4','AdminController@test4');
@@ -294,3 +258,43 @@ Route::get('League1', function()
     return View::make('template.temp_League1');
 });
 
+
+
+//Get League ID
+Route::get('Ligue',function()
+{
+
+$league_id = Input::get('league_id');
+
+$subcategories = Equipe::where('league_id','=',$league_id)->get();
+
+return Response::json($subcategories);
+});
+
+
+
+Route::get('Players',function()
+{
+
+
+$player_id = Input::get('player_id');
+
+$subcategories = Player::where('player_id','=',$player_id)->get();
+
+return Response::json($subcategories);
+});
+
+
+
+
+
+Route::get('Teams',function()
+{
+
+
+$team_id = Input::get('team_id');
+
+$subcategories = Player::where('team_id','=',$team_id)->get();
+
+return Response::json($subcategories);
+});

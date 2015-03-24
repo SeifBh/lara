@@ -158,8 +158,8 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                         </div>
                                                         
                                    </br>
-									 	<button  id="test" type="submit" class="btn btn-danger">Submit Button</button>
-                                        <button  type="reset" class="btn btn-primary">Reset Button</button>
+									 	<button  id="test" type="submit" class="btn btn-danger">Supprimer</button>
+                                        <button  type="reset" class="btn btn-default">Reset Button</button>
                                 {{Form::close()}}                                       
                                       <div id="result"></div> 
                                       </br>
@@ -186,15 +186,13 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
       <!-- CUSTOM SCRIPTS -->
     <script src="css/assets/js/custom.js"></script>
 <script>
-    document.getElementById("team").disabled=true;
-    document.getElementById("player").disabled=true;
 
                 $("#league").on('change',function(e){
                         console.log(e);
-                        var cat_id = e.target.value;
+                        var league_id = e.target.value;
                         //ajax
 
-                        $.get('/ajax-subcat?cat_id='+cat_id,function(data){
+                        $.get('/Ligue?league_id='+league_id,function(data){
                             //succes
                                 $("#team").empty();
                                 $.each(data, function(index,subcatObj){
@@ -214,11 +212,11 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
 
                 $("#team").on('change',function(e){
                         console.log(e);
-                        var cat_id = e.target.value;
+                        var player_id = e.target.value;
 
                         //ajax
 
-                        $.get('/ajax-subcat3?cat_id='+cat_id,function(data){
+                        $.get('/Players?player_id='+player_id,function(data){
                             //success
                             $("#player").empty();
                                 $.each(data, function(index,subcatObj){

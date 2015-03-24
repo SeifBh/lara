@@ -201,11 +201,11 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
 <script>
                 $("#league").on('change',function(e){
                         console.log(e);
-                        var cat_id = e.target.value;
+                        var league_id = e.target.value;
 
                         //ajax
 
-                        $.get('/ajax-subcat?cat_id='+cat_id,function(data){
+                        $.get('/Ligue?league_id='+league_id,function(data){
                             //succes
                                 $("#s1").empty();
                                 $("#s2").empty();

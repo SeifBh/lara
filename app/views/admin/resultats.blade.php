@@ -219,8 +219,8 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
 
                                     $(".row").append('<input name="match_id" id="match_id" type="hidden" value="'+subcatObj.match_id+'"></input></br>')
 
-                                    $(".panel-body").append('<div class="form-group"><label>Resultat 1 </label></br><input class="form-control" name="r1" id="r2" type="text" value="'+subcatObj.r1+'"></input></div>')
-                                    $(".panel-body").append('<label>Resultat 2</label></br><input class="form-control" name="r2" id="r2"   type="text" value="'+subcatObj.r2+'"></input></br>')
+                                    $(".panel-body").append('<div class="form-group"><label>'+subcatObj.nomEquipe1+'</label></br><input class="form-control" name="r1" id="r2" type="text" value="'+subcatObj.r1+'"></input></div>')
+                                    $(".panel-body").append('<label>'+subcatObj.nomEquipe2+'</label></br><input class="form-control" name="r2" id="r2"   type="text" value="'+subcatObj.r2+'"></input></br>')
                                     $(".panel-body").append('<input class="btn btn-warning" type="submit" value="Modifier"/></div></div> ')
                                     $(".panel-body").append('<input class="btn btn-primary" type="reset" value="Reset"/></div></div> ')
                                     $(".panel-body").append('<div id="result"></div> ')

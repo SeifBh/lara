@@ -162,6 +162,10 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
 
                                  </div>
                              </div>
+
+                                <div class="col-md-5">
+                                    <h3>Disabled Form State Examples</h3>
+                                </div>
          </div>
              <!-- /. PAGE INNER  -->
             </div>
@@ -186,10 +190,11 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
 
                 $("#league").on('change',function(e){
                         console.log(e);
-                        var cat_id = e.target.value;
+                        var league_id = e.target.value;
+
                         //ajax
 
-                        $.get('/ajax-subcat?cat_id='+cat_id,function(data){
+                        $.get('/Ligue?league_id='+league_id,function(data){
                             //succes
                                 $("#team").empty();
                                 $.each(data, function(index,subcatObj){
@@ -209,11 +214,11 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
 
                 $("#team").on('change',function(e){
                         console.log(e);
-                        var cat_id = e.target.value;
+                        var team_id = e.target.value;
 
                         //ajax
 
-                        $.get('/ajax-subcat3?cat_id='+cat_id,function(data){
+                        $.get('/Teams?team_id='+team_id,function(data){
                             //success
                             $("#player").empty();
                                 $.each(data, function(index,subcatObj){
@@ -231,22 +236,27 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
 
                 $("#player").on('change',function(e){
                         console.log(e);
-                        var cat_id = e.target.value;
+                        var player_id = e.target.value;
                         //ajax
 
 
-                        $.get('/ajax-subcat4?cat_id='+cat_id,function(data){
+                        $.get('/Players?player_id='+player_id,function(data){
                             //success
                                 $.each(data, function(index,subcatObj){
                              $("input").remove();
-                                    $(".row").append('<input name="player_id" id="player_id" type="hidden" value="'+subcatObj.player_id+'"></input></br>')
+                             $("label").remove();
+                             $(".result").remove();
+                             $("#player_id").remove();
+                             $("#player_id").remove();
 
-                                    $(".panel-body").append('<div class="form-group"><label>Nom</label></br><input class="form-control" name="name" id="name" type="text" value="'+subcatObj.name+'"></input></div>')
-                                    $(".panel-body").append('<label>Position</label></br><input class="form-control" name="position" id="position" onchange="checkFilled();"  type="text" value="'+subcatObj.position+'"></input></br>')
-                                    $(".panel-body").append('<input class="btn btn-warning" type="submit" value="Modifier"/></div>                         </div> ')
-                                    $(".panel-body").append('<input class="btn btn-primary" type="reset" value="Reset"/></div>                         </div> ')
+                                    $(".col-md-5").append('<input name="player_id" id="player_id" type="hidden" value="'+subcatObj.player_id+'"></input></br>')
+
+                                    $(".col-md-5").append('<div class="form-group"><label>Nom</label></br><input class="form-control" name="name" id="name" type="text" value="'+subcatObj.name+'"></input></div>')
+                                    $(".col-md-5").append('<label>Position</label></br><input class="form-control" name="position" id="position" onchange="checkFilled();"  type="text" value="'+subcatObj.position+'"></input></br>')
+                                    $(".col-md-5").append('<input class="btn btn-warning" type="submit" value="Modifier"/></div>                         </div> ')
+                                    $(".col-md-5").append('<input class="btn btn-default" type="reset" value="Reset"/></div>                         </div> ')
                                     
-                                    $(".panel-body").append('<div id="result"></div> ')
+                                    $(".col-md-5").append('<div id="result"></div> ')
                               
                                                 });
 

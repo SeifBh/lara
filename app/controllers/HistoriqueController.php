@@ -26,6 +26,7 @@ class HistoriqueController extends AuthedController {
 	public function index()
 	{
 
+
        $data = array();
 
     if (Auth::check()) {
@@ -41,7 +42,7 @@ class HistoriqueController extends AuthedController {
 
 		$histo=Historique::where('user_id',  '=', $user_id )->get();
 
-
+		
 
 
 

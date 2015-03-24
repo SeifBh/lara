@@ -52,6 +52,15 @@ echo HTML::style('./css/stylesequipes.css');
 
 </head>
 <body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&appId=336711179813108&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <center> @include('partials.navigation')</center> 
 {{ Form::open(array('action' => 'MatchController@SaveMatch', $id_match ,'id'=>'myForm')) }}
 
@@ -72,6 +81,12 @@ echo HTML::style('./css/stylesequipes.css');
                                 <div  id="test" class="sel" style="opacity:1;">
                                        <font face="Comic Sans MS" size="2">
                                           <b>{{$GK1}}</b>
+                                        </font>
+                                </div>
+                                @else
+                                <div  id="test" class="sel" style="opacity:1;">
+                                       <font face="Comic Sans MS" size="2">
+                                          <b>SALUT</b>
                                         </font>
                                 </div>
                                 @endif
@@ -544,23 +559,38 @@ echo HTML::style('./css/stylesequipes.css');
 
                         </center>
           </div>
-
-        <table  id="t">
+                    <input id="valid" name="valid" type="hidden" value="{{$p1}}">
+<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button"></div>
+        <table  id="t" >
                   <tr>
 
+                  </tr>
+                  <tr>
                         <td><center>{{$nomEquipe1}}</td>
+                        @if(empty($p1))
                         <td>
                           <input placeholder="-" type="text" name="p1" id="name1" size="1" maxlength="2">
                         </td>
+                        @else
+                        <td>
+                          <input value="{{$p1}}" type="text" name="p1" id="name1" size="1" maxlength="2">
+                        </td>
+                        @endif
                   </tr>
 
 
                   <tr>
-                        <td><center>{{$nomEquipe2}}
-                        </td>
+                        <td><center>{{$nomEquipe2}}</td>
+                         @if(empty($p2))
+
                         <td>
                           <input placeholder="-" type="text" name="p2" id="name2" size="1" maxlength="2">
                         </td>
+                        @else
+                        <td>
+                          <input value="{{$p2}}" type="text" name="p2" id="name2" size="1" maxlength="2">
+                        </td>
+                        @endif
                   </tr>
 
                   <tr>
@@ -578,7 +608,7 @@ echo HTML::style('./css/stylesequipes.css');
                           <td colspan="2">
                               <center>
 
-                            <input type="submit" value="Submit" class="btn btn-primary">
+                            <input type="submit" id="submit" value="Submit" class="btn btn-primary">
 
                             {{Form::hidden('id_match', $id_match)}}
 
@@ -591,25 +621,31 @@ echo HTML::style('./css/stylesequipes.css');
 </div>
 <script>
 
-$("#myForm").submit(function(e) {
-        e.preventDefault();
-        var form_url = $( this ).attr('action');
-    var form_data= $( this ).serialize();
-    
-        $.ajax({
-            url: form_url,
-            type: 'POST',
-            data: form_data,
-            dataType: 'json',
-            success: function( result ){
 
-                       $("#o").html("<b>Succes</b>");
-                       $('#name1').val("");
-                       $('#name2').val("");
+                                       se =  document.getElementById("valid").value;
+                                       if (se != "")
+                                       {
 
-            }
-    });
-});
+                                         document.getElementById("name1").disabled=true;
+                                         document.getElementById("name2").disabled=true;
+                                        document.getElementById("name1").style.border="1px solid red";
+                                        document.getElementById("name2").style.border="1px solid red";
+                                        $("#o").html("<i>Vous avez déja ajouter une résultat</i>");
+                                        document.getElementById("o").style.color="red";
+                                        document.getElementById('submit').style.visibility = 'hidden';
+
+                                       }
+                                       else
+                                       {
+
+                                         document.getElementById("name1").disabled=false;
+                                         document.getElementById("name2").disabled=false;
+                                         document.getElementById("name1").style.border="1px solid green";
+                                         document.getElementById("name2").style.border="1px solid green";
+                                        document.getElementById('submit').style.visibility = 'visible';
+
+
+                                        }
 
 
 </script>

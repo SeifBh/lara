@@ -1,7 +1,7 @@
 
 <?php
 
-class ManagerController extends BaseController {
+class ManagerController extends AuthedController {
 
   /**
    * Display a listing of the resource.
@@ -12,12 +12,16 @@ class ManagerController extends BaseController {
   public function index($x,$y)
   {
 
-       $data = array();
+$data = array();
+$user_id = Auth::user()->id;
+$z = str_replace('_', ' ', $y);
 
+$data = Auth::user();
+$id_match = Match::where('nomEquipe1',  '=', $z )->pluck('match_id');
 
-        $data = Auth::user();
+$p1 = DB::table('history')->where('user_id','=',$user_id)->where('match_id','=',$id_match)->pluck('p1');
+$p2 = DB::table('history')->where('user_id','=',$user_id)->where('match_id','=',$id_match)->pluck('p2');
 
-                                    $z = str_replace('_', ' ', $y);
 
 $GK1 = Player::where('position',  '=', 'GK1')->where('team','=',$z)->pluck('name');
 $GK2 = Player::where('position',  '=', 'GK2')->where('team','=',$z)->pluck('name');
@@ -76,25 +80,25 @@ $President = DB::table('team')->where('name',  '=', $z )->pluck('NomPresident');
 $Entraineur = DB::table('team')->where('name',  '=', $z )->pluck('Entraineur');
 $stade = DB::table('team')->where('name',  '=', $z )->pluck('stade');
 
-                                    $id_match = Match::where('nomEquipe1',  '=', $z )->pluck('match_id');
 
 
 
-                                    $nomEquipe1 = Match::where('nomEquipe1',  '=', $z )->orwhere('nomEquipe2',  '=', $z )->pluck('nomEquipe1');
+$nomEquipe1 = Match::where('nomEquipe1',  '=', $z )->orwhere('nomEquipe2',  '=', $z )->pluck('nomEquipe1');
                                     
-                                    $nomEquipe2 = Match::where('nomEquipe2',  '=', $z )->orwhere('nomEquipe1',  '=', $z )->pluck('nomEquipe2');
+$nomEquipe2 = Match::where('nomEquipe2',  '=', $z )->orwhere('nomEquipe1',  '=', $z )->pluck('nomEquipe2');
                                                    
 
-                                    $nom_Equipe_1 = str_replace(' ', '_', $nomEquipe1);
-                                    $nom_Equipe_2 = str_replace(' ', '_', $nomEquipe2);
+$nom_Equipe_1 = str_replace(' ', '_', $nomEquipe1);
+$nom_Equipe_2 = str_replace(' ', '_', $nomEquipe2);
 
-                                    $date = Match::where('nomEquipe1',  '=', $z )->pluck('date');
+$date = Match::where('nomEquipe1',  '=', $z )->pluck('date');
 
-                                    $lieu =  Match::where('nomEquipe1',  '=', $z )->pluck('lieu');
+$lieu =  Match::where('nomEquipe1',  '=', $z )->pluck('lieu');
 
 if ($GK2 == '') {
 return View::make('manager', array('data'=>$data, 'z'=>$z, 'x'=>$x, 'y'=>$y,
-
+'p1'=>$p1,
+'p2'=>$p2,
 'nomEquipe1'=>$nomEquipe1, 
 'nomEquipe2'=>$nomEquipe2,
 'nom_Equipe_1' => $nom_Equipe_1,

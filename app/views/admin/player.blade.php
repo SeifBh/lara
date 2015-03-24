@@ -188,10 +188,11 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
 
 
                                             </select>
-                                        </div>                                     
+                                        </div>  
+
                                    </br>
-									 	<button  id="test" type="submit" class="btn btn-success">Submit Button</button>
-                                        <button  type="reset" class="btn btn-primary">Reset Button</button>                                       
+									 	<button  id="test" type="submit" class="btn btn-success">Ajouter un joueur</button>
+                                        <button  type="reset" class="btn btn-default">Reset Button</button>                                       
                                       <div id="result"></div> 
                                       </br>
                                       <div name="visit" id="visit" >{{ HTML::linkAction('AddPlayerController@visit', 'Visit website') }}</div>                                      
@@ -222,16 +223,16 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
 <script>
                 $("#league").on('change',function(e){
                         console.log(e);
-                        var cat_id = e.target.value;
+                        var league_id = e.target.value;
 
                         //ajax
 
-                        $.get('/ajax-subcat?cat_id='+cat_id,function(data){
+                        $.get('/Ligue?league_id='+league_id,function(data){
                             //succes
                                 $("#team").empty();
                                 $.each(data, function(index,subcatObj){
 
-                                    $("#team").append('<option value="'+subcatObj.name+'">'+subcatObj.name+'</option>')
+                                    $("#team").append('<option value="'+subcatObj.team_id+'">'+subcatObj.name+'</option>')
 
                                 });
 
@@ -241,7 +242,7 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                 });
 
 
-$("#myForm").submit(function(e) {
+    $("#myForm").submit(function(e) {
         e.preventDefault();
         var form_url = $( this ).attr('action');
     var form_data= $( this ).serialize();
@@ -254,13 +255,12 @@ $("#myForm").submit(function(e) {
             success: function( result ){
 
 
-                   $('#result').html( 'success1' );
+                   $('#result').append('<b>Ajout terminé avec succes</b>');
 
 
             }
     });
-});
-
+});                           
 
 </script>
 

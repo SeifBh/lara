@@ -40,28 +40,32 @@ class AddPlayerController extends BaseController {
 
 	public function AddPlayer()
 	{
-		
+
+//Get name of player		
 $nom = Input::get('nom');
 
+//Get name of league
 $selectedLeague = Input::get('league');
 
 
+//Get team ID
+$idTeam = Input::get('team');
 
+//Get name of selected team
+$nameTeam = DB::table('team')->where('team_id','=',$idTeam)->pluck('name');
+
+//Get Position of player
 $selectedOption = Input::get('pos');
-
-$team_id = Equipe::pluck('team_id');
-
-
-$selectnameteam = Input::get('team');
 
 $player = new Player ();
 $player->name = $nom;
 $player->league = $selectedLeague;
-$player->team = $selectnameteam;
-$player->team_id=$team_id;
+$player->team = $nameTeam;
+$player->team_id=$idTeam;
 $player->position = $selectedOption;
 $player->save();
-        return Response::json('succes');
+
+return Response::json('succes');
 
 
 
