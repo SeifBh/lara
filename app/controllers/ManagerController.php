@@ -3,6 +3,8 @@
 
 class ManagerController extends AuthedController {
 
+
+
   /**
    * Display a listing of the resource.
    *
@@ -11,6 +13,11 @@ class ManagerController extends AuthedController {
 
   public function index($x,$y)
   {
+
+
+
+
+
 
 $data = array();
 $user_id = Auth::user()->id;
@@ -94,9 +101,37 @@ $nom_Equipe_2 = str_replace(' ', '_', $nomEquipe2);
 $date = Match::where('nomEquipe1',  '=', $z )->pluck('date');
 
 $lieu =  Match::where('nomEquipe1',  '=', $z )->pluck('lieu');
+$annee = date('Y');
+$noel = mktime(8, 0, 0, 12, 25, $annee);
+		
+ if ($noel < time())
+ $noel = mktime(8, 0, 0, 12, 25, ++$annee);
 
+ $tps_restant = $noel - time(); // $noel sera toujours plus grand que le timestamp actuel, vu que c'est dans le futur. ;)
+
+//============ CONVERSIONS
+
+$i_restantes = $tps_restant / 60;
+$H_restantes = $i_restantes / 60;
+$d_restants = $H_restantes / 24;
+
+
+$s_restantes = floor($tps_restant % 60); // Secondes restantes
+$i_restantes = floor($i_restantes % 60); // Minutes restantes
+$H_restantes = floor($H_restantes % 24); // Heures restantes
+$d_restants = floor($d_restants); // Jours restants
+//==================
+
+setlocale(LC_ALL, 'fr_FR');
 if ($GK2 == '') {
 return View::make('manager', array('data'=>$data, 'z'=>$z, 'x'=>$x, 'y'=>$y,
+'annee'=>$annee,
+'noel'=>$noel,
+'tps_restant'=>$tps_restant,
+'i_restantes'=>$i_restantes,
+'s_restantes'=>$s_restantes,
+'H_restantes'=>$H_restantes,
+'d_restants'=>$d_restants,
 'p1'=>$p1,
 'p2'=>$p2,
 'nomEquipe1'=>$nomEquipe1, 
