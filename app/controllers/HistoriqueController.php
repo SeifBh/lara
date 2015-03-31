@@ -1,6 +1,6 @@
 <?php
 
-class HistoriqueController extends AuthedController {
+class HistoriqueController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.

@@ -9,7 +9,7 @@ echo HTML::style('./css/stylesequipes.css');
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YouCoach | Matchs</title>
+    <title>YouCoach | {{$y}}</title>
   <!-- BOOTSTRAP STYLES-->
     <link href="css/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -83,13 +83,8 @@ echo HTML::style('./css/stylesequipes.css');
                                           <b>{{$GK1}}</b>
                                         </font>
                                 </div>
-                                @else
-                                <div  id="test" class="sel" style="opacity:1;">
-                                       <font face="Comic Sans MS" size="2">
-                                          <b>SALUT</b>
-                                        </font>
-                                </div>
                                 @endif
+
 
 
                                 @if(!empty($GK2))
@@ -548,53 +543,20 @@ echo HTML::style('./css/stylesequipes.css');
                          <img class="j1" id="Joueur" src="../images/logos/{{$x}}/{{$nom_Equipe_2}}.png"/><br>
 
 
-                                    {{$date}} 
+                                   le {{$date}} 
                                           </br>
-                                    {{$lieu}}
-
-
-
-
-
-
+                                   à {{$lieu}}
                         </center>
           </div>
                     <input id="valid" name="valid" type="hidden" value="{{$p1}}">
 
-<div id="d">
-{{$d_restants}}
-</div>
-<th>
-{{$H_restantes}}
-<th>
-{{$i_restantes}}
-<th>
-{{$s_restantes}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <table  id="t" >
-                  <tr>
 
-                  </tr>
                   <tr>
                         <td><center>{{$nomEquipe1}}</td>
                         @if(empty($p1))
                         <td>
-                          <input placeholder="-" type="text" name="p1" id="name1" size="1" maxlength="2">
+                          <input placeholder="0" type="text" name="p1" id="name1" size="1" maxlength="2" required>
                         </td>
                         @else
                         <td>
@@ -609,7 +571,7 @@ echo HTML::style('./css/stylesequipes.css');
                          @if(empty($p2))
 
                         <td>
-                          <input placeholder="-" type="text" name="p2" id="name2" size="1" maxlength="2">
+                          <input placeholder="0" type="text" name="p2" id="name2" size="1" maxlength="2" required>
                         </td>
                         @else
                         <td>
@@ -632,8 +594,8 @@ echo HTML::style('./css/stylesequipes.css');
                   <tr>
                           <td colspan="2">
                               <center>
+                                        <button id="submit" type="submit" class="btn btn-primary">Envoyer</button>                                       
 
-                            <input type="submit" id="submit" value="Submit" class="btn btn-primary">
 
                             {{Form::hidden('id_match', $id_match)}}
 
@@ -646,6 +608,27 @@ echo HTML::style('./css/stylesequipes.css');
 </div>
 <script>
 
+$("#name1").keyup(function() {
+    var $t = $(this);
+    if (!$t.val()) {
+          document.getElementById("name1").style.border="1px solid red";
+
+    } else {
+           document.getElementById("name1").style.border="1px solid green";
+
+    }
+}).keyup();
+
+$("#name2").keyup(function() {
+    var $t = $(this);
+    if (!$t.val()) {
+          document.getElementById("name2").style.border="1px solid red";
+
+    } else {
+           document.getElementById("name2").style.border="1px solid green";
+
+    }
+}).keyup();
 
                                        se =  document.getElementById("valid").value;
                                        if (se != "")
@@ -665,69 +648,40 @@ echo HTML::style('./css/stylesequipes.css');
 
                                          document.getElementById("name1").disabled=false;
                                          document.getElementById("name2").disabled=false;
-                                         document.getElementById("name1").style.border="1px solid green";
-                                         document.getElementById("name2").style.border="1px solid green";
+                                         document.getElementById("name1").style.border="1px solid black";
+                                         document.getElementById("name2").style.border="1px solid black";
                                         document.getElementById('submit').style.visibility = 'visible';
 
 
                                         }
 
+    $("#myForm").submit(function(e) {
+        e.preventDefault();
+        var form_url = $( this ).attr('action');
+    var form_data= $( this ).serialize();
+    
+        $.ajax({
+            url: form_url,
+            type: 'POST',
+            data: form_data,
+            dataType: 'json',
+            success: function( result ){
+
+                
+                                       $('#o').append('<i>Ajout terminé avec succes</i>');
+                  document.getElementById('submit').style.visibility = 'hidden';
+
+                
 
 
-function callScript ( scriptName, args ){
-  
-  var xhr_object = null; 
-       
-  // ### Construction de l’objet XMLHttpRequest selon le type de navigateur
-  // Cas des navigateurs de type Netscape (Firefore, Conqueror, etc.)
-  if(window.XMLHttpRequest) 
-      xhr_object = new XMLHttpRequest(); 
-  // Cas du navigateur Internet Explorer
-  else if(window.ActiveXObject)
-       xhr_object = new ActiveXObject("Microsoft.XMLHTTP");
-  // Cas des navigateurs ne comprenant pas cette technologie (anciens navigateurs)
-  else { 
-      // XMLHttpRequest non supporté par le navigateur 
-      alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest..."); 
-      return; 
-  } 
-   
-  xhr_object.open("POST", scriptName, true);
-  
-  //  Définition du comportement à adopter sur le changement d’état de l’objet 
-  // XMLHttpRequest
-  xhr_object.onreadystatechange = function() { 
-      // Etat : requête terminée, réponse récupérée
-      if(xhr_object.readyState == 4) {
-        alert(xhr_object.responseText); // DEBUG MODE
-        // ### Interprétation du retour du script appellé
-        // Mode d’interprétation 1: on affiche dans la page le retour
-        // comme s’il s’agissait de code HTML 
-        //document.write(xhr_object.responseText);
-        // Mode d’interprétation 2: on interprète le retour comme 
-        // s’il s’agissait de code javascript
-        eval(xhr_object.responseText);
-      }
-      return xhr_object.readyState;
-  } 
-  xhr_object.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  
-  //  Envoi de la requête
-  xhr_object.send(args);
+            }
+    });
+});                           
 
-}
-
-function executeSample (){
-  // --- Récupération des paramètres nécessaire au script PHP
-  var _nom = document.getElementById("nom").value;
-  var _prenom = document.getElementById("prenom").value;
-  
-  var _data = "nom="+_nom+"&prenom="+_prenom;
-  // --- Appel au script PHP de traitement
-  callScript("traitement.php",_data);
-}
 
 </script>
+
+
 
   
   

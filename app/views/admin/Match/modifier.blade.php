@@ -218,7 +218,7 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                     $(".panel-body").append('<label>Nom Equipe 2</label></br><input class="form-control" name="nom2" id="nom2"   type="text" value="'+subcatObj.nomEquipe2+'"></input></br>')
                                     $(".panel-body").append('<label>Lieu</label></br><input class="form-control" name="lieu" id="lieu"   type="text" value="'+subcatObj.lieu+'"></input></br>')
                                     $(".panel-body").append('<label>Etat</label></br><input class="form-control" name="etat" id="etat"   type="text" value="'+subcatObj.etat+'"></input></br>')
-                                    $(".panel-body").append('<label>Date</label></br><input class="form-control" name="date" id="date"  type="date" value="'+subcatObj.date+'"></input></br>')
+                                    $(".panel-body").append('<label>Date</label></br><input class="form-control" name="date" id="date"  type="datetime-local" value="'+subcatObj.date+'"></input></br>')
                                     $(".panel-body").append('<input class="btn btn-warning" type="submit" value="Modifier"/></div>                         </div> ')
                                     $(".panel-body").append('<input class="btn btn-primary" type="reset" value="Reset"/></div>                         </div> ')
                                     $(".panel-body").append('<div id="result"></div> ')

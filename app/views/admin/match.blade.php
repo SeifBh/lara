@@ -159,15 +159,15 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
 
                                         <div class="form-group">
                                             <label>date</label>
-                                            <input name="date" type="date" class="form-control" placeholder="Date" />
+                                            <input name="date" type="datetime-local" class="form-control" placeholder="Date" required/>
                                         </div>
 
                                         <div class="form-group">
                                             <label>lieu</label>
-                                            <input name="lieu" class="form-control" placeholder="Lieu" />
+                                            <input name="lieu" class="form-control" placeholder="Lieu" required/>
                                         </div>
                                         <div class="form-group">
-                                            <input type="hidden" name="id" id="id" value=""  class="form-control" placeholder="" />
+                                            <input required type="hidden" name="id" id="id" value=""  class="form-control" placeholder="" />
                                         </div>
                                                                             </br>
 									 	<button type="submit" class="btn btn-success">Submit Button</button>

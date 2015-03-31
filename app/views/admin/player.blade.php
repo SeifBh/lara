@@ -131,11 +131,11 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
 
                                         <div class="form-group">
                                             <label>Nom</label>
-                                            <input name="nom" class="form-control" placeholder="Nom Joueur" />
+                                            <input name="nom" class="form-control" placeholder="Nom Joueur" required/>
                                         </div>
                                         <div class="form-group">
                                             <label>Leagues</label>
-                                            <select name = "league" id="league" class="form-control">
+                                            <select name = "league" id="league" class="form-control" required>
                                                  <option >Selectionnez league</option>
 
                                                  @foreach($league as $l)
@@ -146,14 +146,14 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
 
                                         <div class="form-group">
                                             <label>Equipe</label>
-                                            <select id="team" name="team" class="form-control">
+                                            <select id="team" name="team" class="form-control" required>
                                                         <option value=""></option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Position</label>
-                                            <select name = "pos" id="pos" class="form-control">
+                                            <select name = "pos" id="pos" class="form-control" required>
                                                 <option name = "type"value="GK1">GK1</option>
                                                 <option name = "type"value="GK2">GK2</option>
                                                 <option name = "type"value="GK3">GK3</option>

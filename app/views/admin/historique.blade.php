@@ -120,6 +120,7 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
                            Historique Users
                         </div>
                         <div class="panel-body">
+                            <input class="form-control" placeholder="Search : Nom Facebook"></br>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
