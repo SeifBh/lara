@@ -21,7 +21,6 @@
 </head>
 <body>
 
-
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -36,58 +35,38 @@
   <div class="dif" style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-                <li class="text-center">
-                    <img src="" class="user-image img-responsive"/>
-          </li>
-    
-                 
-                    <li>
-                        <a   href="Admin"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                                <li class="text-center">
+                    <img src="{{$data['photo']}}" class="user-image img-responsive"/>
                     </li>
-
+        
+                         
                     <li>
-                        <a class="active-menu"  href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des joueurs<span class="fa arrow"></span></a>
+                        <a class="active-menu"  href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Leagues<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="Player">Ajouter un Joueur</a>
+                                <a href="AddLeague">Ajouter league</a>
                             </li>
                             <li>
-                                <a href="EditPlayer">Modifier un joueur</a>
+                                <a href="EditLeague">Modifier league</a>
                             </li>
                             <li>
-                                <a href="DeletePlayer">Supprimer un Joueur</a>
+                                <a href="DeleteLeague">Supprimer league</a>
 
                             </li>
                         </ul>
                       </li> 
-
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Matchs<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="Match">Ajouter un Match</a>
-                            </li>
-                            <li>
-                                <a href="EditMatch">Modifier un Match</a>
-                            </li>
-                            <li>
-                                <a href="DeleteMatch">Supprimer un Match</a>
-
-                            </li>
-                        </ul>
-                      </li>
-
+                      
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Equipes<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="Team">Ajouter une équipe</a>
+                                <a href="AddTeam">Ajouter une équipe</a>
                             </li>
                             <li>
                                 <a href="EditTeam">Modifier une équipe</a>
@@ -99,8 +78,49 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                         </ul>
                       </li>
 
-                      <li  >
-                        <a  href="Resultats"><i class="fa fa-table fa-3x"></i> Gestion des resultats</a>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Matchs<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="AddGame">Ajouter un Match</a>
+                            </li>
+                            <li>
+                                <a href="EditGame">Modifier un Match</a>
+                            </li>
+                            <li>
+                                <a href="DeleteGame">Supprimer un Match</a>
+
+                            </li>
+                        </ul>
+                      </li>
+
+
+
+
+
+
+                    <li>
+                        <a   href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des joueurs<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="AddPlayer">Ajouter un Joueur</a>
+                            </li>
+                            <li>
+                                <a href="EditPlayer">Modifier un joueur</a>
+                            </li>
+                            <li>
+                                <a href="DeletePlayer">Supprimer un Joueur</a>
+
+                            </li>
+                        </ul>
+                      </li> 
+
+
+
+
+
+                      <li>
+                        <a  href="Add_Edit_Result"><i class="fa fa-table fa-3x"></i> Gestion des resultats</a>
                     </li>
   
                       <li  >
@@ -114,7 +134,7 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                 </ul>
             </div>
             
-        </nav>  
+        </nav> 
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
 
@@ -122,7 +142,7 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
                         <div class="panel-heading">
                             Formulaire League
                         </div>
-{{ Form::open(['action' => 'LeagueController@add', 'method' => 'POST',  'id' => 'myForm']) }}
+{{ Form::open(['action' => 'LeagueController@AddLeague_succes', 'method' => 'POST',  'id' => 'myForm']) }}
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -163,4 +183,29 @@ font-size: 16px;">  <a href="/logout" class="btn btn-danger square-btn-adjust">L
 
 
 </body>
+<script>
+
+
+
+    $("#myForm").submit(function(e) {
+        e.preventDefault();
+        var form_url = $( this ).attr('action');
+    var form_data= $( this ).serialize();
+    
+        $.ajax({
+            url: form_url,
+            type: 'POST',
+            data: form_data,
+            dataType: 'json',
+            success: function( result ){
+
+
+                   $('#result').append('<b>Suppression du match terminee avec succes</b>');
+
+
+            }
+    });
+});                           
+
+</script>
 </html>

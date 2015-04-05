@@ -1,11 +1,10 @@
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YouCoach</title>
+    <title>YouCoach | Matchs</title>
 	<!-- BOOTSTRAP STYLES-->
     <link href="css/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -16,11 +15,8 @@
     <link href="css/assets/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-   {{ HTML::script('js/player.js') }}
-
 </head>
 <body>
-{{ Form::open(['action' => 'AddTeamController@deleteTeamx','method' => 'POST',  'id' => 'myForm']) }}
 
 
     <div id="wrapper">
@@ -44,51 +40,31 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                                 <li class="text-center">
-                    <img src="" class="user-image img-responsive"/>
+                    <img src="{{$data['photo']}}" class="user-image img-responsive"/>
                     </li>
         
                          
                     <li>
-                        <a   href="Admin"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
-                    </li>
-
-                    <li>
-                        <a class="active-menu"  href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des joueurs<span class="fa arrow"></span></a>
+                        <a  href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Leagues<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="Player">Ajouter un Joueur</a>
+                                <a href="AddLeague">Ajouter league</a>
                             </li>
                             <li>
-                                <a href="EditPlayer">Modifier un joueur</a>
+                                <a href="EditLeague">Modifier league</a>
                             </li>
                             <li>
-                                <a href="DeletePlayer">Supprimer un Joueur</a>
+                                <a href="DeleteLeague">Supprimer league</a>
 
                             </li>
                         </ul>
                       </li> 
-
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Matchs<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="Match">Ajouter un Match</a>
-                            </li>
-                            <li>
-                                <a href="EditMatch">Modifier un Match</a>
-                            </li>
-                            <li>
-                                <a href="DeleteMatch">Supprimer un Match</a>
-
-                            </li>
-                        </ul>
-                      </li>
-
+                      
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Equipes<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="Team">Ajouter une équipe</a>
+                                <a href="AddTeam">Ajouter une équipe</a>
                             </li>
                             <li>
                                 <a href="EditTeam">Modifier une équipe</a>
@@ -100,8 +76,49 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                         </ul>
                       </li>
 
-                      <li  >
-                        <a  href="Resultats"><i class="fa fa-table fa-3x"></i> Gestion des resultats</a>
+                    <li>
+                        <a class="active-menu" href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Matchs<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="AddGame">Ajouter un Match</a>
+                            </li>
+                            <li>
+                                <a href="EditGame">Modifier un Match</a>
+                            </li>
+                            <li>
+                                <a href="DeleteGame">Supprimer un Match</a>
+
+                            </li>
+                        </ul>
+                      </li>
+
+
+
+
+
+
+                    <li>
+                        <a   href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des joueurs<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="AddPlayer">Ajouter un Joueur</a>
+                            </li>
+                            <li>
+                                <a href="EditPlayer">Modifier un joueur</a>
+                            </li>
+                            <li>
+                                <a href="DeletePlayer">Supprimer un Joueur</a>
+
+                            </li>
+                        </ul>
+                      </li> 
+
+
+
+
+
+                      <li>
+                        <a  href="Add_Edit_Result"><i class="fa fa-table fa-3x"></i> Gestion des resultats</a>
                     </li>
   
                       <li  >
@@ -116,20 +133,21 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
             </div>
             
         </nav>  
-        <!-- /. NAV SIDE  -->
+{{ Form::open(['action' => 'GameController@AddGame_succes', 'method' => 'POST',  'id' => 'myForm']) }}
+
+
         <div id="page-wrapper" >
 
-                    <div class="panel panel-default">
+        	<div class="panel panel-default">
                         <div class="panel-heading">
-                            Formulaire Player
+                            Formulaire Match
                         </div>
 
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3>Supprimer une équipe</h3>
-
-
+                                    <h3>Ajouter un Match</h3>
+                                    <form role="form">
                                         <div class="form-group">
                                             <label>Leagues</label>
                                             <select name = "league" id="league" class="form-control">
@@ -142,21 +160,44 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Equipe</label>
-                                            <select id="team" name="team" class="form-control">
-                                                <option >Veuillez Selectionnez une league</option>
-
-                                                        <option value=""></option>
+                                            <label>Equipe Visite </label>
+                                            <select id="s1" name="s1" class="form-control">
+                                                <option value=""></option>
                                             </select>
-                                        </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Equipe Visiteuse</label>
+                                            <select id="s2" name="s2" class="form-control">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Etat</label>
+                                            <input name="etat" class="form-control" placeholder="Etat" />
+                                        </div>
 
+                                        <div class="form-group">
+                                            <label>date</label>
+                                            <input name="date" type="datetime-local" class="form-control" placeholder="Date" required/>
+                                        </div>
 
+                                        <div class="form-group">
+                                            <label>lieu</label>
+                                            <input name="lieu" class="form-control" placeholder="Lieu" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input required type="hidden" name="id" id="id" value=""  class="form-control" placeholder="" />
+                                        </div>
+                                                                            </br>
+									 	<button type="submit" class="btn btn-success">Submit Button</button>
+                                        <button type="reset" class="btn btn-primary">Reset Button</button>                                       
+                                         <div id="result"></div>                                       
 
-                                                        
-                                {{Form::close()}}                                       
-
+                                    </form> 
                                  </div>
                              </div>
+                         </div>      
+            
          </div>
              <!-- /. PAGE INNER  -->
             </div>
@@ -175,63 +216,34 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
     <script src="css/assets/js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="css/assets/js/custom.js"></script>
+    
 <script>
- 
+                var result = document.getElementById("result");
+                    result.innerHTML = "";
 
                 $("#league").on('change',function(e){
                         console.log(e);
-                        var cat_id = e.target.value;
+                        var league_id = e.target.value;
+
                         //ajax
-                        $("#team").empty();
-                        $.get('/ajax-subcat7?cat_id='+cat_id,function(data){
+
+                        $.get('/Ligue?league_id='+league_id,function(data){
                             //succes
-
-
+                                $("#s1").empty();
+                                $("#s2").empty();
 
                                 $.each(data, function(index,subcatObj){
 
-                                    $("#team").append('<option value="'+subcatObj.team_id+'">'+subcatObj.name+'</option>')
+                                    $('input[name=id]').val(subcatObj.league_id);
+                                 
+                                    $("#s1").append('<option value="'+subcatObj.name+'">'+subcatObj.name+'</option>')
+
+                                    $("#s2").append('<option value="'+subcatObj.name+'">'+subcatObj.name+'</option>')
 
                                 });
 
-
                         });
- 
                 });
-
-
-                $("#team").on('change',function(e){
-                        console.log(e);
-                        var cat_id = e.target.value;
-                        //ajax
-
-                             $("input").remove();
-                             $("label").remove();
-
-                        $.get('/ajax-subcat8?cat_id='+cat_id,function(data){
-                            //succes
-                                $.each(data, function(index,subcatObj){
-
-                           $("input").remove();
-                             $("label").remove();
-                             $("#result").html('');
-
-                                    $(".row").append('<input name="team_id" id="team_id" type="hidden" value="'+subcatObj.team_id+'"></input></br>')
-
-                                    $(".panel-body").append('<input class="btn btn-danger" type="submit" value="Modifier Equipe"/></div></div> ')
-                                    $(".panel-body").append('<input class="btn btn-primary" type="reset" value="Reset"/></div></div> ')
-                                    $(".panel-body").append('<div id="result"></div> ')
-
-                                });
-
-
-                        });
- 
-                });
-
-
-
-
 
 
     $("#myForm").submit(function(e) {
@@ -245,23 +257,16 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
             data: form_data,
             dataType: 'json',
             success: function( result ){
+                var result = document.getElementById("result");
+                    result.innerHTML = "";
 
-
-                   $('#result').append('<b>Suppression de cette equipe terminé avec succes</b>');
+                   $('#result').append('<b>Ajout du match terminee avec succes</b>');
 
 
             }
     });
 });                           
 
-
-
-</script>
-
-
-
-
-
-
+</script>   
 </body>
 </html>

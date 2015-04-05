@@ -9,15 +9,15 @@ class HistoriqueController extends BaseController {
 	 * @return Response
 	 */
 
-	public function historique_admin()
+public function historique_admin()
 	{
-				        $data = Auth::user();
 
+		
+		$data = Auth::user();
 		$nomEquipe1 = Match::pluck('nomEquipe1');
         $nomEquipe2 = Match::pluck('nomEquipe2');
-       
 		$h = DB::table('history')->get();
-
+		
 		return View::make('admin.historique',array('data'=>$data,'h'=>$h,'nomEquipe1'=>$nomEquipe1,'nomEquipe2'=>$nomEquipe2));
 
 
@@ -59,19 +59,5 @@ return View::make('Historique', array('data'=>$data,'histo'=>$histo,'nomEquipe1'
 	}
 
 
-public function edit()
-{
-			$id = Input::get('match_id');
-		$r1 = Input::get('r1');
-		$r2 = Input::get('r2');
 
-
-DB::table('match')
-            ->where('match_id', $id)
-            ->update(array('r1' => $r1 ,
-   
-            			'r2'=>$r2));
-
-        return Response::json('succes');
-}
 }

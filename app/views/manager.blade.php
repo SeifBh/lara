@@ -62,7 +62,7 @@ echo HTML::style('./css/stylesequipes.css');
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <center> @include('partials.navigation')</center> 
-{{ Form::open(array('action' => 'MatchController@SaveMatch', $id_match ,'id'=>'myForm')) }}
+{{ Form::open(array('action' => 'GameController@SaveMatch', $id_match ,'id'=>'myForm')) }}
 
 <div id="contenue"></div>
 <div id="pos"><a href="/Tunisie" > <img src="../images/prec.png" align="left" style="height:45px;width:45px;"></img></a> </div>
@@ -638,7 +638,7 @@ $("#name2").keyup(function() {
                                          document.getElementById("name2").disabled=true;
                                         document.getElementById("name1").style.border="1px solid red";
                                         document.getElementById("name2").style.border="1px solid red";
-                                        $("#o").html("<i>Vous avez déja ajouter une résultat</i>");
+                                        $("#o").html("<i><style color='white'>Vous avez déja ajouter une résultat</style></i>");
                                         document.getElementById("o").style.color="red";
                                         document.getElementById('submit').style.visibility = 'hidden';
 

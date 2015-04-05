@@ -1,193 +1,81 @@
 <?php
 
-Route::get('EditTeam','AddTeamController@indexEdit');
+//=====================*****/LeagueController\*****======================================
 
-Route::post('yy','AddTeamController@editTeam');
+//Ajout League
+Route::get('AddLeague','LeagueController@AddLeague_index');
+Route::post('AddLeague_Succes','LeagueController@AddLeague_succes');
 
+//Modif League
+Route::get('EditLeague','LeagueController@EditLeague_index');
+Route::post('EditPlayer_Succes','LeagueController@EditLeague_succes');
 
+//Supp League
+Route::get('DeleteLeague','LeagueController@DeleteLeague_index');
+Route::post('DeleteLeague_succes','LeagueController@DeleteLeague_succes');
 
-Route::post('yyfgggg','HistoriqueController@edit');
+//=====================*****/playersController\*****======================================
 
 
 
+//Ajout Joueur
+Route::get('AddPlayer','playersController@AddPlayer_index');
+Route::post('AddPlayer_Succes','playersController@AddPlayer_Succes');
 
-Route::get('DeleteTeam','AddTeamController@indexdelete');
+//Modif Joueur
+Route::get('EditPlayer','playersController@EditPlayer_index');
+Route::post('EditPlayer_Succes','playersController@EditPlayer_Succes');
 
-Route::post('ikp','AddTeamController@deleteTeamx');
+//Supp Joueur
+Route::get('DeletePlayer','playersController@DeletePlayer_index');
+Route::post('DeletePlayer_Succes','playersController@DeletePlayer_Succes');
 
 
+//=====================*****/GameController\*****======================================
 
 
 
+//Ajout Match
+Route::get('AddGame','GameController@AddGame_index');
+Route::post('AddGame_Succes','GameController@AddGame_succes');
 
-Route::get('EditPlayer','AddPlayerController@ModifierJoueur');
-Route::post('d2','AddTeamController@delete');
+//Modif Match
+Route::get('EditGame','GameController@EditGame_index');
+Route::post('EditGame_Succes','GameController@EditGame_succes');
 
+//Supp Match
+Route::get('DeleteGame','GameController@DeleteGame_index');
+Route::post('DeleteGame_Succes','GameController@DeleteGame_succes');
 
 
-Route::get('EditMatch','AddTeamController@UpdateTeam');
-Route::get('DeleteMatch','AddTeamController@DeleteTeam');
+//Ajout & modif resultat
+Route::get('Add_Edit_Result','GameController@Edit_Update_Result');
 
+//Sauvegarde résultat du match
+Route::post('savematch', 'GameController@SaveMatch');
 
-Route::get('DeletePlayer','AddPlayerController@SupprimerJoueur');
+//=====================*****/TeamController\*****======================================
 
+//Ajout Equipe
+Route::get('AddTeam','TeamController@AddTeam_index');
+Route::post('AddTeam_Succes','TeamController@AddTeam_succes');
 
-Route::post('testthis','AddPlayerController@hi');
+//Modif Equipe
+Route::get('EditTeam','TeamController@EditTeam_index');
+Route::post('EditTeam_Succes','TeamController@EditTeam_succes');
 
+//Supp Equipe
+Route::get('DeleteTeam','TeamController@DeleteTeam_index');
+Route::post('DeleteTeam_Succes','TeamController@DeleteTeam_succes');
 
-Route::post('Del','AddPlayerController@delete');
 
+//=====================*****/HistoriqueController\*****======================================
 
-
-Route::get('addresult','AdminController@AddResultat');
-
-Route::get('ert','AddPlayerController@visit');
-
-Route::get('league','LeagueController@index');
-
-Route::post('ff','LeagueController@add');
-
-
-Route::get('user','GestionUserController@index');
-
-Route::post('cc','AddTeamController@edit');
-
-
-
-Route::get('ajax-subcat9',function()
-{
-
-
-$cat_id = Input::get('cat_id');
-
-$subcategories = Match::where('league_id','=',$cat_id)->get();
-
-return Response::json($subcategories);
-});
-
-
-
-
-Route::get('ajax-subcat8',function()
-{
-
-
-$cat_id = Input::get('cat_id');
-
-$subcategories = Equipe::where('team_id','=',$cat_id)->get();
-
-return Response::json($subcategories);
-});
-
-
-
-
-
-Route::get('ajax-subcat7',function()
-{
-
-
-$cat_id = Input::get('cat_id');
-
-$subcategories = Equipe::where('league_id','=',$cat_id)->get();
-
-return Response::json($subcategories);
-});
-
-
-
-
-Route::get('ajax-subcat6',function()
-{
-
-
-$cat_id = Input::get('cat_id');
-
-$subcategories = Match::where('match_id','=',$cat_id)->get();
-
-return Response::json($subcategories);
-});
-
-
-
-Route::get('ajax-subcat5',function()
-{
-
-
-$cat_id = Input::get('cat_id');
-
-$subcategories = Match::where('league_id','=',$cat_id)->get();
-
-return Response::json($subcategories);
-});
-
-
-
-
-
-Route::get('ajax-subcat2',function()
-{
-
-
-$cat_id = Input::get('cat_id');
-
-$subcategories = Match::where('league_id','=',$cat_id)->get();
-
-return Response::json($subcategories);
-});
-
-
-
-
-Route::get('test4','AdminController@test4');
-
-
-Route::get('Resultats','AdminController@GestionResultats');
-
-
-Route::get('Player','AddPlayerController@index');
-
-Route::post('ss','AddPlayerController@AddPlayer');
-
-
-
-Route::get('Match','MatchController@index');
 
 Route::get('Historique_Admin','HistoriqueController@historique_admin');
 
+//=====================================================================
 
-Route::get('Team','AddTeamController@index');
-
-
-
-Route::post('tt','AddTeamController@AddTeam');
-
-Route::get('Admin','AdminController@index');
-
-
-//Route::get('Team','AddTeam@index');
-
-
-//Interface Administrator
-
-
-
-
-
-
-
-
-
-
-//Match
-Route::post('add','MatchController@AddMatch');
-Route::post('savematch', 'MatchController@SaveMatch');
-
-
-
-
-//Player
-//Route::get('ajouter','AddPlayerController@AddPlayer');
 
 
 //login page
@@ -211,25 +99,24 @@ Route::get('/', function()
 
 
 
-//Controller
     //Facebook
     Route::get('login/fb', 'AuthController@doFacebookAuth');
     Route::get('login/fb/callback', 'AuthController@doFacebookLogin');
     Route::get('logout', 'AuthController@doLogout');
-    //Pages
-    Route::get('/{x}/{y}', 'ManagerController@index');
-
-    Route::resource('/Historique', 'HistoriqueController@index');
-    Route::resource('/Score', 'ScoreController@index');
 
 
+//YouCoach
+Route::get('/{x}/{y}', 'ManagerController@index');
+
+//Page Historique Utilisateur
+Route::resource('/Historique', 'HistoriqueController@index');
 
 
-//Historique
+//Page Score
+Route::resource('/Score', 'ScoreController@index');
 
 
 
-//pages static
 
 
 Route::get('Tunisie', function()
@@ -271,7 +158,68 @@ $subcategories = Equipe::where('league_id','=',$league_id)->get();
 return Response::json($subcategories);
 });
 
+//Get League ID
+Route::get('Match',function()
+{
 
+$league_id = Input::get('league_id');
+
+$subcategories = Match::where('league_id','=',$league_id)->get();
+
+return Response::json($subcategories);
+});
+
+
+
+Route::get('MatchId',function()
+{
+
+
+$match_id = Input::get('match_id');
+
+$subcategories = Match::where('match_id','=',$match_id)->get();
+
+return Response::json($subcategories);
+});
+
+
+
+
+//Get Team ID
+
+Route::get('Teams',function()
+{
+
+
+$team_id = Input::get('team_id');
+
+$subcategories = Player::where('team_id','=',$team_id)->get();
+
+return Response::json($subcategories);
+});
+
+
+
+//Get Team ID
+
+Route::get('Team',function()
+{
+
+
+$team_id = Input::get('team_id');
+
+$subcategories = Equipe::where('team_id','=',$team_id)->get();
+
+return Response::json($subcategories);
+});
+
+
+
+
+
+
+
+//Get Player ID
 
 Route::get('Players',function()
 {
@@ -286,15 +234,3 @@ return Response::json($subcategories);
 
 
 
-
-
-Route::get('Teams',function()
-{
-
-
-$team_id = Input::get('team_id');
-
-$subcategories = Player::where('team_id','=',$team_id)->get();
-
-return Response::json($subcategories);
-});

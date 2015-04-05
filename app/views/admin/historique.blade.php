@@ -17,6 +17,7 @@
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <body>
+
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -26,63 +27,43 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">YouCoach</a> 
+                <a class="navbar-brand" href="/">YouCoach</a> 
             </div>
-  <div style="color: white;
+  <div class="dif" style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-				<li class="text-center">
-                    <img src="{{ $data['photo']}}" class="user-image img-responsive"/>
-					</li>
-				
-          
-                    <li>
-                        <a  href="Admin"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                                <li class="text-center">
+                    <img src="{{$data['photo']}}" class="user-image img-responsive"/>
                     </li>
-
+        
+                         
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des joueurs<span class="fa arrow"></span></a>
+                        <a  href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Leagues<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="Player">Ajouter un Joueur</a>
+                                <a href="AddLeague">Ajouter league</a>
                             </li>
                             <li>
-                                <a href="EditPlayer">Modifier un joueur</a>
+                                <a href="EditLeague">Modifier league</a>
                             </li>
                             <li>
-                                <a href="DeletePlayer">Supprimer un Joueur</a>
+                                <a href="DeleteLeague">Supprimer league</a>
 
                             </li>
                         </ul>
                       </li> 
-
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Matchs<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="Match">Ajouter un Match</a>
-                            </li>
-                            <li>
-                                <a href="EditMatch">Modifier un Match</a>
-                            </li>
-                            <li>
-                                <a href="DeleteMatch">Supprimer un Match</a>
-
-                            </li>
-                        </ul>
-                      </li>
-
+                      
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Equipes<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="Team">Ajouter une équipe</a>
+                                <a href="AddTeam">Ajouter une équipe</a>
                             </li>
                             <li>
                                 <a href="EditTeam">Modifier une équipe</a>
@@ -94,21 +75,60 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
                         </ul>
                       </li>
 
-                      <li  >
-                        <a  href="Resultats"><i class="fa fa-table fa-3x"></i> Gestion des resultats</a>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Matchs<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="AddGame">Ajouter un Match</a>
+                            </li>
+                            <li>
+                                <a href="EditGame">Modifier un Match</a>
+                            </li>
+                            <li>
+                                <a href="DeleteGame">Supprimer un Match</a>
+
+                            </li>
+                        </ul>
+                      </li>
+
+
+
+
+
+
+                    <li>
+                        <a  href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des joueurs<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="AddPlayer">Ajouter un Joueur</a>
+                            </li>
+                            <li>
+                                <a href="EditPlayer">Modifier un joueur</a>
+                            </li>
+                            <li>
+                                <a href="DeletePlayer">Supprimer un Joueur</a>
+
+                            </li>
+                        </ul>
+                      </li> 
+
+
+
+
+
+                      <li>
+                        <a  href="Add_Edit_Result"><i class="fa fa-table fa-3x"></i> Gestion des resultats</a>
                     </li>
   
                       <li  >
-                        <a  class="active-menu" href="Historique_Admin"><i class="fa fa-table fa-3x"></i> Historique Utilisateurs</a>
+                        <a  class="active-menu"  href="Historique_Admin"><i class="fa fa-table fa-3x"></i> Historique Utilisateurs</a>
                     </li>
 
                         </ul>
                       </li> 
                              
-                  
 
                 </ul>
-               
             </div>
             
         </nav>  
@@ -120,27 +140,30 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
                            Historique Users
                         </div>
                         <div class="panel-body">
-                            <input class="form-control" placeholder="Search : Nom Facebook"></br>
+                            <input class="form-control" placeholder="Search : Nom Utilisateur"></br>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
                                             <th>User ID</th>
                                             <th>Match ID</th>
-                                            <th>p1</th>
-                                            <th>p2</th>
-                                            <th>Created at</th>
-                                            <th>Updated at</th>
+
+                                            <th>Liste des matchs</th>
+
+                                            <th>ajoutée le</th>
                                         </tr>
                                     </thead>
                                                 @foreach($h as $info)
                                                    <tbody>
                                                         <td>{{ $info->user_id }}</td>
                                                         <td>{{ $info->match_id }}</td>
-                                                        <td>{{ $info->p1 }}</td>
-                                                        <td>{{ $info->p2 }}</td>                                                
+
+                                                        <td>{{$nomEquipe1}} VS {{$nomEquipe2}}  
+                                                            <input id="p1" type="text" value="{{$info->p1}}"size="1" ></input>
+                                                            <input id="p2" type="text" value="{{$info->p2}}"size="1" ></input>
+                                                        </td>
+                                                
                                                         <td>{{ $info->created_at }}</td>                                                    
-                                                        <td>{{ $info->updated_at }}</td>
 
 
 
@@ -173,6 +196,10 @@ font-size: 16px;"> {{$data['name']}} <a href="#" class="btn btn-danger square-bt
       <!-- CUSTOM SCRIPTS -->
     <script src="css/assets/js/custom.js"></script>
     
-   
+   <script>
+   document.getElementById("p1").disabled=true;
+   document.getElementById("p2").disabled=true;
+   </script>
+
 </body>
 </html>

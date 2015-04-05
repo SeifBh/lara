@@ -36,6 +36,7 @@ echo HTML::style('./css/stylehistorique.css');
                                                         <th><center>Nom Equipe 2</th>
                                                         <th><center>p1</th>
                                                         <th><center>p2</th>
+                                                        <th>ssss</th>
                                                         <th class="resultat"><center>r1</th>
                                                         <th class="resultat">r2</th>
                                                     </tr>
@@ -47,6 +48,7 @@ echo HTML::style('./css/stylehistorique.css');
                                                         <td>{{ $info->match->nomEquipe2 }}</td>
                                                         <td>{{ $info->p1 }}</td>
                                                         <td>{{ $info->p2 }}</td>
+                                                        <td>$nomEquipe1</td>
                                                         <td>{{ $info->match->r1 }}</td>
                                                         <td>{{ $info->match->r2 }}</td>
                                                    </tbody>

@@ -6,7 +6,7 @@
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YouCoach</title>
-    <!-- BOOTSTRAP STYLES-->
+	<!-- BOOTSTRAP STYLES-->
     <link href="css/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
     <link href="css/assets/css/font-awesome.css" rel="stylesheet" />
@@ -20,7 +20,7 @@
 
 </head>
 <body>
-{{ Form::open(['action' => 'GameController@Edit_Update_Result','method' => 'POST',  'id' => 'myForm']) }}
+{{ Form::open(['action' => 'GameController@EditGame_succes','method' => 'POST',  'id' => 'myForm']) }}
 
 
     <div id="wrapper">
@@ -81,7 +81,7 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                       </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Matchs<span class="fa arrow"></span></a>
+                        <a class="active-menu" href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des Matchs<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="AddGame">Ajouter un Match</a>
@@ -102,7 +102,7 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
 
 
                     <li>
-                        <a   href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des joueurs<span class="fa arrow"></span></a>
+                        <a class="active-menu"  href="#"><i class="fa fa-sitemap fa-3x"></i> Gestion des joueurs<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="AddPlayer">Ajouter un Joueur</a>
@@ -122,7 +122,7 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
 
 
                       <li>
-                        <a  class="active-menu" href="Add_Edit_Result"><i class="fa fa-table fa-3x"></i> Gestion des resultats</a>
+                        <a  href="Add_Edit_Result"><i class="fa fa-table fa-3x"></i> Gestion des resultats</a>
                     </li>
   
                       <li  >
@@ -142,13 +142,13 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Formulaire Ajout / Modif Résultat
+                            Formulaire Player
                         </div>
 
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3>Ajout / Modif Résultat</h3>
+                                    <h3>Modifier un Match</h3>
 
 
                                         <div class="form-group">
@@ -171,9 +171,9 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
                                         </div>
                                     </br>
                            
+
                                         <div class="form-group2" id="tests">
                                         </div>
-                                                        
                                 {{Form::close()}}                                       
 
                                  </div>
@@ -198,18 +198,15 @@ font-size: 16px;"> {{$data["name"]}} <a href="/logout" class="btn btn-danger squ
     <script src="css/assets/js/custom.js"></script>
 <script>
 
+                                       
  $("#league").on('change',function(e){
                         console.log(e);
                         var league_id = e.target.value;
                         //ajax
-var elem = document.getElementById("tests");
-elem.innerHTML="";
+
                         $.get('/Match?league_id='+league_id,function(data){
                             //success
                             $("#match").empty();
-                            $("input").remove();
-                            $("label").remove();
-
                                 $.each(data, function(index,subcatObj){
 
                                     $("#match").append('<option value="'+subcatObj.match_id+'">'+subcatObj.nomEquipe1+' VS '+subcatObj.nomEquipe2+'</option>')
@@ -226,34 +223,35 @@ elem.innerHTML="";
 
 
                 $("#match").on('change',function(e){
-                        console.log(e);
-                        var match_id = e.target.value;
-                        //ajax
 var elem = document.getElementById("tests");
 elem.innerHTML="";
+                   
+                                          console.log(e);
+                        var match_id = e.target.value;
+                        //ajax
+
 
                         $.get('/MatchId?match_id='+match_id,function(data){
                             //success
                                 $.each(data, function(index,subcatObj){
-                             $("input").remove();
-                             $("label").remove();
 
+                                    $(".form-group2").append('<label>Nom Equipe1</label></br><input class="form-control" name="nom1" id="nom1" type="text" value="'+subcatObj.nomEquipe1+'"></input>')
+                                    $(".form-group2").append('<label>Nom Equipe 2</label></br><input class="form-control" name="nom2" id="nom2"   type="text" value="'+subcatObj.nomEquipe2+'"></input></br>')
+                                    $(".form-group2").append('<label>Lieu</label></br><input class="form-control" name="lieu" id="lieu"   type="text" value="'+subcatObj.lieu+'"></input></br>')
+                                    $(".form-gr oup2").append('<label>Etat</label></br><input class="form-control" name="etat" id="etat"   type="text" value="'+subcatObj.etat+'"></input></br>')
+                                    $(".form-group2").append('<label>Date</label></br><input class="form-control" name="date" id="date"  type="datetime-local" value="'+subcatObj.date+'"></input></br>')
+                                    $(".form-group2").append('<input class="btn btn-warning" type="submit" value="Modifier"/>')
+                                    $(".form-group2").append('<input class="btn btn-primary" type="reset" value="Reset"/>')
                                     $(".form-group2").append('<input name="match_id" id="match_id" type="hidden" value="'+subcatObj.match_id+'"></input></br>')
 
-                                    $(".form-group2").append('<div class="form-group"><label>'+subcatObj.nomEquipe1+'</label></br><input class="form-control" name="r1" id="r2" type="text" value="'+subcatObj.r1+'"></input></div>')
-                                    $(".form-group2").append('<label>'+subcatObj.nomEquipe2+'</label></br><input class="form-control" name="r2" id="r2"   type="text" value="'+subcatObj.r2+'"></input></br>')
-                                    $(".form-group2").append('<input class="btn btn-warning" type="submit" value="Modifier"/></div></div> ')
-                                    $(".form-group2").append('<input class="btn btn-primary" type="reset" value="Reset"/></div></div> ')
                                     $(".form-group2").append('<div id="result"></div> ')
-                              
+                                     
                                                 });
 
 
                         });
  
                 });
-
-
 
     $("#myForm").submit(function(e) {
         e.preventDefault();
@@ -268,13 +266,13 @@ elem.innerHTML="";
             success: function( result ){
 
 
-                   $('#result').append('<b>Modification De resultat terminé avec succes</b>');
-                   $("#r1").val("");
-                   $("#r2").val("");
+                   $('#result').append('<b>succes</b>');
+
 
             }
     });
 });                           
+
 
 
 
